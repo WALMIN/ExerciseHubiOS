@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct LibraryView: View {
+    
+    @ObservedObject var fetchLibrary = FetchLibrary()
+        
     var body: some View {
-        Text("Library")
+        ZStack {
+            List(fetchLibrary.list) { item in
+                LibraryItemView(item: item)
+                
+            }
+        }
+        
     }
+    
 }
 
 struct LibraryView_Previews: PreviewProvider {
