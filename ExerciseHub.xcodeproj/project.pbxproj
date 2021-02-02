@@ -14,6 +14,7 @@
 		A67BDFC725C81388007D5ACD /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFC625C81388007D5ACD /* ToolsView.swift */; };
 		A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */; };
 		A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFCD25C813CF007D5ACD /* LibraryView.swift */; };
+		A6B68C3E25C9812B009F3493 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B68C3D25C9812B009F3493 /* VideoView.swift */; };
 		A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */; };
 		A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912125C83F6800AB4921 /* FetchLibrary.swift */; };
 		A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912625C8400E00AB4921 /* LibraryItemView.swift */; };
@@ -30,6 +31,7 @@
 		A67BDFC625C81388007D5ACD /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 		A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		A67BDFCD25C813CF007D5ACD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		A6B68C3D25C9812B009F3493 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
 		A6D3912125C83F6800AB4921 /* FetchLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLibrary.swift; sourceTree = "<group>"; };
 		A6D3912625C8400E00AB4921 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
 				A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */,
 				A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */,
+				A6B68C3D25C9812B009F3493 /* VideoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
+				A6B68C3E25C9812B009F3493 /* VideoView.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,

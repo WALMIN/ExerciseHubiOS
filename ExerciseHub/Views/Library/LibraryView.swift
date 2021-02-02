@@ -10,13 +10,14 @@ import SwiftUI
 struct LibraryView: View {
     
     @ObservedObject var fetchLibrary = FetchLibrary()
-        
+
     var body: some View {
         ZStack {
             List(fetchLibrary.list) { item in
                 LibraryItemView(item: item)
                 
             }
+            
         }
         
     }

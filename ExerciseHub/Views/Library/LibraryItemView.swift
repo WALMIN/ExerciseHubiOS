@@ -9,36 +9,45 @@ import SwiftUI
 
 struct LibraryItemView: View {
     
+    @State var videoSheet = false
+    
     var item: LibraryModel
         
-        var body: some View {
-            ZStack {
-                Color(UIColor(.white))
-                HStack {
-                    VStack {
-                        ImageViewURL("https://walmin.com/exercisehub/resources/library/gif/" + item.name.lowercased().replacingOccurrences(of: " ", with: "_") + ".gif")
-                            .clipShape(Circle())
-                        
-                    }
-                    .frame(width: 44, height: 44)
+    var body: some View {
+        ZStack {
+            Color(UIColor(.white))
+            HStack {
+                VStack {
+                    ImageViewURL("https://walmin.com/exercisehub/resources/library/gif/\(item.name.lowercased().replacingOccurrences(of: " ", with: "_")).gif")
+                        .clipShape(Circle())
                     
-                    Text(item.name)
-                        .font(.system(size: 16))
-                        .foregroundColor(.accentColor)
-                        .fontWeight(.bold)
-                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                        .lineLimit(1)
-                        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
-                    
-                    Spacer()
-                
                 }
-                .padding(12)
+                .frame(width: 44, height: 44)
                 
+                Text(item.name)
+                    .font(.system(size: 16))
+                    .foregroundColor(.accentColor)
+                    .fontWeight(.bold)
+                    .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    .lineLimit(1)
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                
+                Spacer()
+            
             }
-            .cornerRadius(8)
+            .padding(12)
             
         }
+        .onTapGesture {
+            videoSheet.toggle()
+            
+        }
+        .cornerRadius(8)
+        .sheet(isPresented: $videoSheet, content: {
+            VideoView(name: item.name)
+        })
+        
+    }
     
 }
 
