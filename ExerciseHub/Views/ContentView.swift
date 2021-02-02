@@ -31,7 +31,7 @@ struct ContentView: View {
                     Text("Tools")
 
                     
-                }.tag(2)
+                }.tag(3)
                 
             }
             
