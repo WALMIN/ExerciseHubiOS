@@ -9,11 +9,24 @@ import SwiftUI
 
 struct LibraryView: View {
     
+    @State var searchText = ""
     @ObservedObject var fetchLibrary = FetchLibrary()
 
     var body: some View {
-        ZStack {
-            List(fetchLibrary.list) { item in
+        VStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 6))
+                    .colorMultiply(Color(UIColor.label))
+                TextField("Search by name...", text: $searchText)
+            }
+            .padding(10)
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(UIColor.label), lineWidth: 1))
+            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+            
+            List(fetchLibrary.list.filter({
+                    searchText.isEmpty ? true :
+                    $0.name.lowercased().contains(searchText.lowercased())})) { item in
                 LibraryItemView(item: item)
                 
             }
