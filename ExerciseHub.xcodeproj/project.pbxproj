@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
+		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
+		A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */; };
+		A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */; };
+		A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DAA25CC327F007D2F1E /* CountView.swift */; };
 		A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */; };
 		A675AB5025C43CA700680A55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675AB4F25C43CA700680A55 /* ContentView.swift */; };
 		A675AB5225C43CA800680A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A675AB5125C43CA800680A55 /* Assets.xcassets */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
+		A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCalculatorView.swift; sourceTree = "<group>"; };
+		A6585DAA25CC327F007D2F1E /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		A675AB4A25C43CA700680A55 /* ExerciseHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHubApp.swift; sourceTree = "<group>"; };
 		A675AB4F25C43CA700680A55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +59,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6585D9C25CC3215007D2F1E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
+				A6585D9D25CC3234007D2F1E /* StopwatchView.swift */,
+				A6585DA125CC3246007D2F1E /* TimerView.swift */,
+				A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */,
+				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
+				A6585DAA25CC327F007D2F1E /* CountView.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		A675AB4125C43CA700680A55 = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +113,9 @@
 		A67BDFC425C81350007D5ACD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6585D9C25CC3215007D2F1E /* Tools */,
 				A6D3912425C83FA900AB4921 /* Library */,
 				A675AB4F25C43CA700680A55 /* ContentView.swift */,
-				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
 				A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */,
 				A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */,
 				A6B68C3D25C9812B009F3493 /* VideoView.swift */,
@@ -197,13 +220,18 @@
 				A67BDFC725C81388007D5ACD /* ToolsView.swift in Sources */,
 				A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */,
 				A675AB5025C43CA700680A55 /* ContentView.swift in Sources */,
+				A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */,
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
+				A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */,
+				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
+				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* VideoView.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,
+				A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
