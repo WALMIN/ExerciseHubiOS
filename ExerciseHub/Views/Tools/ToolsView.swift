@@ -22,47 +22,27 @@ struct ToolsView: View {
                     .tabItem {
                         Image(systemName: "timer")
                     }
-                    .onAppear(){
-                        title = "Stopwatch"
-                    
-                    }
                 
                 TimerView()
                     .tabItem {
                         Image(systemName: "hourglass")
-                    }
-                    .onAppear(){
-                        title = "Timer"
-                    
                     }
                 
                 IntervalTimerView()
                     .tabItem {
                         Image("interval_timer")
                     }
-                    .onAppear(){
-                        title = "Interval Timer"
-                    
-                    }
                 
                 PlateCalculatorView()
                     .tabItem {
                         Image("plate_calculator")
-                    }
-                    .onAppear(){
-                        title = "Plate calculator"
-                    
                     }
                 
                 CountView()
                     .tabItem {
                         Image("count")
                     }
-                    .onAppear(){
-                        title = "Count"
                     
-                    }
-                
             }
             
         }

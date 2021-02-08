@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
+		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
 		A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
@@ -62,12 +66,13 @@
 		A6585D9C25CC3215007D2F1E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
-				A6585D9D25CC3234007D2F1E /* StopwatchView.swift */,
-				A6585DA125CC3246007D2F1E /* TimerView.swift */,
+				A6585DAA25CC327F007D2F1E /* CountView.swift */,
 				A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */,
 				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
-				A6585DAA25CC327F007D2F1E /* CountView.swift */,
+				A62A567F25D12EF600FF2E33 /* Stopwatch.swift */,
+				A6585D9D25CC3234007D2F1E /* StopwatchView.swift */,
+				A6585DA125CC3246007D2F1E /* TimerView.swift */,
+				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -91,13 +96,14 @@
 		A675AB4C25C43CA700680A55 /* ExerciseHub */ = {
 			isa = PBXGroup;
 			children = (
-				A6D3911C25C83B8900AB4921 /* Data */,
-				A67BDFC525C81356007D5ACD /* Models */,
-				A67BDFC425C81350007D5ACD /* Views */,
-				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
 				A675AB5125C43CA800680A55 /* Assets.xcassets */,
+				A6D3911C25C83B8900AB4921 /* Data */,
+				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
 				A675AB5625C43CA900680A55 /* Info.plist */,
+				A67BDFC525C81356007D5ACD /* Models */,
 				A675AB5325C43CA900680A55 /* Preview Content */,
+				A67BDFC425C81350007D5ACD /* Views */,
+				A62A568225D134F800FF2E33 /* Utils.swift */,
 			);
 			path = ExerciseHub;
 			sourceTree = "<group>";
@@ -142,8 +148,8 @@
 		A6D3912425C83FA900AB4921 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A67BDFCD25C813CF007D5ACD /* LibraryView.swift */,
 				A6D3912625C8400E00AB4921 /* LibraryItemView.swift */,
+				A67BDFCD25C813CF007D5ACD /* LibraryView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
+				A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */,
 				A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */,
+				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* VideoView.swift in Sources */,
