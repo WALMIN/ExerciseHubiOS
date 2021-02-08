@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
+		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
 		A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
 		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */,
+				A62A568E25D1466C00FF2E33 /* LapModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
+				A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */,
 				A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */,
 				A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */,
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,

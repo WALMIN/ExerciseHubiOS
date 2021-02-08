@@ -11,6 +11,8 @@ struct StopwatchView: View {
     
     @ObservedObject private var stopwatch = Stopwatch()
     
+    @State var lapList: [LapModel] = []
+    
     var body: some View {
         VStack {
             
@@ -26,10 +28,11 @@ struct StopwatchView: View {
             }
 
             HStack {
-                // Reset stopwatch if timer is paused
+                // Reset stopwatch & lap list if timer is paused
                 Button(action: {
-                    if stopwatch.mode == .paused {
+                    if stopwatch.state == .paused {
                         stopwatch.reset()
+                        lapList = []
                         
                     }
                     
@@ -41,7 +44,7 @@ struct StopwatchView: View {
                 
                 // Start/pause button based on current mode
                 Button(action: {
-                    if stopwatch.mode == .stopped || stopwatch.mode == .paused {
+                    if stopwatch.state == .stopped || stopwatch.state == .paused {
                         stopwatch.start()
                         
                     } else {
@@ -52,7 +55,7 @@ struct StopwatchView: View {
                 }) {
                     ZStack {
                         Color(UIColor(.accentColor))
-                        if stopwatch.mode == .stopped || stopwatch.mode == .paused {
+                        if stopwatch.state == .stopped || stopwatch.state == .paused {
                             Image(systemName: "play.fill")
                                 .foregroundColor(.white)
                             
@@ -71,12 +74,33 @@ struct StopwatchView: View {
                 
                 // Add item to lap list
                 Button(action: {
-                    
+                    if stopwatch.state == .running {
+                        lapList.append(LapModel(position: (lapList.count), time: stopwatch.timeElapsed))
+                        
+                    }
                     
                 }) {
                     Text("Lap")
                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
+                }
+                
+            }
+            
+            // Lap list
+            List(lapList){ item in
+                HStack {
+                    
+                    Spacer()
+                    
+                    Text("#\(item.position + 1)")
+                        .foregroundColor(.accentColor)
+                        .bold()
+                    
+                    Text("\(Utils().secondsToMS(item.time)).\(Utils().secondsToM(item.time))")
+                    
+                    Spacer()
+                    
                 }
                 
             }
