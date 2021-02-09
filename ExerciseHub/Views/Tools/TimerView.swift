@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TimerView: View {
     
-    @ObservedObject private var timer = CountTimer()
+    @ObservedObject var timer = CountTimer()
+    @State private var popoverSetTimeShowing = false
     
     var body: some View {
         VStack {
-            
             // Time left on timer
             HStack {
                 Text(Utils().secondsToMS(timer.timeLeft, extraZero: true))
@@ -32,7 +32,7 @@ struct TimerView: View {
                     }) {
                         Text("Reset")
                             .textCase(.uppercase)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(UIColor.label))
                             .font(.system(size: 12))
                     }
                     
@@ -81,15 +81,18 @@ struct TimerView: View {
                 // Set time button
                 if timer.state == .paused || timer.state == .stopped {
                     Button(action: {
-                        
+                        popoverSetTimeShowing = true
                         
                     }) {
                         Text("Set time")
-                            .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.white)
+                            .textCase(.uppercase)
+                            .foregroundColor(Color(UIColor.label))
                             .font(.system(size: 12))
                     }
-                    
+                    .popover(isPresented: $popoverSetTimeShowing) {
+                        PopoverSetTime(timer: timer, time: timer.timeLeft)
+                    }
+                
                 } else {
                     BlankButtonView(title: "Set time")
                     

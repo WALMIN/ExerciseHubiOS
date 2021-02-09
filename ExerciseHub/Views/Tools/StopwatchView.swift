@@ -39,8 +39,8 @@ struct StopwatchView: View {
                     
                 }) {
                     Text("Reset")
-                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
+                        .textCase(.uppercase)
+                        .foregroundColor(Color(UIColor.label))
                         .font(.system(size: 12))
                 }
                 
@@ -85,8 +85,8 @@ struct StopwatchView: View {
                     
                 }) {
                     Text("Lap")
-                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
+                        .textCase(.uppercase)
+                        .foregroundColor(Color(UIColor.label))
                         .font(.system(size: 12))
                 }
                 

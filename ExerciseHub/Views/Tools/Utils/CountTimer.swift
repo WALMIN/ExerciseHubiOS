@@ -10,9 +10,8 @@ import Foundation
 class CountTimer: ObservableObject {
 
     @Published var state: CountTimerStates = .stopped
-    @Published var timeLeft: Double = 5
-    
-    var timer = Timer()
+    @Published var timeLeft: Double = 60
+    private var timer = Timer()
     
     // Start the timer
     func start() {
@@ -43,7 +42,7 @@ class CountTimer: ObservableObject {
     func reset(){
         state = .stopped
         timer.invalidate()
-        timeLeft = 5
+        timeLeft = 60
         
     }
 
