@@ -8,13 +8,105 @@
 import SwiftUI
 
 struct TimerView: View {
+    
+    @ObservedObject private var timer = CountTimer()
+    
     var body: some View {
-        Text("Timer")
+        VStack {
+            
+            // Time left on timer
+            HStack {
+                Text(Utils().secondsToMS(timer.timeLeft, extraZero: true))
+                    .font(.system(size: 64))
+                    .fontWeight(.bold)
+                
+            }
+
+            HStack {
+                // Reset timer if the timer is paused
+                if timer.state == .paused {
+                    Button(action: {
+                        timer.reset()
+                        timer.state = .stopped
+                        
+                    }) {
+                        Text("Reset")
+                            .textCase(.uppercase)
+                            .foregroundColor(.white)
+                            .font(.system(size: 12))
+                    }
+                    
+                } else {
+                    BlankButtonView(title: "Reset")
+                    
+                }
+                
+                // Start/reset/pause button based on current mode
+                Button(action: {
+                    if timer.state == .stopped || timer.state == .paused {
+                        timer.start()
+                        
+                    } else if timer.state == .finished {
+                        timer.reset()
+                        
+                    } else {
+                        timer.pause()
+                        
+                    }
+                    
+                }) {
+                    ZStack {
+                        Color(UIColor(.accentColor))
+                        if timer.state == .paused || timer.state == .stopped {
+                            Image(systemName: "play.fill")
+                                .foregroundColor(.white)
+                            
+                        } else if timer.state == .finished {
+                            Image(systemName: "stop.fill")
+                                .foregroundColor(.white)
+                            
+                        } else {
+                            Image(systemName: "pause.fill")
+                                .foregroundColor(.white)
+                            
+                        }
+                    
+                    }
+                    .frame(width: 38, height: 38)
+                    .cornerRadius(38)
+                    .padding()
+                    
+                }
+                
+                // Set time button
+                if timer.state == .paused || timer.state == .stopped {
+                    Button(action: {
+                        
+                        
+                    }) {
+                        Text("Set time")
+                            .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .font(.system(size: 12))
+                    }
+                    
+                } else {
+                    BlankButtonView(title: "Set time")
+                    
+                }
+                
+            }
+            
+        }
+        
     }
+    
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         TimerView()
+        
     }
+    
 }

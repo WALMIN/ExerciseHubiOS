@@ -23,12 +23,18 @@ struct Utils {
     }
     
     // Convert seconds to minutes & seconds
-    func secondsToMS(_ time: Double) -> String{
+    func secondsToMS(_ time: Double, extraZero: Bool = false) -> String{
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         
-        return String(format:"%01i:%02i", minutes, seconds)
+        if extraZero {
+            return String(format:"%02i:%02i", minutes, seconds)
+            
+        }else{
+            return String(format:"%01i:%02i", minutes, seconds)
         
+        }
+            
     }
     
     // Convert seconds to hours, minutes & seconds

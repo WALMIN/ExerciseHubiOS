@@ -28,7 +28,7 @@ struct StopwatchView: View {
             }
 
             HStack {
-                // Reset stopwatch & lap list if timer is paused
+                // Reset stopwatch & lap list if the stopwatch is paused
                 Button(action: {
                     if stopwatch.state == .paused {
                         stopwatch.reset()
