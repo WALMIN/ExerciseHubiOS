@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LibraryItemView: View {
     
-    @State var videoSheet = false
+    @State var videoPoperShowing = false
     
     var item: LibraryModel
         
@@ -39,13 +39,13 @@ struct LibraryItemView: View {
             
         }
         .onTapGesture {
-            videoSheet.toggle()
+            videoPoperShowing.toggle()
             
         }
         .cornerRadius(8)
-        .sheet(isPresented: $videoSheet, content: {
-            VideoView(name: item.name)
-        })
+        .popover(isPresented: $videoPoperShowing) {
+            PopoverVideo(name: item.name)
+        }
         
     }
     
