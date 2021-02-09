@@ -10,8 +10,8 @@ import SwiftUI
 struct StopwatchView: View {
     
     @ObservedObject private var stopwatch = Stopwatch()
-    
     @State var lapList: [LapModel] = []
+    @State var lapListShowing = false
     
     var body: some View {
         VStack {
@@ -33,6 +33,7 @@ struct StopwatchView: View {
                     if stopwatch.state == .paused {
                         stopwatch.reset()
                         lapList = []
+                        withAnimation { lapListShowing = false }
                         
                     }
                     
@@ -40,6 +41,7 @@ struct StopwatchView: View {
                     Text("Reset")
                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
+                        .font(.system(size: 12))
                 }
                 
                 // Start/pause button based on current mode
@@ -66,8 +68,8 @@ struct StopwatchView: View {
                         }
                     
                     }
-                    .frame(width: 48, height: 48)
-                    .cornerRadius(48)
+                    .frame(width: 38, height: 38)
+                    .cornerRadius(38)
                     .padding()
                     
                 }
@@ -77,32 +79,40 @@ struct StopwatchView: View {
                     if stopwatch.state == .running {
                         lapList.append(LapModel(position: (lapList.count), time: stopwatch.timeElapsed))
                         
+                        withAnimation { lapListShowing = true }
+                        
                     }
                     
                 }) {
                     Text("Lap")
                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
+                        .font(.system(size: 12))
                 }
                 
             }
             
             // Lap list
-            List(lapList){ item in
-                HStack {
-                    
-                    Spacer()
-                    
-                    Text("#\(item.position + 1)")
-                        .foregroundColor(.accentColor)
-                        .bold()
-                    
-                    Text("\(Utils().secondsToMS(item.time)).\(Utils().secondsToM(item.time))")
-                    
-                    Spacer()
+            if lapListShowing {
+                List(lapList){ item in
+                    HStack {
+                        Spacer()
+                        
+                        Text("#\(item.position + 1)")
+                            .foregroundColor(.accentColor)
+                            .fontWeight(.bold)
+                            .font(.system(size: 24))
+                        
+                        Text("\(Utils().secondsToMS(item.time)).\(Utils().secondsToM(item.time))")
+                            .font(.system(size: 24))
+                        
+                        Spacer()
+                        
+                    }
                     
                 }
-                
+                .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                    
             }
             
         }

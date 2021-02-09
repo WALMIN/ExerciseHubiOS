@@ -98,14 +98,14 @@
 		A675AB4C25C43CA700680A55 /* ExerciseHub */ = {
 			isa = PBXGroup;
 			children = (
+				A675AB5625C43CA900680A55 /* Info.plist */,
+				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
+				A62A568225D134F800FF2E33 /* Utils.swift */,
 				A675AB5125C43CA800680A55 /* Assets.xcassets */,
 				A6D3911C25C83B8900AB4921 /* Data */,
-				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
-				A675AB5625C43CA900680A55 /* Info.plist */,
 				A67BDFC525C81356007D5ACD /* Models */,
 				A675AB5325C43CA900680A55 /* Preview Content */,
 				A67BDFC425C81350007D5ACD /* Views */,
-				A62A568225D134F800FF2E33 /* Utils.swift */,
 			);
 			path = ExerciseHub;
 			sourceTree = "<group>";
