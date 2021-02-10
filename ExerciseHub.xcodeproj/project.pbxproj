@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A623D6C525D489960077888F /* PlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623D6C425D489960077888F /* PlateView.swift */; };
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A623D6C425D489960077888F /* PlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateView.swift; sourceTree = "<group>"; };
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
@@ -77,14 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A623D6C325D4897E0077888F /* Plate Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
+				A623D6C425D489960077888F /* PlateView.swift */,
+			);
+			path = "Plate Calculator";
+			sourceTree = "<group>";
+		};
 		A6585D9C25CC3215007D2F1E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A623D6C325D4897E0077888F /* Plate Calculator */,
 				A6BDDDF225D3D00C00887949 /* Interval Timer */,
 				A6BDDDEF25D3CFDA00887949 /* Timer */,
 				A688B65325D2B5BF009D10AE /* Stopwatch */,
 				A6585DAA25CC327F007D2F1E /* CountView.swift */,
-				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
 				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
 			);
 			path = Tools;
@@ -287,6 +298,7 @@
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
+				A623D6C525D489960077888F /* PlateView.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,
