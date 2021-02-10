@@ -22,13 +22,13 @@
 		A67BDFC725C81388007D5ACD /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFC625C81388007D5ACD /* ToolsView.swift */; };
 		A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */; };
 		A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BDFCD25C813CF007D5ACD /* LibraryView.swift */; };
-		A688B64925D29C2F009D10AE /* CountTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B64825D29C2F009D10AE /* CountTimer.swift */; };
+		A688B64925D29C2F009D10AE /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B64825D29C2F009D10AE /* CountdownTimer.swift */; };
 		A688B64E25D29EEE009D10AE /* BlankButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B64D25D29EEE009D10AE /* BlankButtonView.swift */; };
 		A688B65125D2B571009D10AE /* PopoverSetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B65025D2B571009D10AE /* PopoverSetTime.swift */; };
 		A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B68C3D25C9812B009F3493 /* SheetVideo.swift */; };
-		A6BDDDF425D3D09600887949 /* IntervalTimerSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDDF325D3D09600887949 /* IntervalTimerSetupView.swift */; };
 		A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDDF725D3D0DA00887949 /* SetTimeButtonView.swift */; };
 		A6BDDDFC25D3D65D00887949 /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDDFB25D3D65D00887949 /* PlayButtonView.swift */; };
+		A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */; };
 		A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */; };
 		A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912125C83F6800AB4921 /* FetchLibrary.swift */; };
 		A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912625C8400E00AB4921 /* LibraryItemView.swift */; };
@@ -53,13 +53,13 @@
 		A67BDFC625C81388007D5ACD /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 		A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		A67BDFCD25C813CF007D5ACD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		A688B64825D29C2F009D10AE /* CountTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTimer.swift; sourceTree = "<group>"; };
+		A688B64825D29C2F009D10AE /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		A688B64D25D29EEE009D10AE /* BlankButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankButtonView.swift; sourceTree = "<group>"; };
 		A688B65025D2B571009D10AE /* PopoverSetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverSetTime.swift; sourceTree = "<group>"; };
 		A6B68C3D25C9812B009F3493 /* SheetVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetVideo.swift; sourceTree = "<group>"; };
-		A6BDDDF325D3D09600887949 /* IntervalTimerSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerSetupView.swift; sourceTree = "<group>"; };
 		A6BDDDF725D3D0DA00887949 /* SetTimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeButtonView.swift; sourceTree = "<group>"; };
 		A6BDDDFB25D3D65D00887949 /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
+		A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
 		A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
 		A6D3912125C83F6800AB4921 /* FetchLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLibrary.swift; sourceTree = "<group>"; };
 		A6D3912625C8400E00AB4921 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				A688B65025D2B571009D10AE /* PopoverSetTime.swift */,
-				A688B64825D29C2F009D10AE /* CountTimer.swift */,
+				A688B64825D29C2F009D10AE /* CountdownTimer.swift */,
 				A6585DA125CC3246007D2F1E /* TimerView.swift */,
 			);
 			path = Timer;
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */,
-				A6BDDDF325D3D09600887949 /* IntervalTimerSetupView.swift */,
+				A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */,
 			);
 			path = "Interval Timer";
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A688B64925D29C2F009D10AE /* CountTimer.swift in Sources */,
+				A688B64925D29C2F009D10AE /* CountdownTimer.swift in Sources */,
 				A67BDFC725C81388007D5ACD /* ToolsView.swift in Sources */,
 				A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */,
 				A675AB5025C43CA700680A55 /* ContentView.swift in Sources */,
@@ -283,8 +283,8 @@
 				A6BDDDFC25D3D65D00887949 /* PlayButtonView.swift in Sources */,
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
+				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
-				A6BDDDF425D3D09600887949 /* IntervalTimerSetupView.swift in Sources */,
 				A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,

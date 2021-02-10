@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SetTimeButtonView: View {
     
-    var color: String = ""
+    var color: String = "AccentColor"
     var icon: String = ""
     
     var body: some View {

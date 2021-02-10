@@ -56,10 +56,10 @@ struct StopwatchView: View {
                     
                 }) {
                     if stopwatch.state == .stopped || stopwatch.state == .paused {
-                        PlayButtonView(color: UIColor(.accentColor), icon: "play.fill", size: 38)
+                        PlayButtonView(icon: "play.fill", size: 38)
                         
                     } else {
-                        PlayButtonView(color: UIColor(.accentColor), icon: "pause.fill", size: 38)
+                        PlayButtonView(icon: "pause.fill", size: 38)
                         
                     }
                     

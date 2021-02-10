@@ -9,13 +9,12 @@ import SwiftUI
 
 struct PlayButtonView: View {
     
-    var color = UIColor(.accentColor)
     var icon = "play.fill"
     var size: CGFloat = 32
     
     var body: some View {
         ZStack {
-            Color(color)
+            Color("AccentColor2")
             Image(systemName: icon)
                 .foregroundColor(.white)
         

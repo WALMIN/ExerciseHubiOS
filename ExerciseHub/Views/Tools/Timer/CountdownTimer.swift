@@ -1,5 +1,5 @@
 //
-//  CountTimer.swift
+//  CountdownTimer.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-09.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class CountTimer: ObservableObject {
+class CountdownTimer: ObservableObject {
 
-    @Published var state: CountTimerStates = .stopped
+    @Published var state: CountdownTimerStates = .stopped
     @Published var timeLeft: Double = 60
     private var timer = Timer()
     
@@ -17,7 +17,7 @@ class CountTimer: ObservableObject {
     func start() {
         state = .running
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if(self.timeLeft > 0){
+            if self.timeLeft > 0 {
                 self.timeLeft -= 1.0
                 
             }else{
@@ -48,8 +48,8 @@ class CountTimer: ObservableObject {
 
 }
 
-// CountTimer states
-enum CountTimerStates {
+// CountdownTimer states
+enum CountdownTimerStates {
     case running
     case finished
     case stopped

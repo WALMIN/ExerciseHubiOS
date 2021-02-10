@@ -28,7 +28,7 @@ struct LibraryItemView: View {
                     .font(.system(size: 16))
                     .foregroundColor(.accentColor)
                     .fontWeight(.bold)
-                    .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    .textCase(.uppercase)
                     .lineLimit(1)
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
                 
