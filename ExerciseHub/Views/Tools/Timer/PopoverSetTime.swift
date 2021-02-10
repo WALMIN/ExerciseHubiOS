@@ -40,7 +40,7 @@ struct PopoverSetTime: View {
                 Spacer()
                 
                 // Show time
-                Text(Utils().secondsToMS(time)).font(.title)
+                Text(Utils().secondsToHMS(time)).font(.title)
                 
                 Spacer()
                 

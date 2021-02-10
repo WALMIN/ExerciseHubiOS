@@ -22,28 +22,25 @@ struct Utils {
         
     }
     
-    // Convert seconds to minutes & seconds
-    func secondsToMS(_ time: Double, extraZero: Bool = false) -> String{
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        
-        if extraZero {
-            return String(format:"%02i:%02i", minutes, seconds)
-            
-        }else{
-            return String(format:"%01i:%02i", minutes, seconds)
-        
-        }
-            
-    }
-    
     // Convert seconds to hours, minutes & seconds
-    func secondsToHMS(_ time: Double) -> String {
+    func secondsToHMS(_ time: Double, extraZero: Bool = false) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+        if hours > 0 {
+            return String(format:"%01i:%02i:%02i", hours, minutes, seconds)
+            
+        } else {
+            if extraZero {
+                return String(format:"%02i:%02i", minutes, seconds)
+                
+            }else{
+                return String(format:"%01i:%02i", minutes, seconds)
+            
+            }
+            
+        }
         
     }
     

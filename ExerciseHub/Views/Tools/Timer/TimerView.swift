@@ -16,7 +16,7 @@ struct TimerView: View {
         VStack {
             // Time left on timer
             HStack {
-                Text(Utils().secondsToMS(timer.timeLeft, extraZero: true))
+                Text(Utils().secondsToHMS(timer.timeLeft, extraZero: true))
                     .font(.system(size: 64))
                     .fontWeight(.bold)
                 
@@ -55,26 +55,16 @@ struct TimerView: View {
                     }
                     
                 }) {
-                    ZStack {
-                        Color(UIColor(.accentColor))
-                        if timer.state == .paused || timer.state == .stopped {
-                            Image(systemName: "play.fill")
-                                .foregroundColor(.white)
-                            
-                        } else if timer.state == .finished {
-                            Image(systemName: "stop.fill")
-                                .foregroundColor(.white)
-                            
-                        } else {
-                            Image(systemName: "pause.fill")
-                                .foregroundColor(.white)
-                            
-                        }
-                    
+                    if timer.state == .paused || timer.state == .stopped {
+                        PlayButtonView(color: UIColor(.accentColor), icon: "play.fill", size: 38)
+                        
+                    } else if timer.state == .finished {
+                        PlayButtonView(color: UIColor(.accentColor), icon: "stop.fill", size: 38)
+                        
+                    } else {
+                        PlayButtonView(color: UIColor(.accentColor), icon: "pause.fill", size: 38)
+                        
                     }
-                    .frame(width: 38, height: 38)
-                    .cornerRadius(38)
-                    .padding()
                     
                 }
                 

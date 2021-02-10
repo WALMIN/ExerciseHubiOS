@@ -18,7 +18,7 @@ struct StopwatchView: View {
             
             // Time elapsed on stopwatch
             HStack {
-                Text(Utils().secondsToMS(stopwatch.timeElapsed))
+                Text(Utils().secondsToHMS(stopwatch.timeElapsed))
                     .font(.system(size: 64))
                     .fontWeight(.bold)
                 
@@ -55,22 +55,13 @@ struct StopwatchView: View {
                     }
                     
                 }) {
-                    ZStack {
-                        Color(UIColor(.accentColor))
-                        if stopwatch.state == .stopped || stopwatch.state == .paused {
-                            Image(systemName: "play.fill")
-                                .foregroundColor(.white)
-                            
-                        } else {
-                            Image(systemName: "pause.fill")
-                                .foregroundColor(.white)
-                            
-                        }
-                    
+                    if stopwatch.state == .stopped || stopwatch.state == .paused {
+                        PlayButtonView(color: UIColor(.accentColor), icon: "play.fill", size: 38)
+                        
+                    } else {
+                        PlayButtonView(color: UIColor(.accentColor), icon: "pause.fill", size: 38)
+                        
                     }
-                    .frame(width: 38, height: 38)
-                    .cornerRadius(38)
-                    .padding()
                     
                 }
                 
@@ -103,7 +94,7 @@ struct StopwatchView: View {
                             .fontWeight(.bold)
                             .font(.system(size: 24))
                         
-                        Text("\(Utils().secondsToMS(item.time)).\(Utils().secondsToM(item.time))")
+                        Text("\(Utils().secondsToHMS(item.time)).\(Utils().secondsToM(item.time))")
                             .font(.system(size: 24))
                         
                         Spacer()
