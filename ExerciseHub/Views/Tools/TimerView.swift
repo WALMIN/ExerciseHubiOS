@@ -80,17 +80,33 @@ struct TimerView: View {
                 
                 // Set time button
                 if timer.state == .paused || timer.state == .stopped {
-                    Button(action: {
-                        popoverSetTimeShowing = true
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        Button(action: {
+                            popoverSetTimeShowing = true
+                            
+                        }) {
+                            Text("Set time")
+                                .textCase(.uppercase)
+                                .foregroundColor(Color(UIColor.label))
+                                .font(.system(size: 12))
+                        }.popover(isPresented: $popoverSetTimeShowing) {
+                            PopoverSetTime(timer: timer, time: timer.timeLeft)
+                        }
                         
-                    }) {
-                        Text("Set time")
-                            .textCase(.uppercase)
-                            .foregroundColor(Color(UIColor.label))
-                            .font(.system(size: 12))
-                    }
-                    .popover(isPresented: $popoverSetTimeShowing) {
-                        PopoverSetTime(timer: timer, time: timer.timeLeft)
+                    } else {
+                        Button(action: {
+                            popoverSetTimeShowing = true
+                            
+                        }) {
+                            Text("Set time")
+                                .textCase(.uppercase)
+                                .foregroundColor(Color(UIColor.label))
+                                .font(.system(size: 12))
+                        }.sheet(isPresented: $popoverSetTimeShowing) {
+                            PopoverSetTime(timer: timer, time: timer.timeLeft)
+                            
+                        }
+                        
                     }
                 
                 } else {

@@ -1,5 +1,5 @@
 //
-//  VideoView.swift
+//  SheetVideo.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-02.
@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct PopoverVideo: View {
+struct SheetVideo: View {
     
     let name: String
     
@@ -39,14 +39,15 @@ struct PopoverVideo: View {
             }
             
         }
-        .frame(width: 512, height: 512)
         
     }
     
 }
 
-struct PopoverVideo_Previews: PreviewProvider {
+struct SheetVideo_Previews: PreviewProvider {
     static var previews: some View {
-        PopoverVideo(name: "Push ups")
+        SheetVideo(name: "Push ups")
+        
     }
+    
 }
