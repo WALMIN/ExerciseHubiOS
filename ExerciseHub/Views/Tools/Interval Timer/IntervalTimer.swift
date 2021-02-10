@@ -9,8 +9,10 @@ import Foundation
 
 class IntervalTimer: ObservableObject {
 
-    @Published var timerState: TimerStates = .work
+    @Published var timerState: TimerStates = .getReady
     @Published var state: IntervalTimerStates = .stopped
+    
+    @Published var getReadyTimeLeft: Double = 3
     
     @Published var roundsLeft = 3
     @Published var workTimeLeft: Double = 60
@@ -21,8 +23,8 @@ class IntervalTimer: ObservableObject {
     // Start the timer
     func start() {
         state = .running
-        self.timerState = .work
         
+        let getReady = self.getReadyTimeLeft
         let work = self.workTimeLeft
         let rest = self.restTimeLeft
         
@@ -39,7 +41,7 @@ class IntervalTimer: ObservableObject {
                 }
                 
             // Rest
-            } else {
+            } else if self.timerState == .rest{
                 if self.restTimeLeft > 0 {
                     self.restTimeLeft -= 1
                     
@@ -47,13 +49,24 @@ class IntervalTimer: ObservableObject {
                     self.roundsLeft -= 1
                     
                     if self.roundsLeft >= 1 {
-                        self.timerState = .work
+                        self.timerState = .getReady
                         self.workTimeLeft = work
                         
                     } else {
                         self.reset()
                         
                     }
+                    
+                }
+                
+            // Get ready
+            } else {
+                if self.getReadyTimeLeft > 0 {
+                    self.getReadyTimeLeft -= 1
+                    
+                } else {
+                    self.timerState = .work
+                    self.getReadyTimeLeft = getReady
                     
                 }
                 
@@ -83,6 +96,7 @@ class IntervalTimer: ObservableObject {
 enum TimerStates {
     case work
     case rest
+    case getReady
 }
 
 // Interval timer states

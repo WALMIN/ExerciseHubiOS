@@ -17,7 +17,8 @@ struct BlankButtonView: View {
             Text(title)
                 .textCase(.uppercase)
                 .foregroundColor(Color(UIColor.systemBackground))
-                .font(.system(size: 12))
+                .font(.body)
+                .padding()
         }
         
     }

@@ -27,13 +27,13 @@ struct TimerView: View {
                 if timer.state == .paused {
                     Button(action: {
                         timer.reset()
-                        timer.state = .stopped
                         
                     }) {
                         Text("Reset")
                             .textCase(.uppercase)
                             .foregroundColor(Color(UIColor.label))
-                            .font(.system(size: 12))
+                            .font(.body)
+                            .padding()
                     }
                     
                 } else {
@@ -78,7 +78,9 @@ struct TimerView: View {
                             Text("Set time")
                                 .textCase(.uppercase)
                                 .foregroundColor(Color(UIColor.label))
-                                .font(.system(size: 12))
+                                .font(.body)
+                                .padding()
+                            
                         }.popover(isPresented: $popoverSetTimeShowing) {
                             PopoverSetTime(timer: timer, time: timer.timeLeft)
                         }
@@ -91,7 +93,9 @@ struct TimerView: View {
                             Text("Set time")
                                 .textCase(.uppercase)
                                 .foregroundColor(Color(UIColor.label))
-                                .font(.system(size: 12))
+                                .font(.body)
+                                .padding()
+                            
                         }.sheet(isPresented: $popoverSetTimeShowing) {
                             PopoverSetTime(timer: timer, time: timer.timeLeft)
                             

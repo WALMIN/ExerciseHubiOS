@@ -41,7 +41,8 @@ struct StopwatchView: View {
                     Text("Reset")
                         .textCase(.uppercase)
                         .foregroundColor(Color(UIColor.label))
-                        .font(.system(size: 12))
+                        .font(.body)
+                        .padding()
                 }
                 
                 // Start/pause button based on current mode
@@ -78,7 +79,9 @@ struct StopwatchView: View {
                     Text("Lap")
                         .textCase(.uppercase)
                         .foregroundColor(Color(UIColor.label))
-                        .font(.system(size: 12))
+                        .font(.body)
+                        .padding()
+                    
                 }
                 
             }
