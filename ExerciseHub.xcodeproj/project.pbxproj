@@ -16,6 +16,7 @@
 		A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */; };
 		A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */; };
 		A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DAA25CC327F007D2F1E /* CountView.swift */; };
+		A6609B4425D5A6350053C765 /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6609B4325D5A6350053C765 /* Count.swift */; };
 		A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */; };
 		A675AB5025C43CA700680A55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675AB4F25C43CA700680A55 /* ContentView.swift */; };
 		A675AB5225C43CA800680A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A675AB5125C43CA800680A55 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
 		A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCalculatorView.swift; sourceTree = "<group>"; };
 		A6585DAA25CC327F007D2F1E /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
+		A6609B4325D5A6350053C765 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
 		A675AB4A25C43CA700680A55 /* ExerciseHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHubApp.swift; sourceTree = "<group>"; };
 		A675AB4F25C43CA700680A55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,14 +93,23 @@
 		A6585D9C25CC3215007D2F1E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A6609B4025D5A34D0053C765 /* Count */,
 				A623D6C325D4897E0077888F /* Plate Calculator */,
 				A6BDDDF225D3D00C00887949 /* Interval Timer */,
 				A6BDDDEF25D3CFDA00887949 /* Timer */,
 				A688B65325D2B5BF009D10AE /* Stopwatch */,
-				A6585DAA25CC327F007D2F1E /* CountView.swift */,
 				A67BDFC625C81388007D5ACD /* ToolsView.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		A6609B4025D5A34D0053C765 /* Count */ = {
+			isa = PBXGroup;
+			children = (
+				A6585DAA25CC327F007D2F1E /* CountView.swift */,
+				A6609B4325D5A6350053C765 /* Count.swift */,
+			);
+			path = Count;
 			sourceTree = "<group>";
 		};
 		A675AB4125C43CA700680A55 = {
@@ -296,6 +307,7 @@
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
 				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
+				A6609B4425D5A6350053C765 /* Count.swift in Sources */,
 				A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
 				A623D6C525D489960077888F /* PlateView.swift in Sources */,

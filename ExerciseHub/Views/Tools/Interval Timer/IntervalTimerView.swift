@@ -24,7 +24,7 @@ struct IntervalTimerView: View {
             if intervalTimer.state == .stopped {
                 VStack {
                     // Rounds
-                    Text("Rounds").font(.body)
+                    Text("Rounds").font(.caption)
                     
                     HStack {
                         // Remove 1 round if the round is above 0 seconds
@@ -48,7 +48,7 @@ struct IntervalTimerView: View {
                     }
                     
                     // Work
-                    Text("Work").font(.body)
+                    Text("Work").font(.caption)
                     
                     HStack {
                         // Remove 1 second if the time is above 0 seconds
@@ -72,7 +72,7 @@ struct IntervalTimerView: View {
                     }
                     
                     // Rest
-                    Text("Rest").font(.body)
+                    Text("Rest").font(.caption)
                     
                     HStack {
                         // Remove 1 second if the time is above 0 seconds
