@@ -10,7 +10,7 @@ import SwiftUI
 struct PlateView: View {
     
     var title: String = "1"
-    var amount: String = "0"
+    @State var amount = 0
     
     var body: some View {
         VStack {
@@ -22,9 +22,22 @@ struct PlateView: View {
             .frame(width: 48, height: 48)
             .cornerRadius(48)
          
-            Text(amount)
+            Text("\(amount)")
+                .font(.caption)
             
         }
+        .simultaneousGesture(LongPressGesture().onEnded { _ in
+            if amount > 0 {
+                amount -= 1
+                Utils().vibrate()
+                
+            }
+                        
+        })
+        .simultaneousGesture(TapGesture().onEnded {
+            amount += 1
+            
+        })
             
     }
     
