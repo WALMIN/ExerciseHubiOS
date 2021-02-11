@@ -9,39 +9,58 @@ import SwiftUI
 
 struct ToolsView: View {
     
-    @State var title = "Stopwatch"
-    
     var body: some View {
         VStack {
-            Text(title)
-                .font(.system(size: 12))
-                .textCase(.uppercase)
-            
             TabView {
-                StopwatchView()
-                    .tabItem {
-                        Image(systemName: "timer")
-                    }
+                // Stopwatch page
+                VStack {
+                    TitleView(title: "Stopwatch")
+                    StopwatchView()
+                    Spacer()
+                    
+                }.tabItem {
+                    Image(systemName: "timer")
+                }
                 
-                TimerView()
-                    .tabItem {
-                        Image(systemName: "hourglass")
-                    }
+                // Timer page
+                VStack {
+                    TitleView(title: "Timer")
+                    TimerView()
+                    Spacer()
+                    
+                }.tabItem {
+                    Image(systemName: "hourglass")
+                }
                 
-                IntervalTimerView()
-                    .tabItem {
-                        Image("interval_timer")
-                    }
+                // Interval timer page
+                VStack {
+                    TitleView(title: "Interval timer")
+                    IntervalTimerView()
+                    Spacer()
+                    
+                }.tabItem {
+                    Image("interval_timer")
+                }
                 
-                PlateCalculatorView()
-                    .tabItem {
-                        Image("plate_calculator")
-                    }
+                // Plate calculator page
+                VStack {
+                    TitleView(title: "Plate calculator")
+                    PlateCalculatorView()
+                    Spacer()
+                    
+                }.tabItem {
+                    Image("plate_calculator")
+                }
                 
-                CountView()
-                    .tabItem {
-                        Image("count")
-                    }
+                // Count page
+                VStack {
+                    TitleView(title: "Count")
+                    CountView()
+                    Spacer()
+                    
+                }.tabItem {
+                    Image("count")
+                }
                     
             }
             
@@ -54,6 +73,21 @@ struct ToolsView: View {
 struct ToolsView_Previews: PreviewProvider {
     static var previews: some View {
         ToolsView()
+        
+    }
+    
+}
+
+struct TitleView: View {
+    
+    var title = ""
+    
+    var body: some View {
+        Text(title)
+            .font(.caption)
+            .textCase(.uppercase)
+        
+        Spacer()
         
     }
     

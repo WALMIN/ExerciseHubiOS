@@ -15,20 +15,28 @@ struct ContentView: View {
         VStack {
             TabView(selection: $currentPage) {
                 WorkoutsView().tabItem {
-                    Image(systemName: "doc.plaintext.fill")
-                    Text("Workouts")
+                    VStack {
+                        Image(systemName: "doc.plaintext.fill")
+                        Text("Workouts")
+                    }
                     
                 }.tag(1)
                 
                 LibraryView().tabItem {
-                    Image(systemName: "list.triangle")
-                    Text("Library")
-                    
+                    VStack {
+                        Image(systemName: "list.triangle")
+                        Text("Library")
+                        
+                    }
+                        
                 }.tag(2)
                 
                 ToolsView().tabItem {
-                    Image("tools")
-                    Text("Tools")
+                    VStack {
+                        Image("tools")
+                        Text("Tools")
+                        
+                    }
                         
                 }.tag(3)
                 
