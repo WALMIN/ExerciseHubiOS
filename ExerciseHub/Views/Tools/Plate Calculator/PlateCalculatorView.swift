@@ -18,6 +18,8 @@ struct PlateCalculatorView: View {
                                    0, 0, 0, 0,
                                    0, 0, 0]
     
+    @State var popoverBarbellWeightShowing = false
+    
     var body: some View {
         VStack {
             // Weight titles
@@ -42,10 +44,79 @@ struct PlateCalculatorView: View {
                         .font(.caption)
                         .padding(2)
                     
-                    Text("\(String(format: "%.2f", barbellWeight)) KG")
-                        .foregroundColor(.accentColor)
-                        .fontWeight(.bold)
-                        .font(.title)
+                    // Show barbell weight popover on iPad
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        Button(action: { popoverBarbellWeightShowing = true }) {
+                            Text("\(String(format: "%.2f", barbellWeight)) KG")
+                                .foregroundColor(.accentColor)
+                                .fontWeight(.bold)
+                                .font(.title)
+                            
+                        }.popover(isPresented: $popoverBarbellWeightShowing) {
+                            VStack {
+                                // Show the title
+                                Text("Barbell weight").font(.title2)
+                                Spacer()
+                                
+                                // Enter barbell weight
+                                VStack {
+                                    Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
+                                        Text("\(String(format: "%.2f", barbellWeight))")
+                                            .font(.largeTitle)
+                                            
+                                    }.padding()
+                                }.padding()
+                                
+                                Spacer()
+                                
+                                // Close
+                                Button(action: { popoverBarbellWeightShowing = false }) {
+                                    Text("Close")
+                                    
+                                }
+                                
+                            }
+                            .padding()
+                        }
+                        
+                    // Show barbell weight shett on iPhone
+                    } else {
+                        Button(action: { popoverBarbellWeightShowing = true }) {
+                            Text("\(String(format: "%.2f", barbellWeight)) KG")
+                                .foregroundColor(.accentColor)
+                                .fontWeight(.bold)
+                                .font(.title)
+                            
+                        }.sheet(isPresented: $popoverBarbellWeightShowing) {
+                            VStack {
+                                // Show the title
+                                Text("Barbell weight").font(.title2)
+                                Spacer()
+                                
+                                // Enter barbell weight
+                                VStack {
+                                    Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
+                                        Text("\(String(format: "%.2f", barbellWeight))")
+                                            .font(.largeTitle)
+                                            
+                                    }.padding()
+                                }.padding()
+                                
+                                Spacer()
+                                
+                                // Close
+                                Button(action: { popoverBarbellWeightShowing = false }) {
+                                    Text("Close")
+                                    
+                                }
+                                
+                            }
+                            .padding()
+                            
+                        }
+                        
+                    }
+                    
                     
                 }
                 
