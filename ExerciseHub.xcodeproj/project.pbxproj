@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A623D6C525D489960077888F /* PlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623D6C425D489960077888F /* PlateView.swift */; };
+		A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A626D4D725D6824C00A87687 /* WorkoutsCoreData.xcdatamodeld */; };
+		A626D4DC25D682B100A87687 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626D4DB25D682B100A87687 /* Persistence.swift */; };
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		A623D6C425D489960077888F /* PlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateView.swift; sourceTree = "<group>"; };
+		A626D4D825D6824D00A87687 /* WorkoutsCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkoutsCoreData.xcdatamodel; sourceTree = "<group>"; };
+		A626D4DB25D682B100A87687 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				A6D3912125C83F6800AB4921 /* FetchLibrary.swift */,
+				A626D4D725D6824C00A87687 /* WorkoutsCoreData.xcdatamodeld */,
+				A626D4DB25D682B100A87687 /* Persistence.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */,
 				A688B65125D2B571009D10AE /* PopoverSetTime.swift in Sources */,
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
+				A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
 				A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */,
@@ -306,6 +313,7 @@
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
 				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
+				A626D4DC25D682B100A87687 /* Persistence.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A6609B4425D5A6350053C765 /* Count.swift in Sources */,
 				A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */,
@@ -504,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A626D4D725D6824C00A87687 /* WorkoutsCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A626D4D825D6824D00A87687 /* WorkoutsCoreData.xcdatamodel */,
+			);
+			currentVersion = A626D4D825D6824D00A87687 /* WorkoutsCoreData.xcdatamodel */;
+			path = WorkoutsCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A675AB4225C43CA700680A55 /* Project object */;
 }

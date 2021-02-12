@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentPage = 3
+    @State var currentPage = 1
     
     var body: some View {
         VStack {
