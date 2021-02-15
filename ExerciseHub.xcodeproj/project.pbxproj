@@ -14,6 +14,7 @@
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
+		A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65714D525DAEA7200C2231D /* ExercisesView.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
 		A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */; };
@@ -48,6 +49,7 @@
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
+		A65714D525DAEA7200C2231D /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */,
+				A65714D525DAEA7200C2231D /* ExercisesView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
 				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
+				A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */,
 				A626D4DC25D682B100A87687 /* Persistence.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A6609B4425D5A6350053C765 /* Count.swift in Sources */,

@@ -10,75 +10,65 @@ import SwiftUI
 struct WorkoutsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Workout.title, ascending: true)], animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Workout.timestamp, ascending: false)], animation: .default)
     private var workouts: FetchedResults<Workout>
     
     var body: some View {
-        VStack {
-            // Workouts list
-            List {
-                ForEach(workouts) { workout in
-                    Button(action: {
-                        
-                        
-                    }) {
-                        ZStack {
-                            Color(UIColor(.white))
-                            
-                            HStack {
-                                if let title = workout.title {
-                                    Text("\(title)")
-                                        .font(.title3)
-                                        .foregroundColor(.black)
-                                        .fontWeight(.bold)
-                                        .textCase(.uppercase)
-                                        .lineLimit(1)
-                                }
+        NavigationView  {
+            VStack {
+                // Workouts list
+                List {
+                    ForEach(workouts) { workout in
+                        NavigationLink(destination: ExercisesView(workout: workout)) {
+                            ZStack {
+                                Color(UIColor(.white))
                                 
-                                Spacer()
+                                HStack {
+                                    if let title = workout.title {
+                                        Text("\(title)")
+                                            .font(.body)
+                                            .foregroundColor(.black)
+                                            .fontWeight(.bold)
+                                            .textCase(.uppercase)
+                                            .lineLimit(1)
+                                            
+                                    }
+                                    Spacer()
+                                    
+                                }.padding(12)
                                 
-                            }
-                            .padding(12)
+                            }.cornerRadius(8)
                             
                         }
-                        .cornerRadius(8)
+                        
+                    }
+                    .onDelete(perform: deleteWorkout)
+                    .listRowBackground(Color(UIColor.systemBackground))
+                    
+                    // No workouts text
+                    if workouts.count == 0 {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Text("No workouts yet").padding()
+                                Text("Add one below to get started")
+                            }
+                            Spacer()
+                        }.listRowBackground(Color(UIColor.systemBackground))
                         
                     }
                     
-                }.onDelete(perform: deleteWorkout)
+                }.navigationBarTitle("Your workouts")
                 
-                // No workouts text
-                if workouts.count == 0 {
-                    ZStack {
-                        Color(UIColor(.white))
-                        
-                        HStack {
-                            Text("No workouts found")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                                .fontWeight(.bold)
-                                .textCase(.uppercase)
-                                .lineLimit(1)
-                            
-                            Spacer()
-                            
-                        }
-                        .padding(12)
-                        
-                    }
-                    .cornerRadius(8)
-
+                // Button to add a workout
+                Button(action: {
+                    addWorkoutAlert("Add a workout", placeholder: "Enter a title", confirm: "Add", cancel: "Cancel")
+                    
+                }) {
+                    PlayButtonView(icon: "plus")
+                
                 }
                 
-            }
-         
-            // Button to add a workout
-            Button(action: {
-                addWorkoutAlert("Add a workout", placeholder: "Enter a title", confirm: "Add", cancel: "Cancel")
-                
-            }) {
-                PlayButtonView(icon: "plus")
-            
             }
                 
         }
@@ -98,6 +88,7 @@ struct WorkoutsView: View {
                     if !text.trimmingCharacters(in: .whitespaces).isEmpty {
                         withAnimation {
                             let newWorkout = Workout(context: viewContext)
+                            newWorkout.timestamp = Date()
                             newWorkout.title = text
                             
                             do {
