@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A623D6C525D489960077888F /* PlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623D6C425D489960077888F /* PlateView.swift */; };
+		A625D2F825DAA0ED001A7C15 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625D2F725DAA0ED001A7C15 /* Alert.swift */; };
 		A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A626D4D725D6824C00A87687 /* WorkoutsCoreData.xcdatamodeld */; };
 		A626D4DC25D682B100A87687 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626D4DB25D682B100A87687 /* Persistence.swift */; };
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		A623D6C425D489960077888F /* PlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateView.swift; sourceTree = "<group>"; };
+		A625D2F725DAA0ED001A7C15 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A626D4D825D6824D00A87687 /* WorkoutsCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkoutsCoreData.xcdatamodel; sourceTree = "<group>"; };
 		A626D4DB25D682B100A87687 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = "Plate Calculator";
 			sourceTree = "<group>";
 		};
+		A625D2F525DA9FE6001A7C15 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
 		A6585D9C25CC3215007D2F1E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A675AB5625C43CA900680A55 /* Info.plist */,
+				A625D2F725DAA0ED001A7C15 /* Alert.swift */,
 				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
 				A62A568225D134F800FF2E33 /* Utils.swift */,
 				A675AB5125C43CA800680A55 /* Assets.xcassets */,
@@ -158,13 +169,13 @@
 		A67BDFC425C81350007D5ACD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A625D2F525DA9FE6001A7C15 /* Workouts */,
 				A688B64D25D29EEE009D10AE /* BlankButtonView.swift */,
 				A675AB4F25C43CA700680A55 /* ContentView.swift */,
 				A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */,
 				A6BDDDFB25D3D65D00887949 /* PlayButtonView.swift */,
 				A6BDDDF725D3D0DA00887949 /* SetTimeButtonView.swift */,
 				A6B68C3D25C9812B009F3493 /* SheetVideo.swift */,
-				A67BDFCA25C813BC007D5ACD /* WorkoutsView.swift */,
 				A6D3912425C83FA900AB4921 /* Library */,
 				A6585D9C25CC3215007D2F1E /* Tools */,
 			);
@@ -308,6 +319,7 @@
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
 				A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */,
 				A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */,
+				A625D2F825DAA0ED001A7C15 /* Alert.swift in Sources */,
 				A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */,
 				A6BDDDFC25D3D65D00887949 /* PlayButtonView.swift in Sources */,
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
