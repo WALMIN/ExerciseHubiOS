@@ -56,13 +56,13 @@ struct TimerView: View {
                     
                 }) {
                     if timer.state == .paused || timer.state == .stopped {
-                        PlayButtonView(icon: "play.fill", size: 38)
+                        PlayButtonView(icon: "play.fill")
                         
                     } else if timer.state == .finished {
-                        PlayButtonView(icon: "stop.fill", size: 38)
+                        PlayButtonView(icon: "stop.fill")
                         
                     } else {
-                        PlayButtonView(icon: "pause.fill", size: 38)
+                        PlayButtonView(icon: "pause.fill")
                         
                     }
                     

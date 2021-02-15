@@ -25,7 +25,7 @@ struct LibraryItemView: View {
                 .frame(width: 44, height: 44)
                 
                 Text(item.name)
-                    .font(.system(size: 16))
+                    .font(.title3)
                     .foregroundColor(.accentColor)
                     .fontWeight(.bold)
                     .textCase(.uppercase)

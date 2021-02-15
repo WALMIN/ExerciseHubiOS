@@ -10,7 +10,7 @@ import SwiftUI
 struct PlayButtonView: View {
     
     var icon = "play.fill"
-    var size: CGFloat = 32
+    var size: CGFloat = 38
     
     var body: some View {
         ZStack {

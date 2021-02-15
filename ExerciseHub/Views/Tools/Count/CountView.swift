@@ -88,10 +88,10 @@ struct CountView: View {
                 
             }) {
                 if count.state == .stopped {
-                    PlayButtonView(icon: "play.fill", size: 38)
+                    PlayButtonView(icon: "play.fill")
                     
                 } else {
-                    PlayButtonView(icon: "stop.fill", size: 38)
+                    PlayButtonView(icon: "stop.fill")
                     
                 }
                 
