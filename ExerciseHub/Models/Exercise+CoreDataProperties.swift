@@ -16,6 +16,7 @@ extension Exercise {
         return NSFetchRequest<Exercise>(entityName: "Exercise")
     }
 
+    @NSManaged public var timestamp: Date?
     @NSManaged public var name: String?
     @NSManaged public var exerciseDo: String?
     @NSManaged public var workout: Workout?
