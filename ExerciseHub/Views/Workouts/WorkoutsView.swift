@@ -95,8 +95,7 @@ struct WorkoutsView: View {
                                 try viewContext.save()
                                 
                             } catch {
-                                let nsError = error as NSError
-                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                                fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
                                 
                             }
                             
@@ -131,8 +130,7 @@ struct WorkoutsView: View {
                     try viewContext.save()
                     
                 } catch {
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
                     
                 }
                 
