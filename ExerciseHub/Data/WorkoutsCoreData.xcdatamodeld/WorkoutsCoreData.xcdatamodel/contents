@@ -12,7 +12,7 @@
         <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workout" inverseEntity="Exercise"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="0" width="128" height="89"/>
+        <element name="Exercise" positionX="-63" positionY="0" width="128" height="103"/>
         <element name="Workout" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>

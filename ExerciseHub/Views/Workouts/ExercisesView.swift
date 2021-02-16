@@ -69,26 +69,38 @@ struct ExercisesView: View {
                 
             }
             .navigationBarTitle("\(workout.title!)")
-            .navigationBarItems(trailing:
-                Button(action: {
-                    editing.toggle()
+            .toolbar(content: {
+                // Button to add an exercise if currently editing
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if editing {
+                        Button(action: {
+                            addExerciseAlert("Add an exercise", placeholderName: "Enter the exercise name", placeholderDo: "Enter reps/time", confirm: "Add", cancel: "Cancel")
+                            
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .imageScale(.large)
+                                .padding()
+                            
+                        }
+                        
+                    }
                     
-                }) {
-                    Text(editing ? "Done" : "Edit")
-                    
-                })
-            
-            // Button to add an exercise if currently editing
-            if editing {
-                Button(action: {
-                    addExerciseAlert("Add an exercise", placeholderName: "Enter the exercise name", placeholderDo: "Enter reps/time", confirm: "Add", cancel: "Cancel")
-                    
-                }) {
-                    PlayButtonView(icon: "plus")
-                
                 }
                 
-            }
+                // Edit button
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        editing.toggle()
+                        
+                    }) {
+                        Image(systemName: editing ? "checkmark.circle.fill" : "pencil.circle.fill")
+                            .imageScale(.large)
+                        
+                    }
+                    
+                }
+                
+            })
             
         }
         
@@ -152,12 +164,13 @@ struct ExercisesView: View {
         let alert = UIAlertController(title: "Delete an exercise", message: "Are you really sure you want to delete this exercise?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .default) { _ in
             withAnimation {
+                /*
                 for index in offsets {
-                    let exercise = exercises[index]
+                    let exercise = workout.exercises
                     viewContext.delete(exercise)
                     
                 }
-                
+                    
                 do {
                     try viewContext.save()
                     
@@ -165,6 +178,7 @@ struct ExercisesView: View {
                     fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
                     
                 }
+                 */
                 
             }
             

@@ -14,10 +14,10 @@
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
-		A6372B0B25DBDB6C006D4B4E /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B0725DBDB6C006D4B4E /* Workout+CoreDataClass.swift */; };
-		A6372B0C25DBDB6C006D4B4E /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B0825DBDB6C006D4B4E /* Workout+CoreDataProperties.swift */; };
-		A6372B0D25DBDB6C006D4B4E /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B0925DBDB6C006D4B4E /* Exercise+CoreDataClass.swift */; };
-		A6372B0E25DBDB6C006D4B4E /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B0A25DBDB6C006D4B4E /* Exercise+CoreDataProperties.swift */; };
+		A6372B1725DC1476006D4B4E /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B1325DC1476006D4B4E /* Exercise+CoreDataClass.swift */; };
+		A6372B1825DC1476006D4B4E /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B1425DC1476006D4B4E /* Exercise+CoreDataProperties.swift */; };
+		A6372B1925DC1476006D4B4E /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B1525DC1476006D4B4E /* Workout+CoreDataClass.swift */; };
+		A6372B1A25DC1476006D4B4E /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6372B1625DC1476006D4B4E /* Workout+CoreDataProperties.swift */; };
 		A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65714D525DAEA7200C2231D /* ExercisesView.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
@@ -53,11 +53,11 @@
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
-		A6372B0725DBDB6C006D4B4E /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A6372B0825DBDB6C006D4B4E /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A6372B0925DBDB6C006D4B4E /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A6372B0A25DBDB6C006D4B4E /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A65714D525DAEA7200C2231D /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		A6372B1325DC1476006D4B4E /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A6372B1425DC1476006D4B4E /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A6372B1525DC1476006D4B4E /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A6372B1625DC1476006D4B4E /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A65714D525DAEA7200C2231D /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		A6585DA425CC3257007D2F1E /* IntervalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerView.swift; sourceTree = "<group>"; };
@@ -196,10 +196,10 @@
 		A67BDFC525C81356007D5ACD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A6372B0725DBDB6C006D4B4E /* Workout+CoreDataClass.swift */,
-				A6372B0825DBDB6C006D4B4E /* Workout+CoreDataProperties.swift */,
-				A6372B0925DBDB6C006D4B4E /* Exercise+CoreDataClass.swift */,
-				A6372B0A25DBDB6C006D4B4E /* Exercise+CoreDataProperties.swift */,
+				A6372B1325DC1476006D4B4E /* Exercise+CoreDataClass.swift */,
+				A6372B1425DC1476006D4B4E /* Exercise+CoreDataProperties.swift */,
+				A6372B1525DC1476006D4B4E /* Workout+CoreDataClass.swift */,
+				A6372B1625DC1476006D4B4E /* Workout+CoreDataProperties.swift */,
 				A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */,
 				A62A568E25D1466C00FF2E33 /* LapModel.swift */,
 			);
@@ -324,24 +324,23 @@
 			files = (
 				A688B64925D29C2F009D10AE /* CountdownTimer.swift in Sources */,
 				A67BDFC725C81388007D5ACD /* ToolsView.swift in Sources */,
-				A6372B0C25DBDB6C006D4B4E /* Workout+CoreDataProperties.swift in Sources */,
 				A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */,
 				A675AB5025C43CA700680A55 /* ContentView.swift in Sources */,
+				A6372B1A25DC1476006D4B4E /* Workout+CoreDataProperties.swift in Sources */,
 				A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */,
 				A688B65125D2B571009D10AE /* PopoverSetTime.swift in Sources */,
-				A6372B0B25DBDB6C006D4B4E /* Workout+CoreDataClass.swift in Sources */,
 				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
-				A6372B0D25DBDB6C006D4B4E /* Exercise+CoreDataClass.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
+				A6372B1925DC1476006D4B4E /* Workout+CoreDataClass.swift in Sources */,
 				A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */,
 				A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */,
 				A625D2F825DAA0ED001A7C15 /* Alert.swift in Sources */,
+				A6372B1825DC1476006D4B4E /* Exercise+CoreDataProperties.swift in Sources */,
 				A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */,
 				A6BDDDFC25D3D65D00887949 /* PlayButtonView.swift in Sources */,
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
-				A6372B0E25DBDB6C006D4B4E /* Exercise+CoreDataProperties.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
 				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
 				A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */,
@@ -351,6 +350,7 @@
 				A6BDDDF825D3D0DA00887949 /* SetTimeButtonView.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
 				A623D6C525D489960077888F /* PlateView.swift in Sources */,
+				A6372B1725DC1476006D4B4E /* Exercise+CoreDataClass.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,

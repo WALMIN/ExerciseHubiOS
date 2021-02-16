@@ -58,16 +58,18 @@ struct WorkoutsView: View {
                         
                     }
                     
-                }.navigationBarTitle("Your workouts")
-                
-                // Button to add a workout
-                Button(action: {
-                    addWorkoutAlert("Add a workout", placeholder: "Enter a title", confirm: "Add", cancel: "Cancel")
-                    
-                }) {
-                    PlayButtonView(icon: "plus")
-                
                 }
+                .navigationBarTitle("Your workouts")
+                .navigationBarItems(trailing:
+                    // Button to add a workout
+                    Button(action: {
+                        addWorkoutAlert("Add a workout", placeholder: "Enter a title", confirm: "Add", cancel: "Cancel")
+                        
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .imageScale(.large)
+                    
+                    })
                 
             }
                 
