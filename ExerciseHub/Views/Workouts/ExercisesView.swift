@@ -45,8 +45,16 @@ struct ExercisesView: View {
                             
                         }.padding(12)
                         
-                    }.cornerRadius(8)
-                    
+                    }
+                    .cornerRadius(8)
+                    .onTapGesture {
+                        if editing {
+                            addEditExerciseAlert(add: false, exercise, "Edit an exercise", textName: exercise.wrappedName, textDo: exercise.wrappedExerciseDo, confirm: "Save", cancel: "Cancel")
+                            
+                        }
+                        
+                    }
+                
                 }
                 .onDelete(perform: editing ? deleteExercise: nil)
                 .listRowBackground(Color(UIColor.systemBackground))
@@ -68,7 +76,7 @@ struct ExercisesView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if editing {
                         Button(action: {
-                            addExerciseAlert("Add an exercise", placeholderName: "Enter the exercise name", placeholderDo: "Enter reps/time", confirm: "Add", cancel: "Cancel")
+                            addEditExerciseAlert(Exercise(), "Add an exercise", textName: "", textDo: "", confirm: "Add", cancel: "Cancel")
                             
                         }) {
                             Image(systemName: "plus.circle.fill")
@@ -101,14 +109,16 @@ struct ExercisesView: View {
     }
     
     // Alert with 2 textfields to add a exercise
-    func addExerciseAlert(_ title: String, placeholderName: String, placeholderDo: String, confirm: String, cancel: String) {
+    func addEditExerciseAlert(add: Bool = true, _ exercise: Exercise, _ title: String, textName: String, textDo: String, confirm: String, cancel: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         alert.addTextField() { textField in
-            textField.placeholder = placeholderName
+            textField.text = textName
+            textField.placeholder = "Enter the exercise name"
             
         }
         alert.addTextField() { textField in
-            textField.placeholder = placeholderDo
+            textField.text = textDo
+            textField.placeholder = "Enter reps/time"
             
         }
         alert.addAction(UIAlertAction(title: confirm, style: .default) { _ in
@@ -116,12 +126,21 @@ struct ExercisesView: View {
                 if let name = textFieldName.text, let exerciseDo = textfieldDo.text {
                     if !name.trimmingCharacters(in: .whitespaces).isEmpty && !exerciseDo.trimmingCharacters(in: .whitespaces).isEmpty {
                         withAnimation {
-                            let newExercise = Exercise(context: viewContext)
-                            newExercise.timestamp = Date()
-                            newExercise.name = name
-                            newExercise.exerciseDo = exerciseDo
-                            
-                            workout.addToExercises(newExercise)
+                            if add {
+                                let newExercise = Exercise(context: viewContext)
+                                newExercise.timestamp = Date()
+                                newExercise.name = name
+                                newExercise.exerciseDo = exerciseDo
+                                
+                                workout.addToExercises(newExercise)
+                                
+                            } else {
+                                exercise.name = name
+                                exercise.exerciseDo = exerciseDo
+                                
+                                workout.addToExercises(exercise)
+                                
+                            }
                             
                             do {
                                 try viewContext.save()
