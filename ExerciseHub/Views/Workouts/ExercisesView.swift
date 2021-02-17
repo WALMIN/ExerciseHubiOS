@@ -10,7 +10,7 @@ import SwiftUI
 struct ExercisesView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.timestamp, ascending: true)], animation: .default)
+    @FetchRequest(entity: Exercise.entity(), sortDescriptors: [], animation: .default)
     private var exercises: FetchedResults<Exercise>
     
     var workout: Workout
@@ -21,37 +21,31 @@ struct ExercisesView: View {
         VStack {
             // Exercise list with title & reps/time
             List{
-                ForEach(Array(workout.exercises! as Set), id: \.self) { exercise in
-                    if let exercise = exercise as? Exercise { 
-                        if let name = exercise.name, let exerciseDo = exercise.exerciseDo {
-                            ZStack {
-                                Color(UIColor(.white))
-                                
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("\(name)")
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                            .fontWeight(.bold)
-                                            .textCase(.uppercase)
-                                            .lineLimit(1)
-                                        
-                                        Text("\(exerciseDo)")
-                                            .font(.caption)
-                                            .foregroundColor(.black)
-                                            .lineLimit(1)
-                                        
-                                    }
-                                        
-                                    Spacer()
-                                    
-                                }.padding(12)
-                                
-                            }.cornerRadius(8)
-                            
-                        }
+                ForEach(workout.exercisesArray, id: \.self) { exercise in
+                    ZStack {
+                        Color(UIColor(.white))
                         
-                    }
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("\(exercise.wrappedName)")
+                                    .font(.body)
+                                    .foregroundColor(.black)
+                                    .fontWeight(.bold)
+                                    .textCase(.uppercase)
+                                    .lineLimit(1)
+                                
+                                Text("\(exercise.wrappedExerciseDo)")
+                                    .font(.caption)
+                                    .foregroundColor(.black)
+                                    .lineLimit(1)
+                                
+                            }
+                                
+                            Spacer()
+                            
+                        }.padding(12)
+                        
+                    }.cornerRadius(8)
                     
                 }
                 .onDelete(perform: editing ? deleteExercise: nil)
@@ -164,9 +158,8 @@ struct ExercisesView: View {
         let alert = UIAlertController(title: "Delete an exercise", message: "Are you really sure you want to delete this exercise?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .default) { _ in
             withAnimation {
-                /*
                 for index in offsets {
-                    let exercise = workout.exercises
+                    let exercise = workout.exercisesArray[index]
                     viewContext.delete(exercise)
                     
                 }
@@ -178,7 +171,6 @@ struct ExercisesView: View {
                     fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
                     
                 }
-                 */
                 
             }
             

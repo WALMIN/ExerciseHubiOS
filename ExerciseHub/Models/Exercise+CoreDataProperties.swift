@@ -21,6 +21,16 @@ extension Exercise {
     @NSManaged public var timestamp: Date?
     @NSManaged public var workout: Workout?
 
+    public var wrappedExerciseDo: String {
+        exerciseDo ?? "?"
+        
+    }
+    
+    public var wrappedName: String {
+        name ?? "?"
+        
+    }
+    
 }
 
 extension Exercise : Identifiable {

@@ -20,6 +20,16 @@ extension Workout {
     @NSManaged public var title: String?
     @NSManaged public var exercises: NSSet?
 
+    public var exercisesArray: [Exercise] {
+        let set = exercises as? Set<Exercise> ?? []
+        
+        return set.sorted {
+            $0.timestamp! < $1.timestamp!
+            
+        }
+        
+    }
+    
 }
 
 // MARK: Generated accessors for exercises
