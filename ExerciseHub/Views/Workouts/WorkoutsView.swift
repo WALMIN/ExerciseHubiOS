@@ -39,6 +39,17 @@ struct WorkoutsView: View {
                                 
                             }.cornerRadius(8)
                             
+                        }.contextMenu {
+                            // Rename workout
+                            Button(action: {
+                                addEditWorkoutAlert(false, workout, title: "Rename the workout", text: workout.title ?? "", confirm: "Save", cancel: "Cancel")
+                                
+                            }) {
+                                Text("Rename")
+                                Image(systemName: "pencil")
+                                
+                            }
+                            
                         }
                         
                     }
@@ -63,7 +74,7 @@ struct WorkoutsView: View {
                 .navigationBarItems(trailing:
                     // Button to add a workout
                     Button(action: {
-                        addWorkoutAlert("Add a workout", placeholder: "Enter a title", confirm: "Add", cancel: "Cancel")
+                        addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel")
                         
                     }) {
                         Image(systemName: "plus.circle.fill")
@@ -78,10 +89,11 @@ struct WorkoutsView: View {
     }
     
     // Alert with textfield to add a workout
-    func addWorkoutAlert(_ title: String, placeholder: String, confirm: String, cancel: String) {
+    func addEditWorkoutAlert(_ add: Bool, _ workout: Workout, title: String, text: String, confirm: String, cancel: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         alert.addTextField() { textField in
-            textField.placeholder = placeholder
+            textField.text = text
+            textField.placeholder = "Enter a title"
             
         }
         alert.addAction(UIAlertAction(title: confirm, style: .default) { _ in
@@ -89,9 +101,15 @@ struct WorkoutsView: View {
                 if let text = textField.text {
                     if !text.trimmingCharacters(in: .whitespaces).isEmpty {
                         withAnimation {
-                            let newWorkout = Workout(context: viewContext)
-                            newWorkout.timestamp = Date()
-                            newWorkout.title = text
+                            if add {
+                                let newWorkout = Workout(context: viewContext)
+                                newWorkout.timestamp = Date()
+                                newWorkout.title = text
+                                
+                            } else {
+                                workout.title = text
+                                
+                            }
                             
                             do {
                                 try viewContext.save()

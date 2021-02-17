@@ -49,7 +49,7 @@ struct ExercisesView: View {
                     .cornerRadius(8)
                     .onTapGesture {
                         if editing {
-                            addEditExerciseAlert(add: false, exercise, "Edit an exercise", textName: exercise.wrappedName, textDo: exercise.wrappedExerciseDo, confirm: "Save", cancel: "Cancel")
+                            addEditExerciseAlert(false, exercise, title: "Edit an exercise", textName: exercise.wrappedName, textDo: exercise.wrappedExerciseDo, confirm: "Save", cancel: "Cancel")
                             
                         }
                         
@@ -60,7 +60,7 @@ struct ExercisesView: View {
                 .listRowBackground(Color(UIColor.systemBackground))
                 
                 // No exercises text
-                if workout.exercises!.count == 0 {
+                if workout.exercisesArray.count == 0 {
                     HStack {
                         Spacer()
                         Text("No exercises yet").padding()
@@ -76,7 +76,7 @@ struct ExercisesView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if editing {
                         Button(action: {
-                            addEditExerciseAlert(Exercise(), "Add an exercise", textName: "", textDo: "", confirm: "Add", cancel: "Cancel")
+                            addEditExerciseAlert(true, Exercise(), title: "Add an exercise", textName: "", textDo: "", confirm: "Add", cancel: "Cancel")
                             
                         }) {
                             Image(systemName: "plus.circle.fill")
@@ -108,8 +108,8 @@ struct ExercisesView: View {
         
     }
     
-    // Alert with 2 textfields to add a exercise
-    func addEditExerciseAlert(add: Bool = true, _ exercise: Exercise, _ title: String, textName: String, textDo: String, confirm: String, cancel: String) {
+    // Alert with 2 textfields to add/edit an exercise
+    func addEditExerciseAlert(_ add: Bool, _ exercise: Exercise, title: String, textName: String, textDo: String, confirm: String, cancel: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         alert.addTextField() { textField in
             textField.text = textName
@@ -163,12 +163,6 @@ struct ExercisesView: View {
         alert.addAction(UIAlertAction(title: cancel, style: .cancel) { _ in })
         
         Alert().show(alert)
-        
-    }
-    
-    // Move an exercise/round
-    private func moveExercise() {
-        
         
     }
     
