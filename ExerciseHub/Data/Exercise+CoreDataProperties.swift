@@ -2,13 +2,12 @@
 //  Exercise+CoreDataProperties.swift
 //  ExerciseHub
 //
-//  Created by Victor Bergene on 2021-02-16.
+//  Created by Victor Bergene on 2021-02-18.
 //
 //
 
 import Foundation
 import CoreData
-
 
 extension Exercise {
 
@@ -19,7 +18,7 @@ extension Exercise {
     @NSManaged public var exerciseDo: String?
     @NSManaged public var name: String?
     @NSManaged public var timestamp: Date?
-    @NSManaged public var workout: Workout?
+    @NSManaged public var round: Round?
 
     public var wrappedExerciseDo: String {
         exerciseDo ?? "?"

@@ -2,7 +2,7 @@
 //  Exercise+CoreDataClass.swift
 //  ExerciseHub
 //
-//  Created by Victor Bergene on 2021-02-16.
+//  Created by Victor Bergene on 2021-02-18.
 //
 //
 

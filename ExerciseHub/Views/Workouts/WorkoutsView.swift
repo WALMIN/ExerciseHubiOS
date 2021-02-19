@@ -15,10 +15,10 @@ struct WorkoutsView: View {
     
     var body: some View {
         NavigationView  {
-            VStack {
+            ScrollView {
                 // Workouts list
-                List {
-                    ForEach(workouts) { workout in
+                LazyVStack {
+                    ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
                         NavigationLink(destination: ExercisesView(workout: workout)) {
                             ZStack {
                                 Color(UIColor(.white))
@@ -40,6 +40,16 @@ struct WorkoutsView: View {
                             }.cornerRadius(8)
                             
                         }.contextMenu {
+                            // Delete workout
+                            Button(action: {
+                                deleteWorkout(index: index)
+                                
+                            }) {
+                                Text("Delete")
+                                Image(systemName: "trash")
+                                
+                            }
+                            
                             // Rename workout
                             Button(action: {
                                 addEditWorkoutAlert(false, workout, title: "Rename the workout", text: workout.title ?? "", confirm: "Save", cancel: "Cancel")
@@ -53,8 +63,7 @@ struct WorkoutsView: View {
                         }
                         
                     }
-                    .onDelete(perform: deleteWorkout)
-                    .listRowBackground(Color(UIColor.systemBackground))
+                    .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
                     
                     // No workouts text
                     if workouts.count == 0 {
@@ -62,14 +71,15 @@ struct WorkoutsView: View {
                             Spacer()
                             VStack {
                                 Text("No workouts yet").padding()
-                                Text("Add one below to get started")
+                                Text("Add one to get started")
                             }
                             Spacer()
-                        }.listRowBackground(Color(UIColor.systemBackground))
+                        }
                         
                     }
                     
                 }
+                .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                 .navigationBarTitle("Your workouts")
                 .navigationBarItems(trailing:
                     // Button to add a workout
@@ -106,6 +116,12 @@ struct WorkoutsView: View {
                                 newWorkout.timestamp = Date()
                                 newWorkout.title = text
                                 
+                                let newRound = Round(context: viewContext)
+                                newRound.timestamp = Date()
+                                newRound.cycles = 3
+                                
+                                newWorkout.addToRounds(newRound)
+                                
                             } else {
                                 workout.title = text
                                 
@@ -136,15 +152,12 @@ struct WorkoutsView: View {
     }
     
     // Alert to delete a workout
-    private func deleteWorkout(offsets: IndexSet) {
+    private func deleteWorkout(index: Int) {
         let alert = UIAlertController(title: "Delete a workout", message: "Are you really sure you want to delete this workout?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .default) { _ in
             withAnimation {
-                for index in offsets {
-                    let workout = workouts[index]
-                    viewContext.delete(workout)
-                    
-                }
+                let workout = workouts[index]
+                viewContext.delete(workout)
                 
                 do {
                     try viewContext.save()

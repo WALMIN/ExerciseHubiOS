@@ -49,12 +49,19 @@ struct LibraryView: View {
                 .cornerRadius(8)
                 .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                 
-                List(fetchLibrary.list.filter({
-                    searchText.isEmpty ?
-                        true : $0.name.lowercased().contains(searchText.lowercased())})) { item in
-                    
-                    LibraryItemView(item: item)
-                        .listRowBackground(Color(UIColor.systemBackground))
+                ScrollView {
+                    LazyVStack {
+                        ForEach(fetchLibrary.list.filter({
+                                searchText.isEmpty ?
+                                 true : $0.name.lowercased().contains(searchText.lowercased())})) { item in
+                        
+                            LibraryItemView(item: item)
+                                .listRowBackground(Color(UIColor.systemBackground))
+                        
+                        }
+                            
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                     
                 }
                 
