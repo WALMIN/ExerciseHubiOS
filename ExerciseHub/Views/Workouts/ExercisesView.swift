@@ -51,27 +51,37 @@ struct ExercisesView: View {
                             }
                             .cornerRadius(8)
                             .contextMenu {
-                                // Delete exercise
-                                Button(action: {
-                                    deleteExercise(roundIndex, exerciseIndex)
-                                    
-                                }) {
+                                // Delete an exercise button
+                                Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
                                     Text("Delete")
                                     Image(systemName: "trash")
                                     
                                 }
                                 
-                                // Edit exercise
-                                Button(action: {
-                                    addEditExerciseAlert(false, exercise, roundIndex: roundIndex, title: "Edit an exercise", textName: exercise.wrappedName, textDo: exercise.wrappedExerciseDo, confirm: "Save")
-                                    
-                                }) {
+                                // Edit an exercise button
+                                Button(action: { addEditExerciseAlert(false, exercise, roundIndex: roundIndex, title: "Edit an exercise", textName: exercise.wrappedName, textDo: exercise.wrappedExerciseDo, confirm: "Save") }) {
                                     Text("Edit")
                                     Image(systemName: "pencil")
                                     
                                 }
                                 
                             }
+                            
+                        }
+                        
+                    }
+                    .contextMenu {
+                        // Delete a round button
+                        Button(action: { deleteRound(roundIndex) }) {
+                            Text("Delete")
+                            Image(systemName: "trash")
+                            
+                        }
+                        
+                        // Edit a round button
+                        Button(action: { addEditRoundAlert(false, round, title: "Edit a round", textCycles: Int(round.cycles), confirm: "Save") }) {
+                            Text("Edit")
+                            Image(systemName: "pencil")
                             
                         }
                         
@@ -96,12 +106,9 @@ struct ExercisesView: View {
             .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
             .navigationBarTitle("\(workout.title!)")
             .toolbar(content: {
-                // Button to add an exercise if currently editing
+                // Button to add an item
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        addSheetShowing = true
-                        
-                    }) {
+                    Button(action: { addSheetShowing = true }) {
                         Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
                             .padding()
@@ -116,14 +123,8 @@ struct ExercisesView: View {
         .actionSheet(isPresented: $addSheetShowing) { () -> ActionSheet in
             ActionSheet(title: Text("Add an item"), message: Text("Select the item you want to add"),
                 buttons: [
-                    .default(Text("Exercise"), action: {
-                        addEditExerciseAlert(true, Exercise(), roundIndex: (workout.roundsArray.count - 1), title: "Add an exercise", textName: "", textDo: "", confirm: "Add")
-                        
-                    }),
-                    .default(Text("Round"), action: {
-                        addRoundAlert(title: "Add a round", confirm: "Add")
-                        
-                    }),
+                    .default(Text("Exercise"), action: { addEditExerciseAlert(true, Exercise(), roundIndex: (workout.roundsArray.count - 1), title: "Add an exercise", textName: "", textDo: "", confirm: "Add") }),
+                    .default(Text("Round"), action: { addEditRoundAlert(true, Round(), title: "Add a round", textCycles: 0, confirm: "Add") }),
                     .destructive(Text("Close"), action: {})
 
                 ])
@@ -197,12 +198,16 @@ struct ExercisesView: View {
         
     }
     
-    // Alert to add a round
-    private func addRoundAlert(title: String, confirm: String) {
+    // Alert to add/edit a round
+    private func addEditRoundAlert(_ add: Bool, _ round: Round, title: String, textCycles: Int, confirm: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         alert.addTextField() { textField in
             textField.keyboardType = .numberPad
             textField.placeholder = "Enter amount of cycles"
+            
+            if !add {
+                textField.text = "\(textCycles)"
+            }
             
         }
         alert.addAction(UIAlertAction(title: confirm, style: .default) { _ in
@@ -210,11 +215,19 @@ struct ExercisesView: View {
                 if let cycles = textFieldCycles.text {
                     if !cycles.trimmingCharacters(in: .whitespaces).isEmpty && Int16(cycles) ?? 0 > 0{
                         withAnimation {
-                            let newRound = Round(context: viewContext)
-                            newRound.timestamp = Date()
-                            newRound.cycles = Int16(cycles) ?? 1
-                            
-                            workout.addToRounds(newRound)
+                            if add {
+                                let newRound = Round(context: viewContext)
+                                newRound.timestamp = Date()
+                                newRound.cycles = Int16(cycles) ?? 1
+                                
+                                workout.addToRounds(newRound)
+                                
+                            } else {
+                                round.cycles = Int16(cycles) ?? 1
+                                
+                                workout.addToRounds(round)
+                                
+                            }
                             
                             do {
                                 try viewContext.save()
@@ -255,6 +268,33 @@ struct ExercisesView: View {
                 workout.addToRounds(tempRound)
                 workout.removeFromRounds(tempRound)
                 
+                do {
+                    try viewContext.save()
+                    
+                } catch {
+                    fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
+                    
+                }
+                
+            }
+            
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+        
+        Alert().show(alert)
+    
+    }
+ 
+    // Alert to delete a round
+    private func deleteRound(_ roundIndex: Int) {
+        let alert = UIAlertController(title: "Delete a round", message: "Are you really sure you want to delete the whole round?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .default) { _ in
+            withAnimation {
+                let round = workout.roundsArray[roundIndex]
+                workout.removeFromRounds(round)
+                viewContext.delete(round)
+                    
                 do {
                     try viewContext.save()
                     
