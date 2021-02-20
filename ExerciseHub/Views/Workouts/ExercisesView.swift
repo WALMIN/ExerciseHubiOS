@@ -15,7 +15,8 @@ struct ExercisesView: View {
     private var rounds: FetchedResults<Round>
     
     var workout: Workout
-
+    
+    @State private var selectedExercise: String? = nil
     @State private var addSheetShowing = false
     
     var body: some View {
@@ -28,8 +29,14 @@ struct ExercisesView: View {
                             ZStack {
                                 Color(UIColor(.white))
                                 
-                                HStack {
-                                    VStack(alignment: .leading) {
+                                VStack {
+                                    HStack {
+                                        Button(action: { selectedExercise = exercise.wrappedName }) {
+                                            Image(systemName: "play.rectangle.fill")
+                                                .foregroundColor(.black)
+                                        
+                                        }
+                                            
                                         Text("\(exercise.wrappedName)")
                                             .font(.body)
                                             .foregroundColor(.black)
@@ -37,14 +44,19 @@ struct ExercisesView: View {
                                             .textCase(.uppercase)
                                             .lineLimit(1)
                                         
+                                        Spacer()
+                                        
+                                    }
+                                    
+                                    HStack {
                                         Text("\(exercise.wrappedExerciseDo)")
                                             .font(.caption)
                                             .foregroundColor(.black)
                                             .lineLimit(1)
+                                     
+                                        Spacer()
                                         
-                                    }
-                                        
-                                    Spacer()
+                                    }.padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                                     
                                 }.padding(12)
                                 
@@ -131,6 +143,10 @@ struct ExercisesView: View {
             )
 
         }
+        .sheet(item: $selectedExercise, content: { selectedExercise in
+            SheetVideo(name: selectedExercise)
+
+        })
         
     }
     

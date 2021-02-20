@@ -64,10 +64,7 @@ struct WarmUpView: View {
                             
                         }
                         .padding(2)
-                        .onTapGesture {
-                            selectedExercise = name
-                            
-                        }
+                        .onTapGesture { selectedExercise = name }
                         
                     }
                     
