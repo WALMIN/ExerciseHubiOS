@@ -14,11 +14,12 @@ struct SheetVideo: View {
     
     var body: some View {
         VStack {
+            // Video player that shows a title & an exercise
             let videoPlayer = AVPlayer(url: URL(string: "https://walmin.com/exercisehub/resources/library/vid/\(name.lowercased().replacingOccurrences(of: " ", with: "_")).mp4")!)
             
             VideoPlayer(player: videoPlayer){
                 VStack {
-                    Text("\(name)")
+                    Text("\(name.replacingOccurrences(of: "stretch/", with: ""))")
                         .font(.title2)
                         .foregroundColor(.white)
                         .padding()
@@ -28,10 +29,7 @@ struct SheetVideo: View {
                 
             }
             .ignoresSafeArea()
-            .onAppear() {
-                videoPlayer.play()
-                
-            }
+            .onAppear() { videoPlayer.play() }
             .onReceive(NotificationCenter.default.publisher(for: .AVPlayerItemDidPlayToEndTime)) { _ in
                 videoPlayer.seek(to: .zero)
                 videoPlayer.play()

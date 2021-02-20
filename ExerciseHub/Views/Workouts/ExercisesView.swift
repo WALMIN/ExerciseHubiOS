@@ -127,9 +127,10 @@ struct ExercisesView: View {
                     .default(Text("Round"), action: { addEditRoundAlert(true, Round(), title: "Add a round", textCycles: 0, confirm: "Add") }),
                     .destructive(Text("Close"), action: {})
 
-                ])
+                ]
+            )
 
-            }
+        }
         
     }
     

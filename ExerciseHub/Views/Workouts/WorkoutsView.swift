@@ -16,6 +16,8 @@ struct WorkoutsView: View {
     var body: some View {
         NavigationView  {
             ScrollView {
+                WarmUpView()
+                
                 // Workouts list
                 LazyVStack {
                     ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
