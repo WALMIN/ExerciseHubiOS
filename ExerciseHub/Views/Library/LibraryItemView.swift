@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct LibraryItemView: View {
     
     @State var videoShowing = false
+    @State var imageAnimating = true
     
     var item: LibraryModel
         
@@ -18,11 +20,14 @@ struct LibraryItemView: View {
             Color(UIColor(.white))
             HStack {
                 VStack {
-                    ImageViewURL("https://walmin.com/exercisehub/resources/library/gif/\(item.name.lowercased().replacingOccurrences(of: " ", with: "_")).gif")
+                    WebImage(url: URL(string: "https://walmin.com/exercisehub/resources/library/gif/\(item.name.lowercased().replacingOccurrences(of: " ", with: "_")).gif"), isAnimating: $imageAnimating)
+                        .placeholder{ Image(systemName: "gobackward").foregroundColor(.black) }
+                        .resizable()
+                        .scaledToFit()
                         .clipShape(Circle())
                     
                 }
-                .frame(width: 44, height: 44)
+                .frame(width: 44, height: 44, alignment: .center)
                 
                 Text(item.name)
                     .font(.body)

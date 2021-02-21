@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		A63D27FE25E2F70600F9A1EF /* timer_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A63D27FC25E2F70500F9A1EF /* timer_sound.wav */; };
 		A63D27FF25E2F70600F9A1EF /* intervaltimer_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A63D27FD25E2F70600F9A1EF /* intervaltimer_sound.wav */; };
 		A63D280625E2FD0500F9A1EF /* MediaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63D280525E2FD0500F9A1EF /* MediaUtils.swift */; };
+		A63D280C25E30E0000F9A1EF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A63D280B25E30E0000F9A1EF /* SDWebImageSwiftUI */; };
 		A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65714D525DAEA7200C2231D /* ExercisesView.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
@@ -48,7 +49,6 @@
 		A6D3911F25C83F3D00AB4921 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */; };
 		A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912125C83F6800AB4921 /* FetchLibrary.swift */; };
 		A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912625C8400E00AB4921 /* LibraryItemView.swift */; };
-		A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */; };
 		A6D7862D25E29A3C00345DE0 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D7862C25E29A3C00345DE0 /* UserDefaultsUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +96,6 @@
 		A6D3911E25C83F3D00AB4921 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
 		A6D3912125C83F6800AB4921 /* FetchLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLibrary.swift; sourceTree = "<group>"; };
 		A6D3912625C8400E00AB4921 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
-		A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewURL.swift; sourceTree = "<group>"; };
 		A6D7862C25E29A3C00345DE0 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63D280C25E30E0000F9A1EF /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +209,6 @@
 			children = (
 				A688B64D25D29EEE009D10AE /* BlankButtonView.swift */,
 				A675AB4F25C43CA700680A55 /* ContentView.swift */,
-				A6D3912A25C877BB00AB4921 /* ImageViewURL.swift */,
 				A6BDDDFB25D3D65D00887949 /* PlayButtonView.swift */,
 				A6BDDDF725D3D0DA00887949 /* SetTimeButtonView.swift */,
 				A6B68C3D25C9812B009F3493 /* SheetVideo.swift */,
@@ -298,6 +297,9 @@
 			dependencies = (
 			);
 			name = ExerciseHub;
+			packageProductDependencies = (
+				A63D280B25E30E0000F9A1EF /* SDWebImageSwiftUI */,
+			);
 			productName = ExerciseHub;
 			productReference = A675AB4A25C43CA700680A55 /* ExerciseHub.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +327,9 @@
 				Base,
 			);
 			mainGroup = A675AB4125C43CA700680A55;
+			packageReferences = (
+				A63D280A25E30E0000F9A1EF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = A675AB4B25C43CA700680A55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -361,7 +366,6 @@
 				A65FF83A25DEFEE30020BA9A /* Workout+CoreDataProperties.swift in Sources */,
 				A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */,
 				A688B65125D2B571009D10AE /* PopoverSetTime.swift in Sources */,
-				A6D3912B25C877BB00AB4921 /* ImageViewURL.swift in Sources */,
 				A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A65FF83B25DEFEE30020BA9A /* Exercise+CoreDataClass.swift in Sources */,
@@ -580,6 +584,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A63D280A25E30E0000F9A1EF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A63D280B25E30E0000F9A1EF /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A63D280A25E30E0000F9A1EF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A626D4D725D6824C00A87687 /* WorkoutsCoreData.xcdatamodeld */ = {
