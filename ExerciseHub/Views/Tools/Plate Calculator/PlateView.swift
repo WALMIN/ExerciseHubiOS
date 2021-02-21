@@ -12,6 +12,8 @@ struct PlateView: View {
     var title: String = "1"
     @State var amount = 0
     
+    private let media = MediaUtils()
+    
     var body: some View {
         VStack {
             ZStack {
@@ -29,7 +31,7 @@ struct PlateView: View {
         .simultaneousGesture(LongPressGesture().onEnded { _ in
             if amount > 0 {
                 amount -= 1
-                Utils().vibrate()
+                media.vibrate()
                 
             }
                         

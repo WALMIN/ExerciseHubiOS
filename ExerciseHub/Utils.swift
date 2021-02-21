@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AudioToolbox
 
 struct Utils {
     
@@ -43,23 +42,6 @@ struct Utils {
             
         }
         
-    }
-    
-    func vibrate(strength: Int = 0) {
-        // Strong
-        if strength == 1 {
-            AudioServicesPlaySystemSound(1520)
-            
-        // Three week
-        } else if strength == 2 {
-            AudioServicesPlaySystemSound(1521)
-            
-        // Week
-        } else {
-            AudioServicesPlaySystemSound(1519)
-        
-        }
-            
     }
     
 }

@@ -25,10 +25,7 @@ struct TimerView: View {
             HStack {
                 // Reset timer if the timer is paused
                 if timer.state == .paused {
-                    Button(action: {
-                        timer.reset()
-                        
-                    }) {
+                    Button(action: { timer.reset() }) {
                         Text("Reset")
                             .textCase(.uppercase)
                             .foregroundColor(Color(UIColor.label))
@@ -71,10 +68,7 @@ struct TimerView: View {
                 // Set time button
                 if timer.state == .paused || timer.state == .stopped {
                     if UIDevice.current.userInterfaceIdiom == .pad {
-                        Button(action: {
-                            popoverSetTimeShowing = true
-                            
-                        }) {
+                        Button(action: { popoverSetTimeShowing = true }) {
                             Text("Set time")
                                 .textCase(.uppercase)
                                 .foregroundColor(Color(UIColor.label))
@@ -83,13 +77,11 @@ struct TimerView: View {
                             
                         }.popover(isPresented: $popoverSetTimeShowing) {
                             PopoverSetTime(timer: timer, time: timer.timeLeft)
+                            
                         }
                         
                     } else {
-                        Button(action: {
-                            popoverSetTimeShowing = true
-                            
-                        }) {
+                        Button(action: { popoverSetTimeShowing = true }) {
                             Text("Set time")
                                 .textCase(.uppercase)
                                 .foregroundColor(Color(UIColor.label))

@@ -12,6 +12,7 @@ class CountdownTimer: ObservableObject {
     @Published var state: CountdownTimerStates = .stopped
     @Published var timeLeft: Double = UserDefaults.standard.double(forKey: UserDefaultsUtils().timerTimeKey)
     private var timer = Timer()
+    private let media = MediaUtils()
     
     init() {
         if timeLeft == 0 {
@@ -30,6 +31,9 @@ class CountdownTimer: ObservableObject {
                 self.timeLeft -= 1.0
                 
             }else{
+                self.media.startRepeatingVibration()
+                self.media.playSound("timer_sound.wav", repeatSound: true)
+                
                 self.state = .finished
                 timer.invalidate()
                 self.timeLeft = 0
@@ -52,6 +56,12 @@ class CountdownTimer: ObservableObject {
         state = .stopped
         timer.invalidate()
         timeLeft = 60
+        
+        if let sound = media.sound {
+            sound.stop()
+            
+        }
+        media.stopRepeatingVibration()
         
     }
 

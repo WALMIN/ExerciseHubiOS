@@ -19,6 +19,7 @@ class IntervalTimer: ObservableObject {
     @Published var restTimeLeft: Double = 30
     
     private var timer = Timer()
+    private let media = MediaUtils()
     
     // Start the timer
     func start() {
@@ -38,6 +39,9 @@ class IntervalTimer: ObservableObject {
                     self.timerState = .rest
                     self.restTimeLeft = rest
                     
+                    self.media.vibrate(strength: 1)
+                    self.media.playSound("intervaltimer_sound.wav")
+                    
                 }
                 
             // Rest
@@ -49,8 +53,11 @@ class IntervalTimer: ObservableObject {
                     self.roundsLeft -= 1
                     
                     if self.roundsLeft >= 1 {
-                        self.timerState = .getReady
+                        self.timerState = .work
                         self.workTimeLeft = work
+                        
+                        self.media.vibrate(strength: 1)
+                        self.media.playSound("intervaltimer_sound.wav")
                         
                     } else {
                         self.reset()
@@ -67,6 +74,9 @@ class IntervalTimer: ObservableObject {
                 } else {
                     self.timerState = .work
                     self.getReadyTimeLeft = getReady
+                    
+                    self.media.vibrate(strength: 1)
+                    self.media.playSound("intervaltimer_sound.wav")
                     
                 }
                 

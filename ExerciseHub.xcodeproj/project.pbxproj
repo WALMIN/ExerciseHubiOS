@@ -14,6 +14,9 @@
 		A62A568025D12EF600FF2E33 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A567F25D12EF600FF2E33 /* Stopwatch.swift */; };
 		A62A568325D134F800FF2E33 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568225D134F800FF2E33 /* Utils.swift */; };
 		A62A568F25D1466C00FF2E33 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A568E25D1466C00FF2E33 /* LapModel.swift */; };
+		A63D27FE25E2F70600F9A1EF /* timer_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A63D27FC25E2F70500F9A1EF /* timer_sound.wav */; };
+		A63D27FF25E2F70600F9A1EF /* intervaltimer_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A63D27FD25E2F70600F9A1EF /* intervaltimer_sound.wav */; };
+		A63D280625E2FD0500F9A1EF /* MediaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63D280525E2FD0500F9A1EF /* MediaUtils.swift */; };
 		A65714D625DAEA7200C2231D /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65714D525DAEA7200C2231D /* ExercisesView.swift */; };
 		A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585D9D25CC3234007D2F1E /* StopwatchView.swift */; };
 		A6585DA225CC3246007D2F1E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6585DA125CC3246007D2F1E /* TimerView.swift */; };
@@ -57,6 +60,9 @@
 		A62A567F25D12EF600FF2E33 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		A62A568225D134F800FF2E33 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A62A568E25D1466C00FF2E33 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
+		A63D27FC25E2F70500F9A1EF /* timer_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timer_sound.wav; sourceTree = "<group>"; };
+		A63D27FD25E2F70600F9A1EF /* intervaltimer_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intervaltimer_sound.wav; sourceTree = "<group>"; };
+		A63D280525E2FD0500F9A1EF /* MediaUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUtils.swift; sourceTree = "<group>"; };
 		A65714D525DAEA7200C2231D /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		A6585D9D25CC3234007D2F1E /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		A6585DA125CC3246007D2F1E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -124,6 +130,15 @@
 			path = Workouts;
 			sourceTree = "<group>";
 		};
+		A63D27FB25E2F6D700F9A1EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A63D27FD25E2F70600F9A1EF /* intervaltimer_sound.wav */,
+				A63D27FC25E2F70500F9A1EF /* timer_sound.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A6585D9C25CC3215007D2F1E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,12 +183,14 @@
 				A675AB5625C43CA900680A55 /* Info.plist */,
 				A625D2F725DAA0ED001A7C15 /* Alert.swift */,
 				A675AB4D25C43CA700680A55 /* ExerciseHubApp.swift */,
+				A63D280525E2FD0500F9A1EF /* MediaUtils.swift */,
 				A6D7862C25E29A3C00345DE0 /* UserDefaultsUtils.swift */,
 				A62A568225D134F800FF2E33 /* Utils.swift */,
 				A675AB5125C43CA800680A55 /* Assets.xcassets */,
 				A6D3911C25C83B8900AB4921 /* Data */,
 				A67BDFC525C81356007D5ACD /* Models */,
 				A675AB5325C43CA900680A55 /* Preview Content */,
+				A63D27FB25E2F6D700F9A1EF /* Resources */,
 				A67BDFC425C81350007D5ACD /* Views */,
 			);
 			path = ExerciseHub;
@@ -322,6 +339,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63D27FE25E2F70600F9A1EF /* timer_sound.wav in Resources */,
+				A63D27FF25E2F70600F9A1EF /* intervaltimer_sound.wav in Resources */,
 				A675AB5525C43CA900680A55 /* Preview Assets.xcassets in Resources */,
 				A675AB5225C43CA800680A55 /* Assets.xcassets in Resources */,
 			);
@@ -367,6 +386,7 @@
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
 				A623D6C525D489960077888F /* PlateView.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
+				A63D280625E2FD0500F9A1EF /* MediaUtils.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A65FF83825DEFEE30020BA9A /* Round+CoreDataProperties.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,
