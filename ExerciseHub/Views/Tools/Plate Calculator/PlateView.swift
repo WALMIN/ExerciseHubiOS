@@ -16,7 +16,7 @@ struct PlateView: View {
         VStack {
             ZStack {
                 Color("PlateColor")
-                Text(title)
+                Text(title.replacingOccurrences(of: ".0", with: ""))
             
             }
             .frame(width: 48, height: 48)
