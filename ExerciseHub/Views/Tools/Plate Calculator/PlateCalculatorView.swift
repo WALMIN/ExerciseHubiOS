@@ -9,10 +9,12 @@ import SwiftUI
 
 struct PlateCalculatorView: View {
     
-    @State var kgShowing = true
+    let userDefaults = UserDefaults.standard
     
-    @State var totalWeight: Double = 0.0
-    @State var barbellWeight: Double = 20.0
+    @State var kgShowing = UserDefaults.standard.bool(forKey: UserDefaultsUtils().kgShowingKey)
+    
+    @State var totalWeight = 0.0
+    @State var barbellWeight = 0.0
     
     @State var kgList = [[0.25, 0.5, 1, 1.25], [2, 2.25, 2.5, 5], [7.5, 10, 12.5, 15], [20, 25, 50]]
     @State var lbList = [[1.25, 2.5, 5, 7.5], [10, 12.5, 15, 20], [25, 30, 35, 40], [45, 50, 55, 100]]
@@ -78,6 +80,11 @@ struct PlateCalculatorView: View {
                                 
                             }
                             .padding()
+                            .onDisappear {
+                                userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
+                                
+                            }
+                                
                         }
                         
                     // Show barbell weight sheet on iPhone
@@ -106,13 +113,20 @@ struct PlateCalculatorView: View {
                                 Spacer()
                                 
                                 // Close
-                                Button(action: { popoverBarbellWeightShowing = false }) {
+                                Button(action: {
+                                    popoverBarbellWeightShowing = false
+                                    
+                                }) {
                                     Text("Close")
                                     
                                 }
                                 
                             }
                             .padding()
+                            .onDisappear {
+                                userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
+                                
+                            }
                             
                         }
                         
@@ -158,9 +172,27 @@ struct PlateCalculatorView: View {
                     .frame(width: 0)
                     .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 0))
                     .onChange(of: kgShowing) { value in
-                        barbellWeight = value ? 20.0 : 45.0
+                        barbellWeight = value ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) : userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
+                        userDefaults.set(value, forKey: UserDefaultsUtils().kgShowingKey)
                         
                     }
+                
+            }
+            
+        }.onAppear {
+            barbellWeight = kgShowing ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) :userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
+            
+            if barbellWeight == 0 {
+                userDefaults.set(20, forKey: UserDefaultsUtils().kgBarbellWeightKey)
+                userDefaults.set(45, forKey: UserDefaultsUtils().lbBarbellWeightKey)
+                
+                if kgShowing {
+                    barbellWeight = 20
+                    
+                } else {
+                    barbellWeight = 45
+                    
+                }
                 
             }
             

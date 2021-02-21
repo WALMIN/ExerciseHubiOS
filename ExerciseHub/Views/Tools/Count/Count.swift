@@ -12,10 +12,25 @@ class Count: ObservableObject {
     @Published var state: CountStates = .stopped
     
     @Published var count: Int = 0
-    @Published var countTo: Int = 10
-    @Published var delay: Double = 1000
+    @Published var countTo: Int = UserDefaults.standard.integer(forKey: UserDefaultsUtils().countKey)
+    @Published var delay: Double = UserDefaults.standard.double(forKey: UserDefaultsUtils().countDelayKey)
     
     private var timer = Timer()
+    
+    init() {
+        if countTo == 0 {
+            UserDefaults.standard.set(10, forKey: UserDefaultsUtils().countKey)
+            countTo = 10
+            
+        }
+        
+        if delay == 0 {
+            UserDefaults.standard.set(1000, forKey: UserDefaultsUtils().countDelayKey)
+            delay = 10
+            
+        }
+        
+    }
     
     // Start
     func start() {

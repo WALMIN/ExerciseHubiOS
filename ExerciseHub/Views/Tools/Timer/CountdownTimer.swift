@@ -8,10 +8,19 @@
 import Foundation
 
 class CountdownTimer: ObservableObject {
-
+    
     @Published var state: CountdownTimerStates = .stopped
-    @Published var timeLeft: Double = 60
+    @Published var timeLeft: Double = UserDefaults.standard.double(forKey: UserDefaultsUtils().timerTimeKey)
     private var timer = Timer()
+    
+    init() {
+        if timeLeft == 0 {
+            UserDefaults.standard.set(60, forKey: UserDefaultsUtils().timerTimeKey)
+            timeLeft = 60
+            
+        }
+        
+    }
     
     // Start the timer
     func start() {

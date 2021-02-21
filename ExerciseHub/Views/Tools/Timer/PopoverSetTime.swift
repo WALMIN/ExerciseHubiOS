@@ -10,6 +10,7 @@ import SwiftUI
 struct PopoverSetTime: View {
     
     @Environment(\.presentationMode) var presentationMode
+    let userDefaults = UserDefaults.standard
     
     @State var timer = CountdownTimer()
     @State var time = 0.0
@@ -47,6 +48,8 @@ struct PopoverSetTime: View {
             Button(action: {
                 timer.timeLeft = time
                 presentationMode.wrappedValue.dismiss()
+                
+                userDefaults.set(time, forKey: UserDefaultsUtils().timerTimeKey)
                 
             }) {
                 Text("Save")

@@ -9,10 +9,12 @@ import SwiftUI
 
 struct IntervalTimerView: View {
     
+    let userDefaults = UserDefaults.standard
+    
     // Setup
-    @State var rounds = 3
-    @State var work: Double = 60
-    @State var rest: Double = 30
+    @State var rounds = UserDefaults.standard.integer(forKey: UserDefaultsUtils().intervalTimerRoundsKey)
+    @State var work = UserDefaults.standard.double(forKey: UserDefaultsUtils().intervalTimerWorkKey)
+    @State var rest = UserDefaults.standard.double(forKey: UserDefaultsUtils().intervalTimerRestKey)
     
     // Running
     @ObservedObject var intervalTimer = IntervalTimer()
@@ -28,7 +30,14 @@ struct IntervalTimerView: View {
                     
                     HStack {
                         // Remove 1 round if the round is above 0 seconds
-                        Button(action: { if rounds > 1 { rounds -= 1 } }) {
+                        Button(action: {
+                            if rounds > 1 {
+                                rounds -= 1
+                                userDefaults.set(rounds, forKey: UserDefaultsUtils().intervalTimerRoundsKey)
+                            
+                            }
+                            
+                        }) {
                             SetTimeButtonView(color: "RemoveColor", icon: "minus")
                             
                         }
@@ -40,7 +49,11 @@ struct IntervalTimerView: View {
                             .frame(width: 128)
                         
                         // Add 1 round button
-                        Button(action: { rounds += 1 }) {
+                        Button(action: {
+                            rounds += 1
+                            userDefaults.set(rounds, forKey: UserDefaultsUtils().intervalTimerRoundsKey)
+                            
+                        }) {
                             SetTimeButtonView(color: "AddColor", icon: "plus")
                             
                         }
@@ -52,7 +65,14 @@ struct IntervalTimerView: View {
                     
                     HStack {
                         // Remove 1 second if the time is above 0 seconds
-                        Button(action: { if work > 1 { work -= 1 } }) {
+                        Button(action: {
+                            if work > 1 {
+                                work -= 1
+                                userDefaults.set(work, forKey: UserDefaultsUtils().intervalTimerWorkKey)
+                            
+                            }
+                        
+                        }) {
                             SetTimeButtonView(color: "RemoveColor", icon: "minus")
                             
                         }
@@ -64,7 +84,11 @@ struct IntervalTimerView: View {
                             .frame(width: 128)
                         
                         // Add 1 second button
-                        Button(action: { work += 1 }) {
+                        Button(action: {
+                            work += 1
+                            userDefaults.set(work, forKey: UserDefaultsUtils().intervalTimerWorkKey)
+                            
+                        }) {
                             SetTimeButtonView(color: "AddColor", icon: "plus")
                             
                         }
@@ -76,7 +100,14 @@ struct IntervalTimerView: View {
                     
                     HStack {
                         // Remove 1 second if the time is above 0 seconds
-                        Button(action: { if rest > 1 { rest -= 1 } }) {
+                        Button(action: {
+                            if rest > 1 {
+                                rest -= 1
+                                userDefaults.set(rest, forKey: UserDefaultsUtils().intervalTimerRestKey)
+                                
+                            }
+                            
+                        }) {
                             SetTimeButtonView(color: "RemoveColor", icon: "minus")
                             
                         }
@@ -88,7 +119,11 @@ struct IntervalTimerView: View {
                             .frame(width: 128)
                         
                         // Add 1 second button
-                        Button(action: { rest += 1 }) {
+                        Button(action: {
+                            rest += 1
+                            userDefaults.set(rest, forKey: UserDefaultsUtils().intervalTimerRestKey)
+                            
+                        }) {
                             SetTimeButtonView(color: "AddColor", icon: "plus")
                             
                         }
@@ -192,6 +227,25 @@ struct IntervalTimerView: View {
                     }
                         
                 }
+                
+            }
+            
+        }.onAppear {
+            if rounds == 0 {
+                userDefaults.set(3, forKey: UserDefaultsUtils().intervalTimerRoundsKey)
+                rounds = 3
+                
+            }
+            
+            if work == 0 {
+                userDefaults.set(60, forKey: UserDefaultsUtils().intervalTimerWorkKey)
+                work = 60
+                
+            }
+            
+            if rest == 0 {
+                userDefaults.set(30, forKey: UserDefaultsUtils().intervalTimerRestKey)
+                rest = 30
                 
             }
             

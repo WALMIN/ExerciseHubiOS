@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CountView: View {
     
+    let userDefaults = UserDefaults.standard
+    
     @ObservedObject private var count = Count()
     
     var body: some View {
@@ -20,7 +22,14 @@ struct CountView: View {
                 
                 HStack {
                     // Remove 1 countTo if it is above 0
-                    Button(action: { if count.countTo > 1 { count.countTo -= 1 } }) {
+                    Button(action: {
+                        if count.countTo > 1 {
+                            count.countTo -= 1
+                            userDefaults.set(count.countTo, forKey: UserDefaultsUtils().countKey)
+                            
+                        }
+                        
+                    }) {
                         SetTimeButtonView(color: "RemoveColor", icon: "minus")
                         
                     }
@@ -32,7 +41,11 @@ struct CountView: View {
                         .frame(width: 128)
                     
                     // Add 1 countTo button
-                    Button(action: { count.countTo += 1 }) {
+                    Button(action: {
+                        count.countTo += 1
+                        userDefaults.set(count.countTo, forKey: UserDefaultsUtils().countKey)
+                        
+                    }) {
                         SetTimeButtonView(color: "AddColor", icon: "plus")
                         
                     }
@@ -44,7 +57,14 @@ struct CountView: View {
                 
                 HStack {
                     // Remove 100 delay if the delay is above 500
-                    Button(action: { if count.delay > 500 { count.delay -= 100 } }) {
+                    Button(action: {
+                        if count.delay > 500 {
+                            count.delay -= 100
+                            userDefaults.set(count.delay, forKey: UserDefaultsUtils().countDelayKey)
+                            
+                        }
+                        
+                    }) {
                         SetTimeButtonView(color: "RemoveColor", icon: "minus")
                         
                     }
@@ -61,7 +81,11 @@ struct CountView: View {
                     }
                         
                     // Add 1 delay button
-                    Button(action: { count.delay += 100 }) {
+                    Button(action: {
+                        count.delay += 100
+                        userDefaults.set(count.delay, forKey: UserDefaultsUtils().countDelayKey)
+                        
+                    }) {
                         SetTimeButtonView(color: "AddColor", icon: "plus")
                         
                     }
@@ -94,6 +118,19 @@ struct CountView: View {
                     PlayButtonView(icon: "stop.fill")
                     
                 }
+                
+            }
+            
+        }.onAppear {
+            if count.countTo == 0 {
+                userDefaults.set(10, forKey: UserDefaultsUtils().countKey)
+                count.countTo = 3
+                
+            }
+            
+            if count.delay == 0 {
+                userDefaults.set(1000, forKey: UserDefaultsUtils().countDelayKey)
+                count.delay = 60
                 
             }
             
