@@ -32,7 +32,7 @@ struct LibraryView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 6))
-                        .colorMultiply(Color.gray)
+                        .foregroundColor(.gray)
                     
                     ZStack(alignment: .leading) {
                         if searchText.isEmpty {
