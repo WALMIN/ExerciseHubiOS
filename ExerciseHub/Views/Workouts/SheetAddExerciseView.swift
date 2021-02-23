@@ -157,11 +157,12 @@ struct SheetAddExerciseView: View {
                         withAnimation {
                             let tempRound = Round(context: viewContext)
                             tempRound.timestamp = Date()
-                            tempRound.cycles = 0
+                            tempRound.cycles = 3
                             
                             let newExercise = Exercise(context: viewContext)
                             newExercise.timestamp = Date()
                             
+                            // Add exercise name
                             if addCustom {
                                 if let textFieldName = alert.textFields?[0] {
                                     if let exerciseName = textFieldName.text {
@@ -178,10 +179,18 @@ struct SheetAddExerciseView: View {
                             newExercise.exerciseDo = exerciseDo
                             newExercise.custom = addCustom
                             
-                            workout.roundsArray[workout.roundsArray.count - 1].addToExercises(newExercise)
+                            // Check if there is a round already else add one
+                            if (workout.roundsArray.count - 1) >= 0 {
+                                workout.roundsArray[workout.roundsArray.count - 1].addToExercises(newExercise)
                                 
-                            workout.addToRounds(tempRound)
-                            workout.removeFromRounds(tempRound)
+                                workout.addToRounds(tempRound)
+                                workout.removeFromRounds(tempRound)
+                                
+                            }else {
+                                workout.addToRounds(tempRound)
+                                workout.roundsArray[0].addToExercises(newExercise)
+                                
+                            }
                             
                             presentationMode.wrappedValue.dismiss()
                             

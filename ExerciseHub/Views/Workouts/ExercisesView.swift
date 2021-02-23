@@ -72,7 +72,7 @@ struct ExercisesView: View {
                         Spacer()
                         VStack {
                             Text("Nothing to show yet").padding()
-                            Text("Edit the workout to get started")
+                            Text("Add an exercise to get started")
                         }
                         Spacer()
                     }
