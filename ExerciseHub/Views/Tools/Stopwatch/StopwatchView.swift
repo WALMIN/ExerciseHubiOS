@@ -57,10 +57,10 @@ struct StopwatchView: View {
                     
                 }) {
                     if stopwatch.state == .stopped || stopwatch.state == .paused {
-                        PlayButtonView(icon: "play.fill")
+                        CircleButtonView(icon: "play.fill", size: 38)
                         
                     } else {
-                        PlayButtonView(icon: "pause.fill")
+                        CircleButtonView(icon: "pause.fill", size: 38)
                         
                     }
                     

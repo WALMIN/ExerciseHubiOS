@@ -1,5 +1,5 @@
 //
-//  PlateView.swift
+//  PlateItemView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlateView: View {
+struct PlateItemView: View {
     
     var title: String = "1"
     @State var amount = 0
@@ -45,9 +45,9 @@ struct PlateView: View {
     
 }
 
-struct PlateView_Previews: PreviewProvider {
+struct PlateItemView_Previews: PreviewProvider {
     static var previews: some View {
-        PlateView()
+        PlateItemView()
         
     }
     

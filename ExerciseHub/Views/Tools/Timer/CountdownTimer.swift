@@ -55,7 +55,7 @@ class CountdownTimer: ObservableObject {
     func reset(){
         state = .stopped
         timer.invalidate()
-        timeLeft = 60
+        timeLeft = UserDefaults.standard.double(forKey: UserDefaultsUtils().timerTimeKey)
         
         if let sound = media.sound {
             sound.stop()

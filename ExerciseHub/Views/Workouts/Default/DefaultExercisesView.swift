@@ -14,22 +14,39 @@ struct DefaultExercisesView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(fetchExercises.list) { exercise in
-                        if exercise.name.starts(with: "|Round") {
-                            Text("\(exercise.name.replacingOccurrences(of: "|", with: ""))")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                        } else if (!exercise.id.contains("2001") && !exercise.id.contains("1979")) {
-                            DefaultExerciseItemView(exercise: exercise)
-                            
-                        }
-                    
-                    }
+            // Show no exercises text if the list is empty
+            if fetchExercises.list.count == 0 {
+                HStack {
+                    VStack {
+                        Text("No exercises to show").padding()
+                        Text("Try again later")
                         
+                    }
+                    
                 }
-                .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+                
+                Spacer()
+             
+            // Show exercise list with rounds & exercise item
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(fetchExercises.list) { exercise in
+                            if exercise.name.starts(with: "|Round") {
+                                Text("\(exercise.name.replacingOccurrences(of: "|", with: ""))")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                            } else if (!exercise.id.contains("2001") && !exercise.id.contains("1979")) {
+                                DefaultExerciseItemView(exercise: exercise)
+                                
+                            }
+                        
+                        }
+                            
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+                    
+                }
                 
             }
                 

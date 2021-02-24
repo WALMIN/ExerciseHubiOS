@@ -22,6 +22,7 @@ struct MyWorkoutsExerciseItemView: View {
             
             VStack {
                 HStack {
+                    // Show video if it's not a custom exercise
                     Button(action: {
                         if !exercise.custom {
                             selectedExercise = exercise.wrappedName
@@ -33,6 +34,7 @@ struct MyWorkoutsExerciseItemView: View {
                     
                     }
                         
+                    // Exercise name
                     Text("\(exercise.wrappedName)")
                         .font(.body)
                         .foregroundColor(.black)
@@ -45,6 +47,7 @@ struct MyWorkoutsExerciseItemView: View {
                 }
                 
                 HStack {
+                    // Exercise reps/time to do
                     Text("\(exercise.wrappedExerciseDo)")
                         .font(.caption)
                         .foregroundColor(.black)

@@ -1,5 +1,5 @@
 //
-//  SetTimeButtonView.swift
+//  CircleButtonView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-10.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct SetTimeButtonView: View {
+struct CircleButtonView: View {
     
-    var color: String = "AccentColor"
-    var icon: String = ""
+    var color: String = "AccentColor2"
+    var icon: String
+    var size: CGFloat
     
     var body: some View {
         ZStack {
@@ -18,17 +19,17 @@ struct SetTimeButtonView: View {
             Image(systemName: icon).foregroundColor(.white)
         
         }
-        .frame(width: 32, height: 32)
-        .cornerRadius(32)
+        .frame(width: size, height: size)
+        .cornerRadius(size)
         .padding()
         
     }
     
 }
 
-struct SetTimeButtonView_Previews: PreviewProvider {
+struct CircleButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        SetTimeButtonView()
+        CircleButtonView(icon: "play.fill", size: 38)
         
     }
     

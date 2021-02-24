@@ -14,7 +14,7 @@ struct LibraryView: View {
 
     var body: some View {
         VStack {
-            // Show no exercises text if list is empty
+            // Show no exercises text if the list is empty
             if fetchLibrary.list.count == 0 {
                 HStack {
                     VStack {
@@ -23,11 +23,11 @@ struct LibraryView: View {
                         
                     }
                     
-                }.listRowBackground(Color(UIColor.systemBackground))
+                }
                 
                 Spacer()
                 
-            // Show textfield and list
+            // Show textfield & list
             } else {
                 HStack {
                     Image(systemName: "magnifyingglass")

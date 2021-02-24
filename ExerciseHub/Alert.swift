@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Code to show UIAlert
 struct Alert {
 
     func show(_ alert: UIAlertController) {

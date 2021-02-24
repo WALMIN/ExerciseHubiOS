@@ -95,7 +95,7 @@ struct MyWorkoutsView: View {
         
     }
     
-    // Alert with textfield to add a workout
+    // Alert with textfield to add/edit a workout
     func addEditWorkoutAlert(_ add: Bool, _ workout: Workout, title: String, text: String, confirm: String, cancel: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         alert.addTextField() { textField in

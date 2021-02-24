@@ -14,20 +14,37 @@ struct DefaultWorkoutsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView {
-                    WarmUpView()
-                    
-                    LazyVGrid(columns: [GridItem(), GridItem()]) {
-                        ForEach(fetchWorkouts.list) { workout in
-                            NavigationLink(destination: DefaultExercisesView(title: workout.name, fetchExercises: FetchExercises(id: workout.id))) {
-                                DefaultWorkoutItemView(workout: workout)
-                                
-                            }
-                        
-                        }
+                // Show no workouts text if the list is empty
+                if fetchWorkouts.list.count == 0 {
+                    HStack {
+                        VStack {
+                            Text("No workouts to show").padding()
+                            Text("Try again later")
                             
+                        }
+                        
                     }
-                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+                    
+                    Spacer()
+                    
+                // Show workout list
+                } else {
+                    ScrollView {
+                        WarmUpView()
+                        
+                        LazyVGrid(columns: [GridItem(), GridItem()]) {
+                            ForEach(fetchWorkouts.list) { workout in
+                                NavigationLink(destination: DefaultExercisesView(title: workout.name, fetchExercises: FetchExercises(id: workout.id))) {
+                                    DefaultWorkoutItemView(workout: workout)
+                                    
+                                }
+                            
+                            }
+                                
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+                        
+                    }
                     
                 }
                     

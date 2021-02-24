@@ -1,5 +1,5 @@
 //
-//  BlankButtonView.swift
+//  DummyButtonView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-09.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-// Dummy button to just be invisible
-struct BlankButtonView: View {
+struct DummyButtonView: View {
     
     var title = ""
     
@@ -25,9 +24,9 @@ struct BlankButtonView: View {
     
 }
 
-struct BlankButtonView_Previews: PreviewProvider {
+struct DummyButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        BlankButtonView()
+        DummyButtonView()
         
     }
     

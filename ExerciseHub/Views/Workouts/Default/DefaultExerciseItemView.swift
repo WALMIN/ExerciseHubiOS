@@ -19,12 +19,14 @@ struct DefaultExerciseItemView: View {
             
             VStack {
                 HStack {
+                    // Show exercsse video
                     Button(action: { selectedExercise = exercise.name }) {
                         Image(systemName: "play.rectangle.fill")
                             .foregroundColor(.black)
                     
                     }
-                        
+                    
+                    // Exercise name
                     Text("\(exercise.name)")
                         .font(.body)
                         .foregroundColor(.black)
@@ -37,6 +39,7 @@ struct DefaultExerciseItemView: View {
                 }
                 
                 HStack {
+                    // Exercise reps/time to do
                     Text("\(exercise.exerciseDo)")
                         .font(.caption)
                         .foregroundColor(.black)

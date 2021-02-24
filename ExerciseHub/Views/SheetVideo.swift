@@ -12,9 +12,9 @@ struct SheetVideo: View {
     
     let name: String
     
+    // Video player that shows a title & an exercise
     var body: some View {
         VStack {
-            // Video player that shows a title & an exercise
             let videoPlayer = AVPlayer(url: URL(string: "https://walmin.com/exercisehub/resources/library/vid/\(name.lowercased().replacingOccurrences(of: " ", with: "_")).mp4")!)
             
             VideoPlayer(player: videoPlayer){

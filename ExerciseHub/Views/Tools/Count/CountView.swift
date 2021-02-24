@@ -30,7 +30,7 @@ struct CountView: View {
                         }
                         
                     }) {
-                        SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                        CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                         
                     }
                     
@@ -46,7 +46,7 @@ struct CountView: View {
                         userDefaults.set(count.countTo, forKey: UserDefaultsUtils().countKey)
                         
                     }) {
-                        SetTimeButtonView(color: "AddColor", icon: "plus")
+                        CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                         
                     }
                     
@@ -65,7 +65,7 @@ struct CountView: View {
                         }
                         
                     }) {
-                        SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                        CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                         
                     }
                     
@@ -80,13 +80,13 @@ struct CountView: View {
                         
                     }
                         
-                    // Add 1 delay button
+                    // Add 100 delay button
                     Button(action: {
                         count.delay += 100
                         userDefaults.set(count.delay, forKey: UserDefaultsUtils().countDelayKey)
                         
                     }) {
-                        SetTimeButtonView(color: "AddColor", icon: "plus")
+                        CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                         
                     }
                     
@@ -112,10 +112,10 @@ struct CountView: View {
                 
             }) {
                 if count.state == .stopped {
-                    PlayButtonView(icon: "play.fill")
+                    CircleButtonView(icon: "play.fill", size: 38)
                     
                 } else {
-                    PlayButtonView(icon: "stop.fill")
+                    CircleButtonView(icon: "stop.fill", size: 38)
                     
                 }
                 

@@ -25,7 +25,7 @@ struct SheetAddExercise: View {
     
     var body: some View {
         VStack {
-            // Show no exercises text if list is empty
+            // Show no exercises text if the list is empty
             if fetchLibrary.list.count == 0 {
                 HStack {
                     VStack {
@@ -38,7 +38,7 @@ struct SheetAddExercise: View {
                 
                 Spacer()
                 
-            // Show textfield and exercise list
+            // Show textfield & exercise list
             } else {
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -135,6 +135,7 @@ struct SheetAddExercise: View {
         
     }
     
+    // Alert with textfield(s) to add exercise
     func addExerciseAlert(_ addCustom: Bool, title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
@@ -215,32 +216,6 @@ struct SheetAddExercise: View {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
         
         Alert().show(alert)
-        
-    }
-    
-    func replaceExercise(_ exercise: Exercise, roundIndex: Int, title: String){
-        withAnimation {
-            let tempRound = Round(context: viewContext)
-            tempRound.timestamp = Date()
-            tempRound.cycles = 0
-            
-            exercise.name = title
-            
-            workout.roundsArray[roundIndex].addToExercises(exercise)
-            workout.addToRounds(tempRound)
-            workout.removeFromRounds(tempRound)
-            
-            presentationMode.wrappedValue.dismiss()
-            
-            do {
-                try viewContext.save()
-                
-            } catch {
-                fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
-                
-            }
-            
-        }
         
     }
     

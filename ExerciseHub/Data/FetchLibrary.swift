@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Fetch library json file
 class FetchLibrary: ObservableObject {
     
     @Published var list = [LibraryModel]()

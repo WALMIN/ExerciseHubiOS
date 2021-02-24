@@ -14,11 +14,13 @@ struct WorkoutsView: View {
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
+                // Default workouts page
                 DefaultWorkoutsView().tabItem {
                     Label("Default workouts", systemImage: "square.grid.2x2")
                         
                 }.tag(0)
                 
+                // My workouts page
                 MyWorkoutsView().tabItem {
                     Label("My workouts", systemImage: "square.and.pencil")
                     

@@ -34,7 +34,7 @@ struct TimerView: View {
                     }
                     
                 } else {
-                    BlankButtonView(title: "Reset")
+                    DummyButtonView(title: "Reset")
                     
                 }
                 
@@ -53,13 +53,13 @@ struct TimerView: View {
                     
                 }) {
                     if timer.state == .paused || timer.state == .stopped {
-                        PlayButtonView(icon: "play.fill")
+                        CircleButtonView(icon: "play.fill", size: 38)
                         
                     } else if timer.state == .finished {
-                        PlayButtonView(icon: "stop.fill")
+                        CircleButtonView(icon: "stop.fill", size: 38)
                         
                     } else {
-                        PlayButtonView(icon: "pause.fill")
+                        CircleButtonView(icon: "pause.fill", size: 38)
                         
                     }
                     
@@ -96,7 +96,7 @@ struct TimerView: View {
                     }
                 
                 } else {
-                    BlankButtonView(title: "Set time")
+                    DummyButtonView(title: "Set time")
                     
                 }
                 

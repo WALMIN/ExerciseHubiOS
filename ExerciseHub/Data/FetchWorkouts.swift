@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Fetch workouts json file
 class FetchWorkouts: ObservableObject {
     
     @Published var list = [WorkoutModel]()

@@ -15,6 +15,7 @@ struct LibraryItemView: View {
     
     var item: LibraryModel
         
+    // Library list item with an animated image & title
     var body: some View {
         ZStack {
             Color(UIColor(.white))

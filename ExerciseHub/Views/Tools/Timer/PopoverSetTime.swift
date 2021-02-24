@@ -17,14 +17,14 @@ struct PopoverSetTime: View {
     
     var body: some View {
         VStack {
-            // Show the title
             Text("Set time").font(.title2)
+            
             Spacer()
             
             HStack {
                 // Remove 1 second if the time is above 0 seconds
                 Button(action: { if time > 1 { time -= 1 } }) {
-                    SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                    CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                     
                 }
                 
@@ -36,7 +36,7 @@ struct PopoverSetTime: View {
                 
                 // Add 1 second button
                 Button(action: { time += 1 }) {
-                    SetTimeButtonView(color: "AddColor", icon: "plus")
+                    CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                     
                 }
                 

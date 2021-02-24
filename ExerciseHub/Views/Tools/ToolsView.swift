@@ -14,7 +14,7 @@ struct ToolsView: View {
             TabView {
                 // Stopwatch page
                 VStack {
-                    TitleView(title: "Stopwatch")
+                    ToolsTitleView(title: "Stopwatch")
                     StopwatchView()
                     Spacer()
                     
@@ -24,7 +24,7 @@ struct ToolsView: View {
                 
                 // Timer page
                 VStack {
-                    TitleView(title: "Timer")
+                    ToolsTitleView(title: "Timer")
                     TimerView()
                     Spacer()
                     
@@ -34,7 +34,7 @@ struct ToolsView: View {
                 
                 // Interval timer page
                 VStack {
-                    TitleView(title: "Interval timer")
+                    ToolsTitleView(title: "Interval timer")
                     IntervalTimerView()
                     Spacer()
                     
@@ -44,7 +44,7 @@ struct ToolsView: View {
                 
                 // Plate calculator page
                 VStack {
-                    TitleView(title: "Plate calculator")
+                    ToolsTitleView(title: "Plate calculator")
                     PlateCalculatorView()
                     Spacer()
                     
@@ -54,7 +54,7 @@ struct ToolsView: View {
                 
                 // Count page
                 VStack {
-                    TitleView(title: "Count")
+                    ToolsTitleView(title: "Count")
                     CountView()
                     Spacer()
                     
@@ -73,21 +73,6 @@ struct ToolsView: View {
 struct ToolsView_Previews: PreviewProvider {
     static var previews: some View {
         ToolsView()
-        
-    }
-    
-}
-
-struct TitleView: View {
-    
-    var title = ""
-    
-    var body: some View {
-        Text(title)
-            .font(.caption)
-            .textCase(.uppercase)
-        
-        Spacer()
         
     }
     

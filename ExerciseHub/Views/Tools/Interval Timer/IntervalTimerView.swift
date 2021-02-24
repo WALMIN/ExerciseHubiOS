@@ -29,7 +29,7 @@ struct IntervalTimerView: View {
                     Text("Rounds").font(.caption)
                     
                     HStack {
-                        // Remove 1 round if the round is above 0 seconds
+                        // Remove 1 round if the round is above 1
                         Button(action: {
                             if rounds > 1 {
                                 rounds -= 1
@@ -38,7 +38,7 @@ struct IntervalTimerView: View {
                             }
                             
                         }) {
-                            SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                            CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                             
                         }
                         
@@ -54,7 +54,7 @@ struct IntervalTimerView: View {
                             userDefaults.set(rounds, forKey: UserDefaultsUtils().intervalTimerRoundsKey)
                             
                         }) {
-                            SetTimeButtonView(color: "AddColor", icon: "plus")
+                            CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                             
                         }
                         
@@ -73,7 +73,7 @@ struct IntervalTimerView: View {
                             }
                         
                         }) {
-                            SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                            CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                             
                         }
                         
@@ -89,7 +89,7 @@ struct IntervalTimerView: View {
                             userDefaults.set(work, forKey: UserDefaultsUtils().intervalTimerWorkKey)
                             
                         }) {
-                            SetTimeButtonView(color: "AddColor", icon: "plus")
+                            CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                             
                         }
                         
@@ -108,7 +108,7 @@ struct IntervalTimerView: View {
                             }
                             
                         }) {
-                            SetTimeButtonView(color: "RemoveColor", icon: "minus")
+                            CircleButtonView(color: "RemoveColor", icon: "minus", size: 32)
                             
                         }
                         
@@ -124,7 +124,7 @@ struct IntervalTimerView: View {
                             userDefaults.set(rest, forKey: UserDefaultsUtils().intervalTimerRestKey)
                             
                         }) {
-                            SetTimeButtonView(color: "AddColor", icon: "plus")
+                            CircleButtonView(color: "AddColor", icon: "plus", size: 32)
                             
                         }
                         
@@ -139,7 +139,7 @@ struct IntervalTimerView: View {
                         intervalTimer.start()
                         
                     }) {
-                        PlayButtonView(icon: "play.fill")
+                        CircleButtonView(icon: "play.fill", size: 38)
                         
                     }
                     
@@ -188,10 +188,10 @@ struct IntervalTimerView: View {
                                 
                             }) {
                                 if intervalTimer.state == .paused {
-                                    PlayButtonView(icon: "play.fill")
+                                    CircleButtonView(icon: "play.fill", size: 38)
                                     
                                 } else {
-                                    PlayButtonView(icon: "pause.fill")
+                                    CircleButtonView(icon: "pause.fill", size: 38)
                                     
                                 }
                                 
@@ -208,6 +208,7 @@ struct IntervalTimerView: View {
                     
                     Spacer()
                     
+                    // Show reset button if the timer is paused
                     if intervalTimer.state == .paused {
                         Button(action: {
                             intervalTimer.reset()
@@ -222,7 +223,7 @@ struct IntervalTimerView: View {
                         }
                         
                     } else {
-                        BlankButtonView(title: "Reset")
+                        DummyButtonView(title: "Reset")
                         
                     }
                         

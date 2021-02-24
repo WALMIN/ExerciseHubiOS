@@ -13,6 +13,7 @@ class MediaUtils {
     var sound: AVAudioPlayer?
     var vibrationTimer: Timer?
     
+    // Play a sound
     func playSound(_ file: String, repeatSound: Bool = false){
         guard let path = Bundle.main.path(forResource: "\(file)", ofType: nil) else { return }
         let url = URL(fileURLWithPath: path)
@@ -31,6 +32,7 @@ class MediaUtils {
         
     }
     
+    // Start the repeating vibration
     func startRepeatingVibration() {
         vibrationTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true) { timer in
             AudioServicesPlaySystemSound(1520)
@@ -39,6 +41,7 @@ class MediaUtils {
             
     }
     
+    // Stop the repeating vibration
     func stopRepeatingVibration() {
         if let timer = vibrationTimer {
             timer.invalidate()
@@ -47,6 +50,7 @@ class MediaUtils {
             
     }
     
+    // Vibrate device
     func vibrate(strength: Int = 0) {
         // Strong
         if strength == 1 {

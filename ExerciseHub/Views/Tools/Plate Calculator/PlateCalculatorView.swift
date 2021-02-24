@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlateCalculatorView: View {
     
-    let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.standard
     
     @State var kgShowing = UserDefaults.standard.bool(forKey: UserDefaultsUtils().kgShowingKey)
     
@@ -18,7 +18,6 @@ struct PlateCalculatorView: View {
     
     @State var kgList = [[0.25, 0.5, 1, 1.25], [2, 2.25, 2.5, 5], [7.5, 10, 12.5, 15], [20, 25, 50]]
     @State var lbList = [[1.25, 2.5, 5, 7.5], [10, 12.5, 15, 20], [25, 30, 35, 40], [45, 50, 55, 100]]
-    
     @State var weightAmountList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     @State var popoverBarbellWeightShowing = false
@@ -137,11 +136,11 @@ struct PlateCalculatorView: View {
                 
             }
             
-            // Plates
-            ForEach(0...3, id: \.self) { i in
+            // Plates list
+            ForEach(0...3, id: \.self) { row in
                 HStack {
-                    ForEach(Array(kgShowing ? kgList[i].enumerated() : lbList[i].enumerated()), id: \.1) { index, item in
-                        PlateView(title: "\(item)", amount: weightAmountList[index])
+                    ForEach(Array(kgShowing ? kgList[row].enumerated() : lbList[row].enumerated()), id: \.1) { index, item in
+                        PlateItemView(title: "\(item)", amount: weightAmountList[index])
                             .simultaneousGesture(LongPressGesture().onEnded { _ in
                                 if weightAmountList[index] > 0 {
                                     weightAmountList[index] -= 1
@@ -165,6 +164,7 @@ struct PlateCalculatorView: View {
                 .font(.caption)
                 .padding()
             
+            // Toggle to switch between kg & lb
             HStack {
                 Text("KG").padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 12))
                 Toggle("", isOn: $kgShowing)
@@ -174,6 +174,9 @@ struct PlateCalculatorView: View {
                     .onChange(of: kgShowing) { value in
                         barbellWeight = value ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) : userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
                         userDefaults.set(value, forKey: UserDefaultsUtils().kgShowingKey)
+                        
+                        totalWeight = 0.0
+                        weightAmountList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                         
                     }
                 
