@@ -1,5 +1,5 @@
 //
-//  YourWorkoutsView.swift
+//  MyWorkoutsView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-23.
@@ -22,7 +22,7 @@ struct MyWorkoutsView: View {
                     // Workouts list
                     LazyVStack {
                         ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
-                            NavigationLink(destination: ExercisesView(workout: workout)) {
+                            NavigationLink(destination: MyWorkoutsExercisesView(workout: workout)) {
                                 ZStack {
                                     Color(UIColor(.white))
                                     

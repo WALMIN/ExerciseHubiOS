@@ -18,8 +18,11 @@ struct DefaultWorkoutsView: View {
                     WarmUpView()
                     
                     LazyVGrid(columns: [GridItem(), GridItem()]) {
-                        ForEach(fetchWorkouts.list) { item in
-                            WorkoutItemView(item: item)
+                        ForEach(fetchWorkouts.list) { workout in
+                            NavigationLink(destination: DefaultExercisesView(title: workout.name, fetchExercises: FetchExercises(id: workout.id))) {
+                                DefaultWorkoutItemView(workout: workout)
+                                
+                            }
                         
                         }
                             

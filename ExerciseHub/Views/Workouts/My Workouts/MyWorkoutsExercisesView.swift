@@ -1,5 +1,5 @@
 //
-//  ExercisesView.swift
+//  MyWorkoutsExercisesView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-15.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExercisesView: View {
+struct MyWorkoutsExercisesView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -26,7 +26,7 @@ struct ExercisesView: View {
                 ForEach(Array(workout.roundsArray.enumerated()), id: \.1) { roundIndex, round in
                     Section(header: HeaderView(workout: workout, roundIndex: roundIndex, round: round) ) {
                         ForEach(Array(round.exercisesArray.enumerated()), id: \.1) { exerciseIndex, exercise in
-                            ExerciseItemView(exercise: exercise)
+                            MyWorkoutsExerciseItemView(exercise: exercise)
                                 .contextMenu {
                                     // Delete an exercise button
                                     Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
@@ -106,7 +106,7 @@ struct ExercisesView: View {
                 ]
             )
 
-        }.background(EmptyView().sheet(isPresented: $addExerciseShowing) { SheetAddExerciseView(workout: workout) })
+        }.background(EmptyView().sheet(isPresented: $addExerciseShowing) { SheetAddExercise(workout: workout) })
         
     }
     
@@ -274,9 +274,9 @@ struct ExercisesView: View {
     
 }
 
-struct ExercisesView_Previews: PreviewProvider {
+struct MyWorkoutsExercisesView_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisesView(workout: Workout())
+        MyWorkoutsExercisesView(workout: Workout())
         
     }
     

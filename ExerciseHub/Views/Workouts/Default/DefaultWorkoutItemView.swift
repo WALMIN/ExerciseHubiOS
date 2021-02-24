@@ -1,5 +1,5 @@
 //
-//  WorkoutItemView.swift
+//  DefaultWorkoutItemView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-23.
@@ -8,15 +8,15 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct WorkoutItemView: View {
+struct DefaultWorkoutItemView: View {
     
-    var item: WorkoutModel
+    var workout: WorkoutModel
     
     var body: some View {
         ZStack {
             Color(UIColor(.white))
             
-            WebImage(url: URL(string: "https://www.walmin.com/exercisehub/resources/workouts/default/thumbnails/d_\(item.id).jpg"))
+            WebImage(url: URL(string: "https://www.walmin.com/exercisehub/resources/workouts/default/thumbnails/d_\(workout.id).jpg"))
                 .placeholder{ Image(systemName: "gobackward").foregroundColor(.black) }
                 .resizable()
                 .scaledToFill()
@@ -25,7 +25,7 @@ struct WorkoutItemView: View {
                 Spacer()
             
                 HStack {
-                    Text(item.name)
+                    Text(workout.name)
                         .font(.caption)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
@@ -44,9 +44,9 @@ struct WorkoutItemView: View {
     
 }
 
-struct WorkoutItemView_Previews: PreviewProvider {
+struct DefaultWorkoutItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutItemView(item: WorkoutModel(id: "0", name: "Full body", desc: "..."))
+        DefaultWorkoutItemView(workout: WorkoutModel(id: "0", name: "?", desc: "?"))
         
     }
     

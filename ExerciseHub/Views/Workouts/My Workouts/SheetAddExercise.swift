@@ -1,5 +1,5 @@
 //
-//  SheetAddExerciseView.swift
+//  SheetAddExercise.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct SheetAddExerciseView: View {
+struct SheetAddExercise: View {
     
     var workout: Workout
     
@@ -246,9 +246,9 @@ struct SheetAddExerciseView: View {
     
 }
 
-struct SheetAddExerciseView_Previews: PreviewProvider {
+struct SheetAddExercise_Previews: PreviewProvider {
     static var previews: some View {
-        SheetAddExerciseView(workout: Workout())
+        SheetAddExercise(workout: Workout())
         
     }
     

@@ -1,5 +1,5 @@
 //
-//  ExerciseItemView.swift
+//  MyWorkoutsExerciseItemView.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-02-22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseItemView: View {
+struct MyWorkoutsExerciseItemView: View {
     
     let exercise: Exercise
     
@@ -69,9 +69,9 @@ struct ExerciseItemView: View {
     
 }
 
-struct ExerciseItemView_Previews: PreviewProvider {
+struct MyWorkoutsExerciseItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseItemView(exercise: Exercise())
+        MyWorkoutsExerciseItemView(exercise: Exercise())
         
     }
     
