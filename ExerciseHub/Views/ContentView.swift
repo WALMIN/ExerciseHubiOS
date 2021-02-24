@@ -9,36 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentPage = 1
+    @State var currentPage = 0
     
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
                 WorkoutsView().tabItem {
-                    VStack {
-                        Image(systemName: "doc.plaintext.fill")
-                        Text("Workouts")
-                    }
+                    Label("Workouts", systemImage: "doc.plaintext.fill")
                     
-                }.tag(1)
+                }.tag(0)
                 
                 LibraryView().tabItem {
-                    VStack {
-                        Image(systemName: "list.triangle")
-                        Text("Library")
+                    Label("Library", systemImage: "list.triangle")
                         
-                    }
-                        
-                }.tag(2)
+                }.tag(1)
                 
                 ToolsView().tabItem {
-                    VStack {
-                        Image("tools")
-                        Text("Tools")
+                    Label("Tools", image: "tools")
                         
-                    }
-                        
-                }.tag(3)
+                }.tag(2)
                 
             }
             

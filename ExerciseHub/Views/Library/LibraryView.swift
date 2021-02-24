@@ -56,7 +56,6 @@ struct LibraryView: View {
                                  true : $0.name.lowercased().contains(searchText.lowercased())})) { item in
                         
                             LibraryItemView(item: item)
-                                .listRowBackground(Color(UIColor.systemBackground))
                         
                         }
                             
