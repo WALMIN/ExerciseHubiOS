@@ -13,65 +13,74 @@ struct DefaultExercisesView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var title: String
+    var description: String
     @ObservedObject var fetchExercises: FetchExercises
     
     var body: some View {
-        VStack {
-            // Show no exercises text if the list is empty
-            if fetchExercises.list.count == 0 {
-                HStack {
-                    VStack {
-                        Text("No exercises to show").padding()
-                        Text("Try again later")
+        ScrollView {
+            LazyVStack {
+                // Show no exercises text if the list is empty
+                if fetchExercises.list.count == 0 {
+                    HStack {
+                        VStack {
+                            Text("No exercises to show").padding()
+                            Text("Try again later")
+                            
+                        }
                         
                     }
                     
-                }
-                
-                Spacer()
-             
-            // Show exercise list with rounds & exercise item
-            } else {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(fetchExercises.list) { exercise in
-                            if exercise.name.starts(with: "|Round") {
-                                Text("\(exercise.name.replacingOccurrences(of: "|", with: ""))")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                            } else if (!exercise.id.contains("2001") && !exercise.id.contains("1979")) {
-                                DefaultExerciseItemView(exercise: exercise)
-                                
-                            }
-                        
-                        }
-                        
-                        Button(action: {
-                            addWorkoutToHistory()
+                    Spacer()
+                 
+                // Show exercise list with rounds & exercise item
+                } else {
+                    ForEach(fetchExercises.list) { exercise in
+                        if exercise.name.starts(with: "|Round") {
+                            Text("\(exercise.name.replacingOccurrences(of: "|", with: ""))")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             
-                        }) {
-                            ZStack {
-                                Color("AccentColor2")
-                                
-                                Text("I've completed this workout")
-                                    .font(.body)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    .textCase(.uppercase)
-                                    .padding()
-                                
-                            }.cornerRadius(8)
+                        } else if (!exercise.id.contains("2001") && !exercise.id.contains("1979")) {
+                            DefaultExerciseItemView(exercise: exercise)
                             
                         }
-                            
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                     
+                    }
+                    
+                    Button(action: {
+                        addWorkoutToHistory()
+                        
+                    }) {
+                        ZStack {
+                            Color("AccentColor2")
+                            
+                            Text("I've completed this workout")
+                                .font(.body)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .textCase(.uppercase)
+                                .padding()
+                            
+                        }.cornerRadius(8)
+                        
+                    }
+                        
                 }
                 
             }
+            .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+            .navigationBarTitle("\(title)")
+            .navigationBarItems(trailing:
+                // Button to show workout info
+                Button(action: { infoAlert(title, description) }) {
+                    Image(systemName: "info.circle.fill")
+                        .imageScale(.large)
                 
-        }.navigationBarTitle("\(title)")
+                }
+                                
+            )
+            
+        }
+       
         
     }
     
@@ -101,11 +110,19 @@ struct DefaultExercisesView: View {
         
     }
     
+    private func infoAlert(_ title: String, _ description: String){
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default) { _ in })
+        
+        Alert().show(alert)
+        
+    }
+    
 }
 
 struct DefaultExercisesView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultExercisesView(title: "?", fetchExercises: FetchExercises(id: "0"))
+        DefaultExercisesView(title: "?", description: "?", fetchExercises: FetchExercises(id: "0"))
         
     }
     

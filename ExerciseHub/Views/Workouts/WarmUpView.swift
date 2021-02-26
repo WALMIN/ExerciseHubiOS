@@ -86,7 +86,6 @@ struct WarmUpView: View {
                 
         }
         .cornerRadius(8)
-        .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
         .sheet(item: $selectedExercise, content: { selectedExercise in
             SheetVideo(name: selectedExercise)
 

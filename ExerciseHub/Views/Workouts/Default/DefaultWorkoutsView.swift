@@ -36,7 +36,7 @@ struct DefaultWorkoutsView: View {
                         
                         LazyVGrid(columns: [GridItem(), GridItem()]) {
                             ForEach(fetchWorkouts.list) { workout in
-                                NavigationLink(destination: DefaultExercisesView(title: workout.name, fetchExercises: FetchExercises(id: workout.id))) {
+                                NavigationLink(destination: DefaultExercisesView(title: workout.name, description: workout.desc, fetchExercises: FetchExercises(id: workout.id))) {
                                     DefaultWorkoutItemView(workout: workout)
                                     
                                 }
@@ -44,13 +44,13 @@ struct DefaultWorkoutsView: View {
                             }
                                 
                         }
-                        .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                         
                     }
                     
                 }
                     
             }
+            .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
             .navigationBarTitle("Default workouts")
             .navigationBarItems(trailing:
                 // History

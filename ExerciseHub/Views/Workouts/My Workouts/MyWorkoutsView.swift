@@ -18,95 +18,96 @@ struct MyWorkoutsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView {
-                    WarmUpView()
-                    
-                    // Workouts list
-                    LazyVStack {
-                        ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
-                            NavigationLink(destination: MyWorkoutsExercisesView(workout: workout)) {
-                                ZStack {
-                                    Color(UIColor(.white))
-                                    
-                                    HStack {
-                                        if let title = workout.title {
-                                            Text("\(title)")
-                                                .font(.body)
-                                                .foregroundColor(.black)
-                                                .fontWeight(.bold)
-                                                .textCase(.uppercase)
-                                                .lineLimit(1)
-                                                
-                                        }
-                                        Spacer()
-                                        
-                                    }.padding(12)
-                                    
-                                }.cornerRadius(8)
-                                
-                            }.contextMenu {
-                                // Delete workout
-                                Button(action: { deleteWorkout(index: index) }) {
-                                    Text("Delete")
-                                    Image(systemName: "trash")
-                                    
-                                }
-                                
-                                // Rename workout
-                                Button(action: { addEditWorkoutAlert(false, workout, title: "Rename the workout", text: workout.title ?? "", confirm: "Save", cancel: "Cancel") }) {
-                                    Text("Rename")
-                                    Image(systemName: "pencil")
-                                    
-                                }
-                                
-                            }
-                            
+                // No workouts text
+                if workouts.count == 0 {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Text("No workouts yet").padding()
+                            Text("Add one to get started")
                         }
-                        .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
-                        
-                        // No workouts text
-                        if workouts.count == 0 {
-                            HStack {
-                                Spacer()
-                                VStack {
-                                    Text("No workouts yet").padding()
-                                    Text("Add one to get started")
-                                }
-                                Spacer()
-                            }
-                            
-                        }
-                        
+                        Spacer()
                     }
-                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
-                    .navigationBarTitle("My workouts")
-                    .navigationBarItems(trailing:
-                        HStack {
-                            // Button to add a workout
-                            Button(action: { addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel") }) {
-                                Image(systemName: "plus.circle.fill")
-                                    .imageScale(.large)
-                            
-                            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                    
+                } else {
+                    ScrollView {
+                        WarmUpView()
                         
-                            // History
-                            Button(action: { historySheetShowing = true }) {
-                                Image(systemName: "clock.fill")
-                                    .imageScale(.large)
-                            
+                        // Workouts list
+                        LazyVStack {
+                            ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
+                                NavigationLink(destination: MyWorkoutsExercisesView(workout: workout)) {
+                                    ZStack {
+                                        Color(UIColor(.white))
+                                        
+                                        HStack {
+                                            if let title = workout.title {
+                                                Text("\(title)")
+                                                    .font(.body)
+                                                    .foregroundColor(.black)
+                                                    .fontWeight(.bold)
+                                                    .textCase(.uppercase)
+                                                    .lineLimit(1)
+                                                    
+                                            }
+                                            Spacer()
+                                            
+                                        }.padding(12)
+                                        
+                                    }.cornerRadius(8)
+                                    
+                                }.contextMenu {
+                                    // Delete workout
+                                    Button(action: { deleteWorkout(index: index) }) {
+                                        Text("Delete")
+                                        Image(systemName: "trash")
+                                        
+                                    }
+                                    
+                                    // Rename workout
+                                    Button(action: { addEditWorkoutAlert(false, workout, title: "Rename the workout", text: workout.title ?? "", confirm: "Save", cancel: "Cancel") }) {
+                                        Text("Rename")
+                                        Image(systemName: "pencil")
+                                        
+                                    }
+                                    
+                                }
+                                
                             }
-                      
                             
                         }
-                                        
-                    )
+                    
+                    }
                     
                 }
                     
                 
             }
+            .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+            .navigationBarTitle("My workouts")
+            .navigationBarItems(trailing:
+                HStack {
+                    // Button to add a workout
+                    Button(action: { addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel") }) {
+                        Image(systemName: "plus.circle.fill")
+                            .imageScale(.large)
+                    
+                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                
+                    // History
+                    Button(action: { historySheetShowing = true }) {
+                        Image(systemName: "clock.fill")
+                            .imageScale(.large)
+                    
+                    }
+              
+                    
+                }
+                                
+            )
+            .sheet(isPresented: $historySheetShowing) { HistoryView() }
             
-        }.sheet(isPresented: $historySheetShowing) { HistoryView() }
+        }
         
     }
     
