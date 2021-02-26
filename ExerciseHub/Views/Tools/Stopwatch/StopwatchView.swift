@@ -88,19 +88,21 @@ struct StopwatchView: View {
             
             // Lap list
             if lapListShowing {
-                List(lapList){ item in
-                    HStack {
-                        Spacer()
-                        
-                        Text("#\(item.position + 1)")
-                            .foregroundColor(.accentColor)
-                            .fontWeight(.bold)
-                            .font(.system(size: 24))
-                        
-                        Text("\(Utils().secondsToHMS(item.time)).\(Utils().secondsToM(item.time))")
-                            .font(.system(size: 24))
-                        
-                        Spacer()
+                ScrollView {
+                    LazyVStack {
+                        ForEach(lapList){ item in
+                            HStack {
+                                Text("#\(item.position + 1)")
+                                    .foregroundColor(.accentColor)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 24))
+                                
+                                Text("\(Utils().secondsToHMS(item.time)).\(Utils().secondsToM(item.time))")
+                                    .font(.system(size: 24))
+                                
+                            }.padding(2)
+                            
+                        }
                         
                     }
                     

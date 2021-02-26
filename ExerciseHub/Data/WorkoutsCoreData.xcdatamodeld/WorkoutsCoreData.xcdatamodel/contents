@@ -7,6 +7,10 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="round" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Round" inverseName="exercises" inverseEntity="Round"/>
     </entity>
+    <entity name="History" representedClassName="History" syncable="YES">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Round" representedClassName="Round" syncable="YES">
         <attribute name="cycles" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -20,6 +24,7 @@
     </entity>
     <elements>
         <element name="Exercise" positionX="-63" positionY="0" width="128" height="104"/>
+        <element name="History" positionX="-54" positionY="45" width="128" height="59"/>
         <element name="Round" positionX="-45" positionY="36" width="128" height="89"/>
         <element name="Workout" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>

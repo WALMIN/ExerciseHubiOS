@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyWorkoutsExercisesView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(entity: Round.entity(), sortDescriptors: [], animation: .default)
@@ -46,6 +47,8 @@ struct MyWorkoutsExercisesView: View {
                             
                         }
                         
+                        
+                        
                     }
                     .contextMenu {
                         // Delete a round button
@@ -66,8 +69,34 @@ struct MyWorkoutsExercisesView: View {
                 
                 }
                 
+                // Show complete button if there is exercises
+                if workout.roundsArray.count >= 1 {
+                    if workout.roundsArray[0].exercisesArray.count >= 1 {
+                        Button(action: {
+                            addWorkoutToHistory()
+                            
+                        }) {
+                            ZStack {
+                                Color("AccentColor2")
+                                
+                                Text("I've completed this workout")
+                                    .font(.body)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .textCase(.uppercase)
+                                    .padding()
+                                
+                            }.cornerRadius(8)
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                
                 // No exercises text
-                if workout.roundsArray.count == 0 {
+                if workout.roundsArray.count == 0 || workout.roundsArray[0].exercisesArray.count == 0 {
                     HStack {
                         Spacer()
                         VStack {
@@ -270,6 +299,32 @@ struct MyWorkoutsExercisesView: View {
         
         Alert().show(alert)
     
+    }
+    
+    // Alert to save workout to history
+    private func addWorkoutToHistory(){
+        let alert = UIAlertController(title: "Finish workout", message: "Are you done with the workout?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+            let newHistory = History(context: viewContext)
+            newHistory.timestamp = Date()
+            newHistory.title = workout.title
+                        
+            do {
+                try viewContext.save()
+                presentationMode.wrappedValue.dismiss()
+                
+            } catch {
+                fatalError("Unresolved error \(error as NSError), \((error as NSError).userInfo)")
+                
+            }
+            
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+        
+        Alert().show(alert)
+        
     }
     
 }

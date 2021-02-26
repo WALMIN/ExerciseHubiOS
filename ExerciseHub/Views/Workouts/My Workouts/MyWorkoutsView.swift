@@ -13,6 +13,8 @@ struct MyWorkoutsView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Workout.timestamp, ascending: false)], animation: .default)
     private var workouts: FetchedResults<Workout>
     
+    @State private var historySheetShowing = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -79,19 +81,32 @@ struct MyWorkoutsView: View {
                     .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                     .navigationBarTitle("My workouts")
                     .navigationBarItems(trailing:
-                        // Button to add a workout
-                        Button(action: { addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel") }) {
-                            Image(systemName: "plus.circle.fill")
-                                .imageScale(.large)
+                        HStack {
+                            // Button to add a workout
+                            Button(action: { addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel") }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .imageScale(.large)
+                            
+                            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                         
-                        })
+                            // History
+                            Button(action: { historySheetShowing = true }) {
+                                Image(systemName: "clock.fill")
+                                    .imageScale(.large)
+                            
+                            }
+                      
+                            
+                        }
+                                        
+                    )
                     
                 }
                     
                 
             }
             
-        }
+        }.sheet(isPresented: $historySheetShowing) { HistoryView() }
         
     }
     

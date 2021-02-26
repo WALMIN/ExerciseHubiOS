@@ -44,4 +44,14 @@ struct Utils {
         
     }
     
+    // Format date
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        
+        return formatter
+        
+    }()
+    
 }

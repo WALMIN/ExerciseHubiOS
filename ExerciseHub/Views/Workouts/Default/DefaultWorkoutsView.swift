@@ -11,6 +11,8 @@ struct DefaultWorkoutsView: View {
     
     @ObservedObject var fetchWorkouts = FetchWorkouts()
     
+    @State private var historySheetShowing = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -48,7 +50,18 @@ struct DefaultWorkoutsView: View {
                     
                 }
                     
-            }.navigationBarTitle("Default workouts")
+            }
+            .navigationBarTitle("Default workouts")
+            .navigationBarItems(trailing:
+                // History
+                Button(action: { historySheetShowing = true }) {
+                    Image(systemName: "clock.fill")
+                        .imageScale(.large)
+                
+                }
+                                
+            )
+            .sheet(isPresented: $historySheetShowing) { HistoryView() }
             
         }
         
