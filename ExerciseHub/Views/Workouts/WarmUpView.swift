@@ -21,7 +21,7 @@ struct WarmUpView: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor(.white))
+            Color("ItemColor")
         
             VStack(alignment: .leading) {
                 // Warm up title

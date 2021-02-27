@@ -47,7 +47,7 @@ struct HistoryItemView: View {
                             
                         }.padding(EdgeInsets(top: 0.5, leading: 0, bottom: 0, trailing: 0))
                         
-                    }
+                    }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
                     
                 }
                 

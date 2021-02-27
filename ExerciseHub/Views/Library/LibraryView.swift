@@ -45,7 +45,7 @@ struct LibraryView: View {
                     
                 }
                 .padding(10)
-                .background(Color.white)
+                .background(Color("ItemColor"))
                 .cornerRadius(8)
                 .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                 

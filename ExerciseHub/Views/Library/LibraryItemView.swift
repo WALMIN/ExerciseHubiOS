@@ -18,7 +18,8 @@ struct LibraryItemView: View {
     // Library list item with an animated image & title
     var body: some View {
         ZStack {
-            Color(UIColor(.white))
+            Color("ItemColor")
+            
             HStack {
                 VStack {
                     WebImage(url: URL(string: "https://walmin.com/exercisehub/resources/library/gif/\(item.name.lowercased().replacingOccurrences(of: " ", with: "_")).gif"), isAnimating: $imageAnimating)

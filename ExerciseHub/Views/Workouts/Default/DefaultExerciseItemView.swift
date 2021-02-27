@@ -15,7 +15,7 @@ struct DefaultExerciseItemView: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor(.white))
+            Color("ItemColor")
             
             VStack {
                 HStack {

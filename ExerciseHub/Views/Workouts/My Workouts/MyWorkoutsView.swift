@@ -38,7 +38,7 @@ struct MyWorkoutsView: View {
                             ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
                                 NavigationLink(destination: MyWorkoutsExercisesView(workout: workout)) {
                                     ZStack {
-                                        Color(UIColor(.white))
+                                        Color("ItemColor")
                                         
                                         HStack {
                                             if let title = workout.title {

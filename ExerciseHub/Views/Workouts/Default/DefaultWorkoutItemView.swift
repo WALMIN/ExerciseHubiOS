@@ -14,10 +14,10 @@ struct DefaultWorkoutItemView: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor(.white))
+            Color("ItemColor")
             
             WebImage(url: URL(string: "https://www.walmin.com/exercisehub/resources/workouts/default/thumbnails/d_\(workout.id).jpg"))
-                .placeholder{ Image(systemName: "gobackward").foregroundColor(.black) }
+                .placeholder{ Image(systemName: "gobackward").foregroundColor(.white) }
                 .resizable()
                 .scaledToFill()
             
