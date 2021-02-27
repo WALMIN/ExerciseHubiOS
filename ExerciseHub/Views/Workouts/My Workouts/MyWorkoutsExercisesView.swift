@@ -24,77 +24,6 @@ struct MyWorkoutsExercisesView: View {
         ScrollView {
             // Exercise list with sections & exercise items with title & reps/time
             LazyVStack {
-                ForEach(Array(workout.roundsArray.enumerated()), id: \.1) { roundIndex, round in
-                    Section(header: HeaderView(workout: workout, roundIndex: roundIndex, round: round) ) {
-                        ForEach(Array(round.exercisesArray.enumerated()), id: \.1) { exerciseIndex, exercise in
-                            MyWorkoutsExerciseItemView(exercise: exercise)
-                                .contextMenu {
-                                    // Delete an exercise button
-                                    Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
-                                        Text("Delete")
-                                        Image(systemName: "trash")
-                                        
-                                    }
-                                    
-                                    // Edit an reps/time button
-                                    Button(action: { editExerciseRepsTimeAlert(exercise, roundIndex: roundIndex, title: exercise.wrappedName, textDo: exercise.wrappedExerciseDo) }) {
-                                        Text("Edit")
-                                        Image(systemName: "pencil")
-                                        
-                                    }
-                                    
-                                }
-                            
-                        }
-                        
-                        
-                        
-                    }
-                    .contextMenu {
-                        // Delete a round button
-                        Button(action: { deleteRound(roundIndex) }) {
-                            Text("Delete")
-                            Image(systemName: "trash")
-                            
-                        }
-                        
-                        // Edit a round button
-                        Button(action: { addEditRoundAlert(false, round, title: "Edit a round", textCycles: Int(round.cycles), confirm: "Save") }) {
-                            Text("Edit")
-                            Image(systemName: "pencil")
-                            
-                        }
-                        
-                    }
-                
-                }
-                
-                // Show complete button if there is exercises
-                if workout.roundsArray.count >= 1 {
-                    if workout.roundsArray[0].exercisesArray.count >= 1 {
-                        Button(action: {
-                            addWorkoutToHistory()
-                            
-                        }) {
-                            ZStack {
-                                Color("AccentColor2")
-                                
-                                Text("I've completed this workout")
-                                    .font(.body)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    .textCase(.uppercase)
-                                    .padding()
-                                
-                            }.cornerRadius(8)
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-                
                 // No exercises text
                 if workout.roundsArray.count == 0 || workout.roundsArray[0].exercisesArray.count == 0 {
                     HStack {
@@ -104,6 +33,74 @@ struct MyWorkoutsExercisesView: View {
                             Text("Add an exercise to get started")
                         }
                         Spacer()
+                    }
+                    
+                } else {
+                    ForEach(Array(workout.roundsArray.enumerated()), id: \.1) { roundIndex, round in
+                        Section(header: HeaderView(workout: workout, roundIndex: roundIndex, round: round) ) {
+                            ForEach(Array(round.exercisesArray.enumerated()), id: \.1) { exerciseIndex, exercise in
+                                MyWorkoutsExerciseItemView(exercise: exercise)
+                                    .contextMenu {
+                                        // Delete an exercise button
+                                        Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
+                                            Text("Delete")
+                                            Image(systemName: "trash")
+                                            
+                                        }
+                                        
+                                        // Edit an reps/time button
+                                        Button(action: { editExerciseRepsTimeAlert(exercise, roundIndex: roundIndex, title: exercise.wrappedName, textDo: exercise.wrappedExerciseDo) }) {
+                                            Text("Edit")
+                                            Image(systemName: "pencil")
+                                            
+                                        }
+                                        
+                                    }
+                                
+                            }
+                            
+                            
+                            
+                        }
+                        .contextMenu {
+                            // Delete a round button
+                            Button(action: { deleteRound(roundIndex) }) {
+                                Text("Delete")
+                                Image(systemName: "trash")
+                                
+                            }
+                            
+                            // Edit a round button
+                            Button(action: { addEditRoundAlert(false, round, title: "Edit a round", textCycles: Int(round.cycles), confirm: "Save") }) {
+                                Text("Edit")
+                                Image(systemName: "pencil")
+                                
+                            }
+                            
+                        }
+                    
+                    }
+                    
+                    // Show complete button if there is exercises
+                    if workout.roundsArray.count >= 1 {
+                        if workout.roundsArray[0].exercisesArray.count >= 1 {
+                            Button(action: { addWorkoutToHistory() }) {
+                                ZStack {
+                                    Color("AccentColor2")
+                                    
+                                    Text("I've completed this workout")
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .textCase(.uppercase)
+                                        .padding()
+                                    
+                                }.cornerRadius(8)
+                                
+                            }
+                            
+                        }
+                        
                     }
                     
                 }

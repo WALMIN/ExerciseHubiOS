@@ -17,8 +17,21 @@ struct HeaderView: View {
     private var rounds: FetchedResults<Round>
     
     var body: some View {
-        Text("Round \(roundIndex + 1)/\(workout.roundsArray.count) - \(round.cycles) \(round.cycles > 1 ? "cycles" : "cycle")")
-            .frame(maxWidth: .infinity, alignment: .leading)
+        ZStack {
+            Color(UIColor(.clear))
+        
+            VStack {
+                HStack {
+                    Text("Round \(roundIndex + 1)/\(workout.roundsArray.count) - \(round.cycles) \(round.cycles > 1 ? "cycles" : "cycle")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Spacer()
+                    
+                }
+                
+            }
+            
+        }
             
     }
     

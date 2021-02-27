@@ -40,10 +40,7 @@ struct WarmUpView: View {
                     
                 }
                 .contentShape(Rectangle())
-                .onTapGesture {
-                    withAnimation { exercisesShowing.toggle() }
-                    
-                }
+                .onTapGesture { withAnimation { exercisesShowing.toggle() } }
                     
                 // Warm up info & exercises with a video for each exercise
                 if exercisesShowing {
@@ -53,18 +50,19 @@ struct WarmUpView: View {
                         .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
              
                     ForEach(warmUpExercises, id: \.self) { name in
-                        HStack {
-                            Image(systemName: "play.rectangle.fill")
-                                .foregroundColor(.black)
+                        Button(action: { selectedExercise = name }) {
+                            HStack {
+                                Image(systemName: "play.rectangle.fill")
+                                    .foregroundColor(.black)
+                                
+                                Text(name.replacingOccurrences(of: "stretch/", with: ""))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 0))
+                                
+                            }
                             
-                            Text(name.replacingOccurrences(of: "stretch/", with: ""))
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
-                                .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 0))
-                            
-                        }
-                        .padding(2)
-                        .onTapGesture { selectedExercise = name }
+                        }.padding(2)
                         
                     }
                     
@@ -86,10 +84,12 @@ struct WarmUpView: View {
                 
         }
         .cornerRadius(8)
-        .sheet(item: $selectedExercise, content: { selectedExercise in
-            SheetVideo(name: selectedExercise)
+        .background(EmptyView().sheet(item: $selectedExercise, content: { selectedExercise in
+                SheetVideo(name: selectedExercise)
 
-        })
+            })
+        
+        )
         
     }
     

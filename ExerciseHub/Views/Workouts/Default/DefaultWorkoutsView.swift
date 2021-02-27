@@ -61,7 +61,7 @@ struct DefaultWorkoutsView: View {
                 }
                                 
             )
-            .sheet(isPresented: $historySheetShowing) { HistoryView() }
+            .background(EmptyView().sheet(isPresented: $historySheetShowing) { HistoryView() } )
             
         }
         

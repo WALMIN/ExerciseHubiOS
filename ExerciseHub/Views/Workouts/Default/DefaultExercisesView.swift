@@ -46,10 +46,7 @@ struct DefaultExercisesView: View {
                     
                     }
                     
-                    Button(action: {
-                        addWorkoutToHistory()
-                        
-                    }) {
+                    Button(action: { addWorkoutToHistory() }) {
                         ZStack {
                             Color("AccentColor2")
                             
