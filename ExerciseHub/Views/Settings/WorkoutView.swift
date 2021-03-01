@@ -14,7 +14,9 @@ struct WorkoutView: View {
     @State var kgShowing = UserDefaults.standard.bool(forKey: UserDefaultsUtils().kgShowingKey)
     
     @State var barbellWeight = 0.0
+    
     @State var popoverBarbellWeightShowing = false
+    @State var sheetBarbellWeightShowing = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,9 +25,15 @@ struct WorkoutView: View {
                 .fontWeight(.bold)
                 .fixedSize()
             
-            // Show barbell weight sheet
+            // Show barbell weight popover or sheet
             Button(action: {
-                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    popoverBarbellWeightShowing = true
+                    
+                } else {
+                    sheetBarbellWeightShowing = true
+                    
+                }
                 
             }) {
                 Text("Barbell weight")
@@ -33,10 +41,9 @@ struct WorkoutView: View {
                     .foregroundColor(Color(UIColor.label))
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
                 
-            }.popover(isPresented: $popoverBarbellWeightShowing) {
-                SheetBarbellWeight()
-                
             }
+            .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
+            .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
             
             Button(action: {
                 

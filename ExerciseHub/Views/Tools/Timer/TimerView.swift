@@ -11,6 +11,7 @@ struct TimerView: View {
     
     @ObservedObject var timer = CountdownTimer()
     @State private var popoverSetTimeShowing = false
+    @State private var sheetSetTimeShowing = false
     
     var body: some View {
         VStack {
@@ -67,33 +68,25 @@ struct TimerView: View {
                 
                 // Set time button
                 if timer.state == .paused || timer.state == .stopped {
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                        Button(action: { popoverSetTimeShowing = true }) {
-                            Text("Set time")
-                                .textCase(.uppercase)
-                                .foregroundColor(Color(UIColor.label))
-                                .font(.body)
-                                .padding()
+                    Button(action: {
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            popoverSetTimeShowing = true
                             
-                        }.popover(isPresented: $popoverSetTimeShowing) {
-                            PopoverSetTime(timer: timer, time: timer.timeLeft)
+                        } else {
+                            sheetSetTimeShowing = true
                             
                         }
-                        
-                    } else {
-                        Button(action: { popoverSetTimeShowing = true }) {
-                            Text("Set time")
-                                .textCase(.uppercase)
-                                .foregroundColor(Color(UIColor.label))
-                                .font(.body)
-                                .padding()
                             
-                        }.sheet(isPresented: $popoverSetTimeShowing) {
-                            PopoverSetTime(timer: timer, time: timer.timeLeft)
-                            
-                        }
+                    }) {
+                        Text("Set time")
+                            .textCase(.uppercase)
+                            .foregroundColor(Color(UIColor.label))
+                            .font(.body)
+                            .padding()
                         
                     }
+                    .popover(isPresented: $popoverSetTimeShowing) { PopoverSetTime(timer: timer, time: timer.timeLeft) }
+                    .sheet(isPresented: $sheetSetTimeShowing) { SheetSetTime(timer: timer, time: timer.timeLeft) }
                 
                 } else {
                     DummyButtonView(title: "Set time")

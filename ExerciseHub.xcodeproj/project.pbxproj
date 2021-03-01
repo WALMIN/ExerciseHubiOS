@@ -64,6 +64,8 @@
 		A6968F1125ED0BA500C1CCCC /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */; };
 		A6968F1425ED0CB700C1CCCC /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1325ED0CB700C1CCCC /* GeneralView.swift */; };
 		A6968F1825ED263F00C1CCCC /* SheetBarbellWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */; };
+		A6968F2225ED5B7D00C1CCCC /* PopoverBarbellWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F2125ED5B7D00C1CCCC /* PopoverBarbellWeight.swift */; };
+		A6968F2525ED5DFB00C1CCCC /* SheetSetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F2425ED5DFB00C1CCCC /* SheetSetTime.swift */; };
 		A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B68C3D25C9812B009F3493 /* SheetVideo.swift */; };
 		A6BDDDFC25D3D65D00887949 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDDFB25D3D65D00887949 /* CircleButtonView.swift */; };
 		A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */; };
@@ -133,6 +135,8 @@
 		A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		A6968F1325ED0CB700C1CCCC /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetBarbellWeight.swift; sourceTree = "<group>"; };
+		A6968F2125ED5B7D00C1CCCC /* PopoverBarbellWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverBarbellWeight.swift; sourceTree = "<group>"; };
+		A6968F2425ED5DFB00C1CCCC /* SheetSetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSetTime.swift; sourceTree = "<group>"; };
 		A6B68C3D25C9812B009F3493 /* SheetVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetVideo.swift; sourceTree = "<group>"; };
 		A6BDDDFB25D3D65D00887949 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 		A623D6C325D4897E0077888F /* Plate Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				A6968F2125ED5B7D00C1CCCC /* PopoverBarbellWeight.swift */,
+				A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */,
 				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
 				A623D6C425D489960077888F /* PlateItemView.swift */,
 			);
@@ -326,7 +332,6 @@
 				A6968F0A25ECF19300C1CCCC /* LicenseItemView.swift */,
 				A6968F0525ECEE0A00C1CCCC /* SettingsView.swift */,
 				A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */,
-				A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -334,8 +339,9 @@
 		A6BDDDEF25D3CFDA00887949 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				A688B65025D2B571009D10AE /* PopoverSetTime.swift */,
 				A688B64825D29C2F009D10AE /* CountdownTimer.swift */,
+				A688B65025D2B571009D10AE /* PopoverSetTime.swift */,
+				A6968F2425ED5DFB00C1CCCC /* SheetSetTime.swift */,
 				A6585DA125CC3246007D2F1E /* TimerView.swift */,
 			);
 			path = Timer;
@@ -499,9 +505,11 @@
 				A66A096125E661BC00A26992 /* ExerciseModel.swift in Sources */,
 				A6609B4425D5A6350053C765 /* Count.swift in Sources */,
 				A66A095B25E6604600A26992 /* DefaultExercisesView.swift in Sources */,
+				A6968F2525ED5DFB00C1CCCC /* SheetSetTime.swift in Sources */,
 				A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */,
 				A623D6C525D489960077888F /* PlateItemView.swift in Sources */,
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
+				A6968F2225ED5B7D00C1CCCC /* PopoverBarbellWeight.swift in Sources */,
 				A63D280625E2FD0500F9A1EF /* MediaUtils.swift in Sources */,
 				A68585E625E5225C00E8BDCC /* HeaderView.swift in Sources */,
 				A6968F0B25ECF19300C1CCCC /* LicenseItemView.swift in Sources */,

@@ -21,6 +21,7 @@ struct PlateCalculatorView: View {
     @State var weightAmountList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     @State var popoverBarbellWeightShowing = false
+    @State var sheetBarbellWeightShowing = false
     
     var body: some View {
         VStack {
@@ -46,19 +47,26 @@ struct PlateCalculatorView: View {
                         .font(.caption)
                         .padding(2)
                     
-                    // Show barbell weight sheet
-                    Button(action: { popoverBarbellWeightShowing = true }) {
+                    // Show barbell weight popover or sheet
+                    Button(action: {
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            popoverBarbellWeightShowing = true
+                            
+                        } else {
+                            sheetBarbellWeightShowing = true
+                            
+                        }
+                        
+                    }) {
                         Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
                             .foregroundColor(.accentColor)
                             .fontWeight(.bold)
                             .font(.title)
                         
-                    }.popover(isPresented: $popoverBarbellWeightShowing) {
-                        SheetBarbellWeight()
-                        
                     }
+                    .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
+                    .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
                         
-                    
                 }
                 
             }

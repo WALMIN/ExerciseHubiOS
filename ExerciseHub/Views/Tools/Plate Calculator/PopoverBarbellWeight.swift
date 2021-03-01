@@ -1,5 +1,5 @@
 //
-//  SheetBarbellWeight.swift
+//  PopoverBarbellWeight.swift
 //  ExerciseHub
 //
 //  Created by Victor Bergene on 2021-03-01.
@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct SheetBarbellWeight: View {
-    
-    @Environment(\.presentationMode) var presentationMode
+struct PopoverBarbellWeight: View {
     
     private let userDefaults = UserDefaults.standard
     
@@ -19,12 +17,13 @@ struct SheetBarbellWeight: View {
     var body: some View {
         // Enter barbell weight
         Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
-            Text("\(String(format: "%.2f", barbellWeight))")
+            Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
                 .font(.largeTitle)
                 
         }
         .padding()
         .onAppear {
+            // Set default value if the value is zero
             barbellWeight = kgShowing ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) : userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
             
             if barbellWeight == 0 {
@@ -43,6 +42,7 @@ struct SheetBarbellWeight: View {
             
         }
         .onDisappear {
+            // Save values when the views gets closed
             userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
             
         }
@@ -51,9 +51,9 @@ struct SheetBarbellWeight: View {
     
 }
 
-struct SheetBarbellWeight_Previews: PreviewProvider {
+struct PopoverBarbellWeight_Previews: PreviewProvider {
     static var previews: some View {
-        SheetBarbellWeight()
+        PopoverBarbellWeight()
         
     }
     
