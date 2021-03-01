@@ -13,26 +13,27 @@ struct MyWorkoutsView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Workout.timestamp, ascending: false)], animation: .default)
     private var workouts: FetchedResults<Workout>
     
+    @State private var settingsSheetShowing = false
     @State private var historySheetShowing = false
     
     var body: some View {
         NavigationView {
             VStack {
-                // No workouts text
-                if workouts.count == 0 {
-                    HStack {
-                        Spacer()
-                        VStack {
-                            Text("No workouts yet").padding()
-                            Text("Add one to get started")
-                        }
-                        Spacer()
-                    }
+                ScrollView {
+                    WarmUpView()
                     
-                } else {
-                    ScrollView {
-                        WarmUpView()
+                    // No workouts text
+                    if workouts.count == 0 {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Text("No workouts yet").padding()
+                                Text("Add one to get started")
+                            }
+                            Spacer()
+                        }
                         
+                    } else {
                         // Workouts list
                         LazyVStack {
                             ForEach(Array(workouts.enumerated()), id: \.1) { index, workout in
@@ -85,29 +86,40 @@ struct MyWorkoutsView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
             .navigationBarTitle("My workouts")
-            .navigationBarItems(trailing:
-                HStack {
-                    // Button to add a workout
+            .toolbar {
+                // Settings
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { settingsSheetShowing = true }) {
+                        Image(systemName: "gearshape.fill")
+                            .imageScale(.large)
+                    
+                    }.background(EmptyView().sheet(isPresented: $settingsSheetShowing) { SettingsView() } )
+                                
+                }
+                
+                // Button to add a workout
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { addEditWorkoutAlert(true, Workout(), title: "Add a workout", text: "", confirm: "Add", cancel: "Cancel") }) {
                         Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
                     
                     }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                        
+                }
                 
-                    // History
+                // History
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { historySheetShowing = true }) {
                         Image(systemName: "clock.fill")
                             .imageScale(.large)
                     
-                    }
-              
-                    
+                    }.background(EmptyView().sheet(isPresented: $historySheetShowing) { HistoryView() } )
+                        
                 }
-                                
-            )
-            .background(EmptyView().sheet(isPresented: $historySheetShowing) { HistoryView() } )
+                    
+            }
             
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
     }
     

@@ -46,91 +46,18 @@ struct PlateCalculatorView: View {
                         .font(.caption)
                         .padding(2)
                     
-                    // Show barbell weight popover on iPad
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                        Button(action: { popoverBarbellWeightShowing = true }) {
-                            Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
-                                .foregroundColor(.accentColor)
-                                .fontWeight(.bold)
-                                .font(.title)
-                            
-                        }.popover(isPresented: $popoverBarbellWeightShowing) {
-                            VStack {
-                                // Show the title
-                                Text("Barbell weight").font(.title2)
-                                Spacer()
-                                
-                                // Enter barbell weight
-                                VStack {
-                                    Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
-                                        Text("\(String(format: "%.2f", barbellWeight))")
-                                            .font(.largeTitle)
-                                            
-                                    }.padding()
-                                }.padding()
-                                
-                                Spacer()
-                                
-                                // Close
-                                Button(action: { popoverBarbellWeightShowing = false }) {
-                                    Text("Close")
-                                    
-                                }
-                                
-                            }
-                            .padding()
-                            .onDisappear {
-                                userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
-                                
-                            }
-                                
-                        }
+                    // Show barbell weight sheet
+                    Button(action: { popoverBarbellWeightShowing = true }) {
+                        Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
+                            .foregroundColor(.accentColor)
+                            .fontWeight(.bold)
+                            .font(.title)
                         
-                    // Show barbell weight sheet on iPhone
-                    } else {
-                        Button(action: { popoverBarbellWeightShowing = true }) {
-                            Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
-                                .foregroundColor(.accentColor)
-                                .fontWeight(.bold)
-                                .font(.title)
-                            
-                        }.sheet(isPresented: $popoverBarbellWeightShowing) {
-                            VStack {
-                                // Show the title
-                                Text("Barbell weight").font(.title2)
-                                Spacer()
-                                
-                                // Enter barbell weight
-                                VStack {
-                                    Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
-                                        Text("\(String(format: "%.2f", barbellWeight))")
-                                            .font(.largeTitle)
-                                            
-                                    }.padding()
-                                }.padding()
-                                
-                                Spacer()
-                                
-                                // Close
-                                Button(action: {
-                                    popoverBarbellWeightShowing = false
-                                    
-                                }) {
-                                    Text("Close")
-                                    
-                                }
-                                
-                            }
-                            .padding()
-                            .onDisappear {
-                                userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
-                                
-                            }
-                            
-                        }
+                    }.popover(isPresented: $popoverBarbellWeightShowing) {
+                        SheetBarbellWeight()
                         
                     }
-                    
+                        
                     
                 }
                 
@@ -183,7 +110,7 @@ struct PlateCalculatorView: View {
             }
             
         }.onAppear {
-            barbellWeight = kgShowing ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) :userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
+            barbellWeight = kgShowing ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) : userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
             
             if barbellWeight == 0 {
                 userDefaults.set(20, forKey: UserDefaultsUtils().kgBarbellWeightKey)

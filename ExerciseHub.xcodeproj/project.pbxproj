@@ -58,6 +58,12 @@
 		A69487EF25E5AC4A00FFEC04 /* FetchWorkouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69487EE25E5AC4A00FFEC04 /* FetchWorkouts.swift */; };
 		A69487F225E5ACC600FFEC04 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69487F125E5ACC600FFEC04 /* WorkoutModel.swift */; };
 		A69487F525E5AE2B00FFEC04 /* DefaultWorkoutItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69487F425E5AE2B00FFEC04 /* DefaultWorkoutItemView.swift */; };
+		A6968F0625ECEE0A00C1CCCC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F0525ECEE0A00C1CCCC /* SettingsView.swift */; };
+		A6968F0B25ECF19300C1CCCC /* LicenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F0A25ECF19300C1CCCC /* LicenseItemView.swift */; };
+		A6968F0E25ED03FB00C1CCCC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F0D25ED03FB00C1CCCC /* AboutView.swift */; };
+		A6968F1125ED0BA500C1CCCC /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */; };
+		A6968F1425ED0CB700C1CCCC /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1325ED0CB700C1CCCC /* GeneralView.swift */; };
+		A6968F1825ED263F00C1CCCC /* SheetBarbellWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */; };
 		A6B68C3E25C9812B009F3493 /* SheetVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B68C3D25C9812B009F3493 /* SheetVideo.swift */; };
 		A6BDDDFC25D3D65D00887949 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDDFB25D3D65D00887949 /* CircleButtonView.swift */; };
 		A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */; };
@@ -121,6 +127,12 @@
 		A69487EE25E5AC4A00FFEC04 /* FetchWorkouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWorkouts.swift; sourceTree = "<group>"; };
 		A69487F125E5ACC600FFEC04 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		A69487F425E5AE2B00FFEC04 /* DefaultWorkoutItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWorkoutItemView.swift; sourceTree = "<group>"; };
+		A6968F0525ECEE0A00C1CCCC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A6968F0A25ECF19300C1CCCC /* LicenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseItemView.swift; sourceTree = "<group>"; };
+		A6968F0D25ED03FB00C1CCCC /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		A6968F1325ED0CB700C1CCCC /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetBarbellWeight.swift; sourceTree = "<group>"; };
 		A6B68C3D25C9812B009F3493 /* SheetVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetVideo.swift; sourceTree = "<group>"; };
 		A6BDDDFB25D3D65D00887949 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		A6BDDE0B25D3E57200887949 /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
@@ -279,6 +291,7 @@
 				A688B64D25D29EEE009D10AE /* DummyButtonView.swift */,
 				A6B68C3D25C9812B009F3493 /* SheetVideo.swift */,
 				A6D3912425C83FA900AB4921 /* Library */,
+				A6968F0825ECEEF700C1CCCC /* Settings */,
 				A6585D9C25CC3215007D2F1E /* Tools */,
 				A625D2F525DA9FE6001A7C15 /* Workouts */,
 			);
@@ -303,6 +316,19 @@
 				A6585D9D25CC3234007D2F1E /* StopwatchView.swift */,
 			);
 			path = Stopwatch;
+			sourceTree = "<group>";
+		};
+		A6968F0825ECEEF700C1CCCC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A6968F0D25ED03FB00C1CCCC /* AboutView.swift */,
+				A6968F1325ED0CB700C1CCCC /* GeneralView.swift */,
+				A6968F0A25ECF19300C1CCCC /* LicenseItemView.swift */,
+				A6968F0525ECEE0A00C1CCCC /* SettingsView.swift */,
+				A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */,
+				A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		A6BDDDEF25D3CFDA00887949 /* Timer */ = {
@@ -440,11 +466,13 @@
 				A65FF83A25DEFEE30020BA9A /* Workout+CoreDataProperties.swift in Sources */,
 				A684B7C125E7F6CD000AB3BF /* History+CoreDataClass.swift in Sources */,
 				A6585DA825CC3269007D2F1E /* PlateCalculatorView.swift in Sources */,
+				A6968F0625ECEE0A00C1CCCC /* SettingsView.swift in Sources */,
 				A688B65125D2B571009D10AE /* PopoverSetTime.swift in Sources */,
 				A626D4D925D6824D00A87687 /* WorkoutsCoreData.xcdatamodeld in Sources */,
 				A6D3912225C83F6800AB4921 /* FetchLibrary.swift in Sources */,
 				A67BDFCB25C813BC007D5ACD /* WorkoutsView.swift in Sources */,
 				A69487E925E59A2700FFEC04 /* MyWorkoutsView.swift in Sources */,
+				A6968F0E25ED03FB00C1CCCC /* AboutView.swift in Sources */,
 				A6CA03D825E1907800B4922A /* WarmUpView.swift in Sources */,
 				A66A096525E6816D00A26992 /* DefaultExerciseItemView.swift in Sources */,
 				A65FF83925DEFEE30020BA9A /* Workout+CoreDataClass.swift in Sources */,
@@ -460,8 +488,10 @@
 				A62A568325D134F800FF2E33 /* Utils.swift in Sources */,
 				A61F369625E8F517001B3CD0 /* HistoryItemView.swift in Sources */,
 				A6585DAB25CC327F007D2F1E /* CountView.swift in Sources */,
+				A6968F1825ED263F00C1CCCC /* SheetBarbellWeight.swift in Sources */,
 				A6BDDE0C25D3E57200887949 /* IntervalTimer.swift in Sources */,
 				A65714D625DAEA7200C2231D /* MyWorkoutsExercisesView.swift in Sources */,
+				A6968F1425ED0CB700C1CCCC /* GeneralView.swift in Sources */,
 				A65FF83725DEFEE30020BA9A /* Round+CoreDataClass.swift in Sources */,
 				A626D4DC25D682B100A87687 /* Persistence.swift in Sources */,
 				A6222D9725E3E26000D9AC1C /* SheetAddExercise.swift in Sources */,
@@ -474,11 +504,13 @@
 				A67BDFCE25C813CF007D5ACD /* LibraryView.swift in Sources */,
 				A63D280625E2FD0500F9A1EF /* MediaUtils.swift in Sources */,
 				A68585E625E5225C00E8BDCC /* HeaderView.swift in Sources */,
+				A6968F0B25ECF19300C1CCCC /* LicenseItemView.swift in Sources */,
 				A675AB4E25C43CA700680A55 /* ExerciseHubApp.swift in Sources */,
 				A65FF83825DEFEE30020BA9A /* Round+CoreDataProperties.swift in Sources */,
 				A666182625E6DF9C001F7CFD /* ToolsTitleView.swift in Sources */,
 				A69487EF25E5AC4A00FFEC04 /* FetchWorkouts.swift in Sources */,
 				A68585DC25E5083300E8BDCC /* Exercise+CoreDataClass.swift in Sources */,
+				A6968F1125ED0BA500C1CCCC /* WorkoutView.swift in Sources */,
 				A6D3912725C8400E00AB4921 /* LibraryItemView.swift in Sources */,
 				A68585DD25E5083300E8BDCC /* Exercise+CoreDataProperties.swift in Sources */,
 				A6585DA525CC3257007D2F1E /* IntervalTimerView.swift in Sources */,

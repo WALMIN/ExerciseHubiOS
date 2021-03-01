@@ -11,6 +11,7 @@ struct DefaultWorkoutsView: View {
     
     @ObservedObject var fetchWorkouts = FetchWorkouts()
     
+    @State private var settingsSheetShowing = false
     @State private var historySheetShowing = false
     
     var body: some View {
@@ -52,18 +53,30 @@ struct DefaultWorkoutsView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
             .navigationBarTitle("Default workouts")
-            .navigationBarItems(trailing:
+            .toolbar {
+                // Settings
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { settingsSheetShowing = true }) {
+                        Image(systemName: "gearshape.fill")
+                            .imageScale(.large)
+                    
+                    }.background(EmptyView().sheet(isPresented: $settingsSheetShowing) { SettingsView() } )
+                    
+                }
+                     
                 // History
-                Button(action: { historySheetShowing = true }) {
-                    Image(systemName: "clock.fill")
-                        .imageScale(.large)
-                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { historySheetShowing = true }) {
+                        Image(systemName: "clock.fill")
+                            .imageScale(.large)
+                    
+                    }.background(EmptyView().sheet(isPresented: $historySheetShowing) { HistoryView() } )
+                    
                 }
                                 
-            )
-            .background(EmptyView().sheet(isPresented: $historySheetShowing) { HistoryView() } )
+            }
             
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
     }
     

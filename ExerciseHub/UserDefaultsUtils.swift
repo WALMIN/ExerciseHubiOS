@@ -22,4 +22,6 @@ struct UserDefaultsUtils {
     let countKey = "Count"
     let countDelayKey = "CountDelay"
     
+    let vibrationKey = "Vibration"
+    
 }
