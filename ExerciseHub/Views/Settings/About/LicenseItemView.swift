@@ -23,21 +23,21 @@ struct LicenseItemView: View {
                     .fixedSize()
                 
                 Text(by)
-                    .font(.caption2)
+                    .font(.callout)
                     .fixedSize()
                 
                 Text(license)
-                    .font(.caption2)
+                    .font(.callout)
                     .fixedSize()
                 
                 Text(link)
-                    .font(.caption)
+                    .font(.callout)
                     .foregroundColor(.blue)
                     .fixedSize()
                 
             }
             .foregroundColor(Color(UIColor.label))
-            .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
         
         }
             

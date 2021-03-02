@@ -11,27 +11,41 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State var aboutSheetShowing = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     WorkoutView()
                     GeneralView()
-                    AboutView()
                     
                 }.padding()
                 
             }
             .navigationTitle("Settings")
-            .navigationBarItems(trailing:
-                // Close
-                Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .imageScale(.large)
-                
+            .toolbar {
+                // About
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { aboutSheetShowing = true }) {
+                        Image(systemName: "info.circle.fill")
+                            .imageScale(.large)
+                    
+                    }.background(EmptyView().sheet(isPresented: $aboutSheetShowing) { SheetAbout() } )
+                    
                 }
-                                
-            )
+             
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    // Close
+                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .imageScale(.large)
+                    
+                    }
+                    
+                }
+                
+            }
                 
         }.navigationViewStyle(StackNavigationViewStyle())
         

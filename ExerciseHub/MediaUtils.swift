@@ -37,8 +37,6 @@ class MediaUtils {
         if !UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey) {
             vibrationTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true) { timer in
                 AudioServicesPlaySystemSound(1520)
-                
-                print("Vibration")
                    
             }
          

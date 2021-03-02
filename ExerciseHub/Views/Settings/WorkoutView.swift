@@ -42,7 +42,7 @@ struct WorkoutView: View {
                 Text("Barbell weight")
                     .font(.body)
                     .foregroundColor(Color(UIColor.label))
-                    .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 
             }
             .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
@@ -61,7 +61,7 @@ struct WorkoutView: View {
                 Text("Unit system")
                     .font(.body)
                     .foregroundColor(Color(UIColor.label))
-                    .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 
             }
             .popover(isPresented: $popoverUnitSystemShowing) { PopoverUnitSystem() }

@@ -19,13 +19,13 @@ struct GeneralView: View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .fixedSize()
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
             
             Toggle("Vibration", isOn: $vibration)
                 .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 .padding(EdgeInsets(top: -4, leading: 0, bottom: -4, trailing: 4))
                 .onChange(of: vibration) { value in
-                    userDefaults.set(value, forKey: UserDefaultsUtils().vibrationKey)
+                    userDefaults.set(!value, forKey: UserDefaultsUtils().vibrationKey)
                     
                 }
             
