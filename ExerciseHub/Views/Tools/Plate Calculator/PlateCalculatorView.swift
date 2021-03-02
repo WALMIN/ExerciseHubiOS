@@ -118,6 +118,8 @@ struct PlateCalculatorView: View {
             }
             
         }.onAppear {
+            kgShowing = UserDefaults.standard.bool(forKey: UserDefaultsUtils().kgShowingKey)
+            
             barbellWeight = kgShowing ? userDefaults.double(forKey: UserDefaultsUtils().kgBarbellWeightKey) : userDefaults.double(forKey: UserDefaultsUtils().lbBarbellWeightKey)
             
             if barbellWeight == 0 {

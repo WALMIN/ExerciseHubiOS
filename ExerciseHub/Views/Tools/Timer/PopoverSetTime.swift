@@ -19,6 +19,7 @@ struct PopoverSetTime: View {
         Stepper(value: $time, in: 0...86400, step: 1) {
             Text(Utils().secondsToHMS(time))
                 .font(.largeTitle)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
                 
         }
         .padding()

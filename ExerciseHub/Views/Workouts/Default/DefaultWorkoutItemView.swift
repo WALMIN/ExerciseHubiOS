@@ -17,7 +17,7 @@ struct DefaultWorkoutItemView: View {
             Color("ItemColor")
             
             WebImage(url: URL(string: "https://www.walmin.com/exercisehub/resources/workouts/default/thumbnails/d_\(workout.id).jpg"))
-                .placeholder{ Image(systemName: "gobackward").foregroundColor(.white) }
+                .placeholder{ Image(systemName: "gobackward").foregroundColor(Color(UIColor.label)) }
                 .resizable()
                 .scaledToFill()
             

@@ -18,6 +18,9 @@ struct WorkoutView: View {
     @State var popoverBarbellWeightShowing = false
     @State var sheetBarbellWeightShowing = false
     
+    @State var popoverUnitSystemShowing = false
+    @State var sheetUnitSystemShowing = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Workout")
@@ -46,7 +49,13 @@ struct WorkoutView: View {
             .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
             
             Button(action: {
-                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    popoverUnitSystemShowing = true
+                    
+                } else {
+                    sheetUnitSystemShowing = true
+                    
+                }
                 
             }) {
                 Text("Unit system")
@@ -55,6 +64,8 @@ struct WorkoutView: View {
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
                 
             }
+            .popover(isPresented: $popoverUnitSystemShowing) { PopoverUnitSystem() }
+            .sheet(isPresented: $sheetUnitSystemShowing) { SheetUnitSystem() }
             
         }
         

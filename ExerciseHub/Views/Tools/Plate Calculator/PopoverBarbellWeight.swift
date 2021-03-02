@@ -19,6 +19,7 @@ struct PopoverBarbellWeight: View {
         Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
             Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
                 .font(.largeTitle)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
                 
         }
         .padding()

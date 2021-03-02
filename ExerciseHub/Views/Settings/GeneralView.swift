@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GeneralView: View {
     
-    @State var vibration = UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey)
+    private let userDefaults = UserDefaults.standard
+    
+    @State var vibration = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,7 +25,7 @@ struct GeneralView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 .padding(EdgeInsets(top: -4, leading: 0, bottom: -4, trailing: 4))
                 .onChange(of: vibration) { value in
-                    
+                    userDefaults.set(value, forKey: UserDefaultsUtils().vibrationKey)
                     
                 }
             

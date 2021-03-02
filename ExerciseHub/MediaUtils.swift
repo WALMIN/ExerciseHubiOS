@@ -34,9 +34,14 @@ class MediaUtils {
     
     // Start the repeating vibration
     func startRepeatingVibration() {
-        vibrationTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true) { timer in
-            AudioServicesPlaySystemSound(1520)
-            
+        if !UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey) {
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true) { timer in
+                AudioServicesPlaySystemSound(1520)
+                
+                print("Vibration")
+                   
+            }
+         
         }
             
     }
@@ -52,18 +57,21 @@ class MediaUtils {
     
     // Vibrate device
     func vibrate(strength: Int = 0) {
-        // Strong
-        if strength == 1 {
-            AudioServicesPlaySystemSound(1520)
+        if !UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey) {
+            // Strong
+            if strength == 1 {
+                AudioServicesPlaySystemSound(1520)
+                
+            // Three week
+            } else if strength == 2 {
+                AudioServicesPlaySystemSound(1521)
+                
+            // Week
+            } else {
+                AudioServicesPlaySystemSound(1519)
             
-        // Three week
-        } else if strength == 2 {
-            AudioServicesPlaySystemSound(1521)
+            }
             
-        // Week
-        } else {
-            AudioServicesPlaySystemSound(1519)
-        
         }
             
     }
