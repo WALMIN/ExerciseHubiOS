@@ -11,6 +11,11 @@ struct ContentView: View {
     
     @State var currentPage = 0
     
+    init() {
+        UIApplication.shared.isIdleTimerDisabled = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().keepScreenAwakeKey)
+        
+    }
+    
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {

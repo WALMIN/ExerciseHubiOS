@@ -33,7 +33,9 @@ struct LicenseItemView: View {
                 Text(link)
                     .font(.callout)
                     .foregroundColor(.blue)
-                    .fixedSize()
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                 
             }
             .foregroundColor(Color(UIColor.label))

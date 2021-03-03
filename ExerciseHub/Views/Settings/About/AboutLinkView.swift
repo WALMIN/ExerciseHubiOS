@@ -20,7 +20,7 @@ struct AboutLinkView: View {
                     .fontWeight(.bold)
                     .fixedSize()
                 
-            }.padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+            }
         
         }
         

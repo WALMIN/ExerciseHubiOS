@@ -11,6 +11,7 @@ struct GeneralView: View {
     
     private let userDefaults = UserDefaults.standard
     
+    @State var keepScreenAwake = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().keepScreenAwakeKey)
     @State var vibration = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().vibrationKey)
     
     var body: some View {
@@ -19,15 +20,25 @@ struct GeneralView: View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .fixedSize()
-                .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
+            
+            Toggle("Keep screen awake", isOn: $keepScreenAwake)
+                .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                .padding(EdgeInsets(top: -4, leading: 0, bottom: 0, trailing: 4))
+                .onChange(of: keepScreenAwake) { value in
+                    userDefaults.set(!value, forKey: UserDefaultsUtils().keepScreenAwakeKey)
+                    
+                }
             
             Toggle("Vibration", isOn: $vibration)
                 .toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                .padding(EdgeInsets(top: -4, leading: 0, bottom: -4, trailing: 4))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
                 .onChange(of: vibration) { value in
                     userDefaults.set(!value, forKey: UserDefaultsUtils().vibrationKey)
                     
                 }
+            
+        }.onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().keepScreenAwakeKey)
             
         }
         

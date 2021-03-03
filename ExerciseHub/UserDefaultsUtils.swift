@@ -22,6 +22,7 @@ struct UserDefaultsUtils {
     let countKey = "Count"
     let countDelayKey = "CountDelay"
     
+    let keepScreenAwakeKey = "KeepScreenAwake"
     let vibrationKey = "Vibration"
     
 }

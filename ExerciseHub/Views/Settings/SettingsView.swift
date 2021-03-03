@@ -18,6 +18,7 @@ struct SettingsView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     WorkoutView()
+                    Divider().padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                     GeneralView()
                     
                 }.padding()
@@ -31,12 +32,12 @@ struct SettingsView: View {
                         Image(systemName: "info.circle.fill")
                             .imageScale(.large)
                     
-                    }.background(EmptyView().sheet(isPresented: $aboutSheetShowing) { SheetAbout() } )
+                    }
                     
                 }
              
+                // Close
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    // Close
                     Button(action: { presentationMode.wrappedValue.dismiss() }) {
                         Image(systemName: "xmark.circle.fill")
                             .imageScale(.large)
@@ -45,9 +46,9 @@ struct SettingsView: View {
                     
                 }
                 
-            }
+            }.sheet(isPresented: $aboutSheetShowing) { SheetAbout() }
                 
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
         
     }
     
