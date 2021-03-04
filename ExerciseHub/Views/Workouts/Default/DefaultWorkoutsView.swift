@@ -35,7 +35,7 @@ struct DefaultWorkoutsView: View {
                     ScrollView {
                         WarmUpView()
                         
-                        LazyVGrid(columns: [GridItem(), GridItem()]) {
+                        LazyVGrid(columns: UIDevice.current.userInterfaceIdiom == .pad ? [GridItem(), GridItem(), GridItem()] : [GridItem(), GridItem()]) {
                             ForEach(fetchWorkouts.list) { workout in
                                 NavigationLink(destination: DefaultExercisesView(title: workout.name, description: workout.desc, fetchExercises: FetchExercises(id: workout.id))) {
                                     DefaultWorkoutItemView(workout: workout)

@@ -64,8 +64,49 @@ struct PlateCalculatorView: View {
                             .font(.title)
                         
                     }
-                    .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
-                    .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
+                    .popover(isPresented: $popoverBarbellWeightShowing) {
+                        // Enter barbell weight
+                        Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
+                            Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
+                                .font(.largeTitle)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+                                
+                        }.onDisappear {
+                            // Save values when the views gets closed
+                            userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
+                            
+                        }
+                        
+                    }
+                    .sheet(isPresented: $sheetBarbellWeightShowing) {
+                        // Enter barbell weight
+                        NavigationView {
+                            Stepper(value: $barbellWeight, in: 0...100, step: 0.10) {
+                                Text("\(String(format: "%.2f", barbellWeight)) \(kgShowing ? "KG" : "LB")")
+                                    .font(.largeTitle)
+                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+                                    
+                            }
+                            .fixedSize()
+                            .padding()
+                            .navigationTitle("Barbell weight")
+                            .navigationBarItems(trailing:
+                                // Close
+                                Button(action: { sheetBarbellWeightShowing = false }) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .imageScale(.large)
+                                
+                                }
+                                                
+                            ).onDisappear {
+                                // Save values when the views gets closed
+                                userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
+                                
+                            }
+                            
+                        }
+                        
+                    }
                         
                 }
                 

@@ -122,8 +122,7 @@ struct MyWorkoutsExercisesView: View {
                 
             })
             
-        }
-        .actionSheet(isPresented: $addSheetShowing) { () -> ActionSheet in
+        }.actionSheet(isPresented: $addSheetShowing) { () -> ActionSheet in
             ActionSheet(title: Text("Add an item"), message: Text("Select the item you want to add"),
                 buttons: [
                     .default(Text("Exercise"), action: { addExerciseShowing = true}),

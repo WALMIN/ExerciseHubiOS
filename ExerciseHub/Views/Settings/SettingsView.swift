@@ -46,7 +46,7 @@ struct SettingsView: View {
                     
                 }
                 
-            }.sheet(isPresented: $aboutSheetShowing) { SheetAbout() }
+            }.background(EmptyView().sheet(isPresented: $aboutSheetShowing) { SheetAbout() })
                 
         }
         

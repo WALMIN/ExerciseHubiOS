@@ -44,9 +44,10 @@ struct WorkoutView: View {
                     .foregroundColor(Color(UIColor.label))
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 
-            }
-            .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
-            .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
+            }.background(EmptyView()
+                        .popover(isPresented: $popoverBarbellWeightShowing) { PopoverBarbellWeight() }
+                        .sheet(isPresented: $sheetBarbellWeightShowing) { SheetBarbellWeight() }
+            )
             
             Button(action: {
                 if UIDevice.current.userInterfaceIdiom == .pad {
@@ -63,9 +64,10 @@ struct WorkoutView: View {
                     .foregroundColor(Color(UIColor.label))
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 
-            }
-            .popover(isPresented: $popoverUnitSystemShowing) { PopoverUnitSystem() }
-            .sheet(isPresented: $sheetUnitSystemShowing) { SheetUnitSystem() }
+            }.background(EmptyView()
+                        .popover(isPresented: $popoverUnitSystemShowing) { PopoverUnitSystem() }
+                        .sheet(isPresented: $sheetUnitSystemShowing) { SheetUnitSystem() }
+            )
             
         }
         

@@ -59,7 +59,7 @@ struct DefaultExercisesView: View {
                             
                         }.cornerRadius(8)
                         
-                    }
+                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
                         
                 }
                 

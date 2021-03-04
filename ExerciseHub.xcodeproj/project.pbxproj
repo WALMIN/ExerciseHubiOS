@@ -168,8 +168,6 @@
 		A623D6C325D4897E0077888F /* Plate Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				A6968F2125ED5B7D00C1CCCC /* PopoverBarbellWeight.swift */,
-				A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */,
 				A6585DA725CC3269007D2F1E /* PlateCalculatorView.swift */,
 				A623D6C425D489960077888F /* PlateItemView.swift */,
 			);
@@ -334,8 +332,10 @@
 			isa = PBXGroup;
 			children = (
 				A6968F1325ED0CB700C1CCCC /* GeneralView.swift */,
+				A6968F2125ED5B7D00C1CCCC /* PopoverBarbellWeight.swift */,
 				A6CBBBB325EE79430088E981 /* PopoverUnitSystem.swift */,
 				A6968F0525ECEE0A00C1CCCC /* SettingsView.swift */,
+				A6968F1725ED263F00C1CCCC /* SheetBarbellWeight.swift */,
 				A6CBBBB025EE5F550088E981 /* SheetUnitSystem.swift */,
 				A6968F1025ED0BA500C1CCCC /* WorkoutView.swift */,
 				A6CBBBBA25EE87950088E981 /* About */,
