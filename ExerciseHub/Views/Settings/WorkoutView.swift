@@ -69,6 +69,9 @@ struct WorkoutView: View {
                         .sheet(isPresented: $sheetUnitSystemShowing) { SheetUnitSystem() }
             )
             
+        }.onAppear {
+            userDefaults.set(2, forKey: UserDefaultsUtils().pageKey)
+            
         }
         
     }

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentPage = 0
+    private let userDefaults = UserDefaults.standard
+    
+    @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().pageKey)
     
     init() {
         UIApplication.shared.isIdleTimerDisabled = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().keepScreenAwakeKey)
@@ -19,24 +21,38 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
-                WorkoutsView().tabItem {
-                    Label("Workouts", systemImage: "doc.plaintext.fill")
+                // Workouts page
+                WorkoutsView()
+                    .tabItem {
+                        Label("Workouts", systemImage: "doc.plaintext.fill")
                     
-                }.tag(0)
+                    }.tag(0)
+                    .onAppear { saveCurrentPage(0) }
                 
-                LibraryView().tabItem {
-                    Label("Library", systemImage: "list.triangle")
+                // Library page
+                LibraryView()
+                    .tabItem {
+                        Label("Library", systemImage: "list.triangle")
                         
-                }.tag(1)
+                    }.tag(1)
+                    .onAppear { saveCurrentPage(1) }
                 
-                ToolsView().tabItem {
-                    Label("Tools", image: "tools")
-                        
-                }.tag(2)
+                // Tools page
+                ToolsView()
+                    .tabItem {
+                        Label("Tools", image: "tools")
+                            
+                    }.tag(2)
+                    .onAppear { saveCurrentPage(2) }
                 
             }
             
         }
+        
+    }
+    
+    func saveCurrentPage(_ page: Int){
+        userDefaults.set(page, forKey: UserDefaultsUtils().pageKey)
         
     }
     

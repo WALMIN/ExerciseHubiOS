@@ -9,26 +9,37 @@ import SwiftUI
 
 struct WorkoutsView: View {
     
-    @State var currentPage = 0
+    private let userDefaults = UserDefaults.standard
+    
+    @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().workoutsPageKey)
     
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
                 // Default workouts page
-                DefaultWorkoutsView().tabItem {
-                    Label("Default workouts", systemImage: "square.grid.2x2")
-                        
-                }.tag(0)
+                DefaultWorkoutsView()
+                    .tabItem {
+                        Label("Default workouts", systemImage: "square.grid.2x2")
+                            
+                    }.tag(0)
+                    .onAppear { saveCurrentPage(0) }
                 
                 // My workouts page
-                MyWorkoutsView().tabItem {
-                    Label("My workouts", systemImage: "square.and.pencil")
-                    
-                }.tag(1)
+                MyWorkoutsView()
+                    .tabItem {
+                        Label("My workouts", systemImage: "square.and.pencil")
+                        
+                    }.tag(1)
+                    .onAppear { saveCurrentPage(1) }
                 
             }
             
         }
+        
+    }
+    
+    func saveCurrentPage(_ page: Int){
+        userDefaults.set(page, forKey: UserDefaultsUtils().workoutsPageKey)
         
     }
     

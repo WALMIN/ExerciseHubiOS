@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ToolsView: View {
     
+    private let userDefaults = UserDefaults.standard
+    
+    @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().toolsPageKey)
+    
     var body: some View {
         VStack {
-            TabView {
+            TabView(selection: $currentPage) {
                 // Stopwatch page
                 VStack {
                     ToolsTitleView(title: "Stopwatch")
@@ -20,7 +24,9 @@ struct ToolsView: View {
                     
                 }.tabItem {
                     Image(systemName: "timer")
-                }
+                    
+                }.tag(0)
+                .onAppear { saveCurrentPage(0) }
                 
                 // Timer page
                 VStack {
@@ -30,7 +36,9 @@ struct ToolsView: View {
                     
                 }.tabItem {
                     Image(systemName: "hourglass")
-                }
+                    
+                }.tag(1)
+                .onAppear { saveCurrentPage(1) }
                 
                 // Interval timer page
                 VStack {
@@ -40,7 +48,9 @@ struct ToolsView: View {
                     
                 }.tabItem {
                     Image("interval_timer")
-                }
+                    
+                }.tag(2)
+                .onAppear { saveCurrentPage(2) }
                 
                 // Plate calculator page
                 VStack {
@@ -50,7 +60,9 @@ struct ToolsView: View {
                     
                 }.tabItem {
                     Image("plate_calculator")
-                }
+                    
+                }.tag(3)
+                .onAppear { saveCurrentPage(3) }
                 
                 // Count page
                 VStack {
@@ -60,11 +72,18 @@ struct ToolsView: View {
                     
                 }.tabItem {
                     Image("count")
-                }
+                    
+                }.tag(4)
+                .onAppear { saveCurrentPage(4) }
                     
             }
             
         }
+        
+    }
+    
+    func saveCurrentPage(_ page: Int){
+        userDefaults.set(page, forKey: UserDefaultsUtils().toolsPageKey)
         
     }
     

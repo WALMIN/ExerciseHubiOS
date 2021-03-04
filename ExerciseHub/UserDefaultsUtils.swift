@@ -9,6 +9,10 @@ import Foundation
 
 struct UserDefaultsUtils {
     
+    let pageKey = "Page"
+    let workoutsPageKey = "WorkoutsPage"
+    let toolsPageKey = "ToolsPage"
+    
     let timerTimeKey = "TimerTime"
     
     let intervalTimerRoundsKey = "IntervalTimerRounds"
