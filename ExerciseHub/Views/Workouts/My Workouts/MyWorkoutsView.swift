@@ -141,12 +141,6 @@ struct MyWorkoutsView: View {
                                 newWorkout.timestamp = Date()
                                 newWorkout.title = text
                                 
-                                let newRound = Round(context: viewContext)
-                                newRound.timestamp = Date()
-                                newRound.cycles = 3
-                                
-                                newWorkout.addToRounds(newRound)
-                                
                             } else {
                                 workout.title = text
                                 
