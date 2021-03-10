@@ -56,13 +56,14 @@ struct SheetAddExercise: View {
                     
                 }
                 .padding(10)
-                .background(Color.white)
+                .background(Color("ItemColor"))
                 .cornerRadius(8)
                 .padding(EdgeInsets(top: 14, leading: 14, bottom: 0, trailing: 14))
                 
                 // Custom exercise
                 ZStack {
-                    Color(UIColor(.white))
+                    Color("ItemColor")
+                    
                     HStack {
                         Image("tools")
                             .resizable()
@@ -96,7 +97,7 @@ struct SheetAddExercise: View {
                             searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                         })) { item in
                             ZStack {
-                                Color(UIColor(.white))
+                                Color("ItemColor")
                                 HStack {
                                     WebImage(url: URL(string: "https://walmin.com/exercisehub/resources/library/gif/\(item.name.lowercased().replacingOccurrences(of: " ", with: "_")).gif"), isAnimating: $imageAnimating)
                                         .placeholder{ Image(systemName: "gobackward").foregroundColor(.black) }

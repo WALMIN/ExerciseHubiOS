@@ -14,6 +14,10 @@ struct ContentView: View {
     @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().pageKey)
     
     init() {
+        // Clear cache to load in new workouts/exercises
+        URLCache.shared.removeAllCachedResponses()
+        
+        // Set keep screen awake
         UIApplication.shared.isIdleTimerDisabled = !UserDefaults.standard.bool(forKey: UserDefaultsUtils().keepScreenAwakeKey)
         
     }

@@ -59,8 +59,7 @@ struct LibraryView: View {
                         
                         }
                             
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
+                    }.padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
                     
                 }
                 

@@ -17,7 +17,7 @@ struct MyWorkoutsExercisesView: View {
     
     var workout: Workout
     
-    @State private var addSheetShowing = false
+    @State private var sheetAddShowing = false
     @State private var addExerciseShowing = false
     
     var body: some View {
@@ -25,82 +25,85 @@ struct MyWorkoutsExercisesView: View {
             // Exercise list with sections & exercise items with title & reps/time
             LazyVStack {
                 // No exercises text
-                if workout.roundsArray.count == 0 || workout.roundsArray[0].exercisesArray.count == 0 {
-                    HStack {
-                        Spacer()
-                        VStack {
-                            Text("Nothing to show yet").padding()
-                            Text("Add an exercise to get started")
-                        }
-                        Spacer()
-                    }
-                    
-                } else {
-                    ForEach(Array(workout.roundsArray.enumerated()), id: \.1) { roundIndex, round in
-                        Section(header: HeaderView(workout: workout, roundIndex: roundIndex, round: round) ) {
-                            ForEach(Array(round.exercisesArray.enumerated()), id: \.1) { exerciseIndex, exercise in
-                                MyWorkoutsExerciseItemView(exercise: exercise)
-                                    .contextMenu {
-                                        // Delete an exercise button
-                                        Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
-                                            Text("Delete")
-                                            Image(systemName: "trash")
-                                            
-                                        }
-                                        
-                                        // Edit an reps/time button
-                                        Button(action: { editExerciseRepsTimeAlert(exercise, roundIndex: roundIndex, title: exercise.wrappedName, textDo: exercise.wrappedExerciseDo) }) {
-                                            Text("Edit")
-                                            Image(systemName: "pencil")
-                                            
-                                        }
-                                        
-                                    }
-                                
+                if let rounds = workout.roundsArray[0] {
+                    if rounds.exercisesArray.count == 0 && workout.roundsArray.count <= 0 {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Text("Nothing to show yet").padding()
+                                Text("Add an exercise to get started")
                             }
-                            
-                            
-                            
-                        }
-                        .contextMenu {
-                            // Delete a round button
-                            Button(action: { deleteRound(roundIndex) }) {
-                                Text("Delete")
-                                Image(systemName: "trash")
-                                
-                            }
-                            
-                            // Edit a round button
-                            Button(action: { addEditRoundAlert(false, round, title: "Edit a round", textCycles: Int(round.cycles), confirm: "Save") }) {
-                                Text("Edit")
-                                Image(systemName: "pencil")
-                                
-                            }
-                            
-                        }
-                    
-                    }
-                    
-                    // Show complete button if there is exercises
-                    if workout.roundsArray.count >= 1 {
-                        if workout.roundsArray[0].exercisesArray.count >= 1 {
-                            Button(action: { addWorkoutToHistory() }) {
-                                ZStack {
-                                    Color("AccentColor2")
-                                    
-                                    Text("I've completed this workout")
-                                        .font(.body)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                        .textCase(.uppercase)
-                                        .padding()
-                                    
-                                }.cornerRadius(8)
-                                
-                            }
-                            
+                            Spacer()
                         }
                         
+                    } else {
+                        ForEach(Array(workout.roundsArray.enumerated()), id: \.1) { roundIndex, round in
+                            Section(header: HeaderView(workout: workout, roundIndex: roundIndex, round: round) ) {
+                                ForEach(Array(round.exercisesArray.enumerated()), id: \.1) { exerciseIndex, exercise in
+                                    MyWorkoutsExerciseItemView(exercise: exercise)
+                                        .contextMenu {
+                                            // Delete an exercise button
+                                            Button(action: { deleteExercise(roundIndex, exerciseIndex) }) {
+                                                Text("Delete")
+                                                Image(systemName: "trash")
+                                                
+                                            }
+                                            
+                                            // Edit an reps/time button
+                                            Button(action: { editExerciseRepsTimeAlert(exercise, roundIndex: roundIndex, title: exercise.wrappedName, textDo: exercise.wrappedExerciseDo) }) {
+                                                Text("Edit")
+                                                Image(systemName: "pencil")
+                                                
+                                            }
+                                            
+                                        }
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                            .contextMenu {
+                                // Delete a round button
+                                Button(action: { deleteRound(roundIndex) }) {
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                    
+                                }
+                                
+                                // Edit a round button
+                                Button(action: { addEditRoundAlert(false, round, title: "Edit a round", textCycles: Int(round.cycles), confirm: "Save") }) {
+                                    Text("Edit")
+                                    Image(systemName: "pencil")
+                                    
+                                }
+                                
+                            }
+                        
+                        }
+                        
+                        // Show complete button if there is exercises
+                        if workout.roundsArray.count >= 1 {
+                            if workout.roundsArray[0].exercisesArray.count >= 1 {
+                                Button(action: { addWorkoutToHistory() }) {
+                                    ZStack {
+                                        Color("AccentColor2")
+                                        
+                                        Text("I've completed this workout")
+                                            .font(.body)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.white)
+                                            .textCase(.uppercase)
+                                            .padding()
+                                        
+                                    }.cornerRadius(8)
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                    
                     }
                     
                 }
@@ -111,26 +114,38 @@ struct MyWorkoutsExercisesView: View {
             .toolbar(content: {
                 // Button to add an item
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { addSheetShowing = true }) {
+                    Button(action: {
+                        if workout.roundsArray[0].exercisesArray.count == 0 {
+                            addExerciseShowing = true
+                            
+                        } else {
+                            sheetAddShowing = true
+                            
+                        }
+                        
+                        
+                    }) {
                         Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
                             .padding()
+                            
                         
                     }
                     
                 }
                 
             })
+            .actionSheet(isPresented: $sheetAddShowing) { () -> ActionSheet in
+                ActionSheet(title: Text("Add an item"), message: Text("Select the item you want to add"),
+                    buttons: [
+                        .default(Text("Exercise"), action: { addExerciseShowing = true }),
+                        .default(Text("Round"), action: { addEditRoundAlert(true, Round(), title: "Add a round", textCycles: 0, confirm: "Add") }),
+                        .destructive(Text("Close"), action: {})
+                    ]
+                )
+                
+            }
             
-        }.actionSheet(isPresented: $addSheetShowing) { () -> ActionSheet in
-            ActionSheet(title: Text("Add an item"), message: Text("Select the item you want to add"),
-                buttons: [
-                    .default(Text("Exercise"), action: { addExerciseShowing = true}),
-                    .default(Text("Round"), action: { addEditRoundAlert(true, Round(), title: "Add a round", textCycles: 0, confirm: "Add") }),
-                    .destructive(Text("Close"), action: {})
-                ]
-            )
-
         }.background(EmptyView().sheet(isPresented: $addExerciseShowing) { SheetAddExercise(workout: workout) })
         
     }

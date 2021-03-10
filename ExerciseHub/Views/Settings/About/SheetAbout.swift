@@ -74,7 +74,7 @@ struct SheetAbout: View {
                                 
             )
             
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
     }
     

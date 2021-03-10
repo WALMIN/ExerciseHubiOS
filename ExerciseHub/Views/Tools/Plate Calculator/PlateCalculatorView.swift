@@ -71,7 +71,8 @@ struct PlateCalculatorView: View {
                                 .font(.largeTitle)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
                                 
-                        }.onDisappear {
+                        }.padding()
+                        .onDisappear {
                             // Save values when the views gets closed
                             userDefaults.set(barbellWeight, forKey: kgShowing ? UserDefaultsUtils().kgBarbellWeightKey : UserDefaultsUtils().lbBarbellWeightKey)
                             
