@@ -15,11 +15,9 @@ struct HomeView: View {
     private var history: FetchedResults<History>
     @State private var shareSheetShowing = false
     
-    @State private var workoutOfTheDay = UserDefaults.standard.string(forKey: UserDefaultsUtils().workoutOfTheDayKey)
-    @State private var workoutOfTheDayDesc = UserDefaults.standard.string(forKey: UserDefaultsUtils().workoutOfTheDayDescKey)
-    @State private var workoutOfTheDayID = UserDefaults.standard.string(forKey: UserDefaultsUtils().workoutOfTheDayIDKey)
+    @ObservedObject var fetchWorkouts = FetchWorkouts()
+    @ObservedObject var fetchLibrary = FetchLibrary()
     
-    @State private var exerciseOfTheDay = UserDefaults.standard.string(forKey: UserDefaultsUtils().exerciseOfTheDayKey)
     @State private var selectedExercise: String? = nil
     
     var body: some View {
@@ -99,21 +97,21 @@ struct HomeView: View {
                         
                     }
                     .background(EmptyView().sheet(isPresented: $shareSheetShowing) {
-                        ShareSheet(activityItems: ["I've completed \"" + history[history.count - 1].wrappedTitle + "\" with Exercise Hub." + "\n\n" +
+                        SheetShare(activityItems: ["I've completed \"" + history[history.count - 1].wrappedTitle + "\" with Exercise Hub." + "\n\n" +
                                                 "Get the app & workout just like me!" + "\n\n" +
                                                 "Download - " + "https://tinyurl.com/pv6bck4x"])
                         
                     })
                     
                     // Workout of the day
-                    NavigationLink(destination: DefaultExercisesView(title: workoutOfTheDay ?? "Full body", description: workoutOfTheDayDesc ?? "- Rounds: 1\n- Exercises: 10\n- Length: 60 minutes", fetchExercises: FetchExercises(id: workoutOfTheDayID ?? "0"))) {
-                        HomeItemView(systemIcon: true, icon: "doc.plaintext.fill", title: "Workout Of The Day", text: workoutOfTheDay ?? "Full body")
+                    NavigationLink(destination: DefaultExercisesView(title: fetchWorkouts.workoutOfTheDay ?? "Full body", description: fetchWorkouts.workoutOfTheDayDesc ?? "- Rounds: 1\n- Exercises: 10\n- Length: 60 minutes", fetchExercises: FetchExercises(id: fetchWorkouts.workoutOfTheDayID ?? "0"))) {
+                        HomeItemView(systemIcon: true, icon: "doc.plaintext.fill", title: "Workout Of The Day", text: fetchWorkouts.workoutOfTheDay ?? "")
                         
                     }
                         
                     // Exercise of the day
-                    HomeItemView(systemIcon: false, icon: "tools", title: "Exercise Of The Day", text: exerciseOfTheDay ?? "Push ups")
-                        .onTapGesture{ selectedExercise = exerciseOfTheDay }
+                    HomeItemView(systemIcon: false, icon: "tools", title: "Exercise Of The Day", text: fetchLibrary.exerciseOfTheDay ?? "")
+                        .onTapGesture{ selectedExercise = fetchLibrary.exerciseOfTheDay }
                         .background(EmptyView().sheet(item: $selectedExercise, content: { selectedExercise in
                                 SheetVideo(name: selectedExercise)
 

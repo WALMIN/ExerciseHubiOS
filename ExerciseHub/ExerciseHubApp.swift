@@ -11,16 +11,19 @@ import SwiftUI
 struct ExerciseHubApp: App {
     
     private let userDefaults = UserDefaults.standard
+    private var lastOpenedDate = UserDefaults.standard.string(forKey: UserDefaultsUtils().lastOpenedDateKey)
+    
     private let persistenceController = PersistenceController.shared
     
     init() {
-        //if lastOpenedDate == "" || lastOpenedDate != Utils().dateOnlyFormatter.string(for: Date()) {
+        // If new day, get new workout & exercise of the day
+        if lastOpenedDate == "" || lastOpenedDate != Utils().dateOnlyFormatter.string(for: Date()) {
             self.userDefaults.set(Utils().dateOnlyFormatter.string(for: Date()), forKey: UserDefaultsUtils().lastOpenedDateKey)
             
             self.userDefaults.set(true, forKey: UserDefaultsUtils().updateWorkoutOfTheDayKey)
             self.userDefaults.set(true, forKey: UserDefaultsUtils().updateExerciseOfTheDayKey)
         
-        //}
+        }
         
     }
     

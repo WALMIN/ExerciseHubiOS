@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A60EF913262246D800A42238 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EF912262246D800A42238 /* ShareSheet.swift */; };
+		A60EF913262246D800A42238 /* SheetShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EF912262246D800A42238 /* SheetShare.swift */; };
 		A61F369625E8F517001B3CD0 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61F369525E8F517001B3CD0 /* HistoryItemView.swift */; };
 		A6215492260136DC0096F71F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6215491260136DC0096F71F /* HomeView.swift */; };
 		A62154962601376F0096F71F /* HomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62154952601376F0096F71F /* HomeItemView.swift */; };
@@ -84,7 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A60EF912262246D800A42238 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		A60EF912262246D800A42238 /* SheetShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetShare.swift; sourceTree = "<group>"; };
 		A61F369525E8F517001B3CD0 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
 		A6215491260136DC0096F71F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A62154952601376F0096F71F /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 				A6BDDDFB25D3D65D00887949 /* CircleButtonView.swift */,
 				A675AB4F25C43CA700680A55 /* ContentView.swift */,
 				A688B64D25D29EEE009D10AE /* DummyButtonView.swift */,
-				A60EF912262246D800A42238 /* ShareSheet.swift */,
+				A60EF912262246D800A42238 /* SheetShare.swift */,
 				A6B68C3D25C9812B009F3493 /* SheetVideo.swift */,
 				A6215490260136CB0096F71F /* Home */,
 				A6D3912425C83FA900AB4921 /* Library */,
@@ -542,7 +542,7 @@
 				A6968F1425ED0CB700C1CCCC /* GeneralView.swift in Sources */,
 				A65FF83725DEFEE30020BA9A /* Round+CoreDataClass.swift in Sources */,
 				A626D4DC25D682B100A87687 /* Persistence.swift in Sources */,
-				A60EF913262246D800A42238 /* ShareSheet.swift in Sources */,
+				A60EF913262246D800A42238 /* SheetShare.swift in Sources */,
 				A6222D9725E3E26000D9AC1C /* SheetAddExercise.swift in Sources */,
 				A6585D9E25CC3234007D2F1E /* StopwatchView.swift in Sources */,
 				A66A096125E661BC00A26992 /* ExerciseModel.swift in Sources */,

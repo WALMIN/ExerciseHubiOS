@@ -12,7 +12,6 @@ struct ContentView: View {
     private let userDefaults = UserDefaults.standard
     
     @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().pageKey)
-    private var lastOpenedDate = UserDefaults.standard.string(forKey: UserDefaultsUtils().lastOpenedDateKey)
     
     init() {
         // Clear cache to load in new workouts/exercises

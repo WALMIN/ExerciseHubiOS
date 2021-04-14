@@ -11,6 +11,7 @@ import Foundation
 class FetchLibrary: ObservableObject {
     
     @Published var list = [LibraryModel]()
+    @Published var exerciseOfTheDay = UserDefaults.standard.string(forKey: UserDefaultsUtils().exerciseOfTheDayKey)
     
     private let userDefaults = UserDefaults.standard
     
@@ -22,10 +23,15 @@ class FetchLibrary: ObservableObject {
                         let decodedData = try JSONDecoder().decode([LibraryModel].self, from: data)
                         DispatchQueue.main.async {
                             self.list = decodedData
+                            self.exerciseOfTheDay = self.userDefaults.string(forKey: UserDefaultsUtils().exerciseOfTheDayKey)
                             
                             // Add new exercise of the day if new day
                             if self.userDefaults.bool(forKey: UserDefaultsUtils().updateExerciseOfTheDayKey) {
-                                self.userDefaults.set(self.list[Int.random(in: 0..<self.list.count)].name, forKey: UserDefaultsUtils().exerciseOfTheDayKey)
+                                let item = Int.random(in: 0..<self.list.count)
+                                
+                                self.exerciseOfTheDay = self.list[item].name
+                                self.userDefaults.set(self.list[item].name, forKey: UserDefaultsUtils().exerciseOfTheDayKey)
+                                
                                 self.userDefaults.set(false, forKey: UserDefaultsUtils().updateExerciseOfTheDayKey)
                                 
                             }
