@@ -15,6 +15,7 @@ struct ToolsTitleView: View {
         Text(title)
             .font(.caption)
             .textCase(.uppercase)
+            .padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 0))
         
         Spacer()
         

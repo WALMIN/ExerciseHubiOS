@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WorkoutsView: View {
     
+    @ObservedObject var fetchWorkouts = FetchWorkouts()
+    
     private let userDefaults = UserDefaults.standard
     
     @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().workoutsPageKey)
@@ -17,7 +19,7 @@ struct WorkoutsView: View {
         VStack {
             TabView(selection: $currentPage) {
                 // Default workouts page
-                DefaultWorkoutsView()
+                DefaultWorkoutsView(fetchWorkouts: fetchWorkouts)
                     .tabItem {
                         Label("Default workouts", systemImage: "square.grid.2x2")
                             

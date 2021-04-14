@@ -22,8 +22,7 @@ struct HistoryView: View {
                 if history.count == 0 {
                     HStack {
                         VStack {
-                            Text("No workout history yet").padding()
-                            Text("Get moving")
+                            Text("No workout history yet, get moving!").padding()
                             
                         }
                         

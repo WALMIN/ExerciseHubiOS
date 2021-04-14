@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DefaultWorkoutsView: View {
     
-    @ObservedObject var fetchWorkouts = FetchWorkouts()
+    @ObservedObject var fetchWorkouts: FetchWorkouts
     
     @State private var settingsSheetShowing = false
     @State private var historySheetShowing = false
@@ -84,7 +84,7 @@ struct DefaultWorkoutsView: View {
 
 struct DefaultWorkoutsView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultWorkoutsView()
+        DefaultWorkoutsView(fetchWorkouts: FetchWorkouts())
         
     }
     

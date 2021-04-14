@@ -11,14 +11,27 @@ struct UserDefaultsUtils {
     
     let pageKey = "Page"
     let workoutsPageKey = "WorkoutsPage"
-    let toolsPageKey = "ToolsPage"
     
+    // Home page
+    let lastOpenedDateKey = "LastOpenedDate"
+    
+    let exerciseOfTheDayKey = "ExerciseOfTheDay"
+    let updateExerciseOfTheDayKey = "UpdateExerciseOfTheDay"
+    
+    let workoutOfTheDayKey = "WorkoutOfTheDay"
+    let workoutOfTheDayDescKey = "WorkoutOfTheDayDesc"
+    let workoutOfTheDayIDKey = "WorkoutOfTheDayID"
+    let updateWorkoutOfTheDayKey = "UpdateWorkoutOfTheDay"
+    
+    // Tools
+    let toolsPageKey = "ToolsPage"
     let timerTimeKey = "TimerTime"
     
     let intervalTimerRoundsKey = "IntervalTimerRounds"
     let intervalTimerWorkKey = "IntervalTimerWork"
     let intervalTimerRestKey = "IntervalTimerRest"
     
+    // Settings
     let kgShowingKey = "KgShowing"
     let kgBarbellWeightKey = "kgBarbellWeight"
     let lbBarbellWeightKey = "lbBarbellWeight"

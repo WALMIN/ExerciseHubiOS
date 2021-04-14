@@ -10,7 +10,19 @@ import SwiftUI
 @main
 struct ExerciseHubApp: App {
     
-    let persistenceController = PersistenceController.shared
+    private let userDefaults = UserDefaults.standard
+    private let persistenceController = PersistenceController.shared
+    
+    init() {
+        //if lastOpenedDate == "" || lastOpenedDate != Utils().dateOnlyFormatter.string(for: Date()) {
+            self.userDefaults.set(Utils().dateOnlyFormatter.string(for: Date()), forKey: UserDefaultsUtils().lastOpenedDateKey)
+            
+            self.userDefaults.set(true, forKey: UserDefaultsUtils().updateWorkoutOfTheDayKey)
+            self.userDefaults.set(true, forKey: UserDefaultsUtils().updateExerciseOfTheDayKey)
+        
+        //}
+        
+    }
     
     var body: some Scene {
         WindowGroup {

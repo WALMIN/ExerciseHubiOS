@@ -54,4 +54,22 @@ struct Utils {
         
     }()
     
+    // Format date only
+    let dateOnlyFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .none
+        
+        return formatter
+        
+    }()
+    
+    let dayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        
+        return formatter
+        
+    }()
+    
 }

@@ -12,6 +12,7 @@ struct ContentView: View {
     private let userDefaults = UserDefaults.standard
     
     @State private var currentPage = UserDefaults.standard.integer(forKey: UserDefaultsUtils().pageKey)
+    private var lastOpenedDate = UserDefaults.standard.string(forKey: UserDefaultsUtils().lastOpenedDateKey)
     
     init() {
         // Clear cache to load in new workouts/exercises
@@ -25,29 +26,29 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
+                // Home page
+                HomeView()
+                    .tabItem { Label("Home", systemImage: "house.fill") }
+                    .tag(0)
+                    .onAppear { saveCurrentPage(0) }
+                
                 // Workouts page
                 WorkoutsView()
-                    .tabItem {
-                        Label("Workouts", systemImage: "doc.plaintext.fill")
-                    
-                    }.tag(0)
-                    .onAppear { saveCurrentPage(0) }
+                    .tabItem { Label("Workouts", systemImage: "doc.plaintext.fill") }
+                    .tag(1)
+                    .onAppear { saveCurrentPage(1) }
                 
                 // Library page
                 LibraryView()
-                    .tabItem {
-                        Label("Library", systemImage: "list.triangle")
-                        
-                    }.tag(1)
-                    .onAppear { saveCurrentPage(1) }
+                    .tabItem { Label("Library", systemImage: "list.triangle") }
+                    .tag(2)
+                    .onAppear { saveCurrentPage(2) }
                 
                 // Tools page
                 ToolsView()
-                    .tabItem {
-                        Label("Tools", image: "tools")
-                            
-                    }.tag(2)
-                    .onAppear { saveCurrentPage(2) }
+                    .tabItem { Label("Tools", image: "tools") }
+                    .tag(3)
+                    .onAppear { saveCurrentPage(3) }
                 
             }
             

@@ -14,10 +14,8 @@ struct DefaultWorkoutItemView: View {
     
     var body: some View {
         ZStack {
-            Color("ItemColor")
-            
             WebImage(url: URL(string: "https://www.walmin.com/exercisehub/resources/workouts/default/thumbnails/d_\(workout.id).jpg"))
-                .placeholder{ Image(systemName: "gobackward").foregroundColor(Color(UIColor.label)) }
+                .placeholder{ Image(systemName: "gobackward").foregroundColor(Color.black) }
                 .resizable()
                 .scaledToFill()
             
@@ -38,7 +36,9 @@ struct DefaultWorkoutItemView: View {
                 
             }
             
-        }.cornerRadius(8)
+        }
+        .background(Color("ItemColor"))
+        .cornerRadius(8)
         
     }
     
